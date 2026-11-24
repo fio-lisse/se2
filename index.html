@@ -1,10 +1,5 @@
 <!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SE 2</title>
-  <style>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2</title><style>
     :root { color-scheme: light; }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -22,6 +17,17 @@
     code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
     ul { padding-left: 1.35rem; }
     li { padding-left: .2rem; margin: .55rem 0; }
+    .klassen { display:flex; gap:.6rem; flex-wrap:wrap; margin:1rem 0; }
+    .klassen span { padding:.4rem .75rem; border-radius:6px; background:#e7f2fa; color:#12445e; }
+    .klassen span + span { background:#edf4e8; color:#294a29; }
+    .vraag { background:#f1f5f7; padding:1rem; border-left:4px solid #39799a; font-size:1.2rem; font-weight:700; }
+    .fases { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem; padding:0; list-style:none; }
+    .fases li { background:#f1f5f7; border-radius:6px; padding:.65rem; margin:0; }
+    .fases strong { display:block; color:#075c90; }
+    .planning { overflow-x:auto; }
+    .planning table { border-collapse:collapse; width:100%; }
+    .planning th, .planning td { padding:.55rem; text-align:left; vertical-align:top; border-bottom:1px solid #d7e1e7; }
+    .planning th { background:#f1f5f7; }
     @media (max-width: 600px) {
       main { padding: 24px 18px 56px; }
       body { font-size: 16px; }
@@ -32,43 +38,77 @@
       main { padding: 0; }
       a { color: inherit; }
     }
-  </style>
-</head>
-<body>
-<main>
-<h1>SE 2</h1>
-<p><strong>4H, 4V en 5V (Backend) · 5H en 6V (Product)</strong></p>
-<p>Verbeter met je team één functie in jullie bestaande project. Daarmee voert een gebruiker één taak uit. Lever één link naar de README.md van jullie eigen team in. In je mondeling leg je jouw eigen werk uit.</p>
+  
+    .planning, .table-wrap { overflow-x:auto; margin:1rem 0; }
+    table { border-collapse:collapse; width:100%; }
+    th,td { padding:.55rem; text-align:left; vertical-align:top; border-bottom:1px solid #d7e1e7; }
+    th { background:#f1f5f7; }
+    caption { text-align:left; padding:.5rem 0; }
+    img { display:block; max-width:100%; height:auto; margin:1rem 0; }
+    button { font:inherit; padding:.4rem .8rem; border:1px solid #075c90; background:white; color:#075c90; border-radius:5px; cursor:pointer; }
+    button:focus-visible { outline:3px solid #edaa46; outline-offset:2px; }
+    @media(max-width:600px) { .table-wrap { max-width:100%; } th,td { padding:.45rem; } }
+</style></head><body><main>
+<h1 id="se-2">SE 2</h1>
+<p><strong>4H, 4V en 5V (Backend)</strong><br><strong>5H en 6V (Product)</strong></p>
+<p><strong>Hoe verbeter je met je team één functie, zodat een gebruiker één taak kan uitvoeren?</strong></p>
+<p>Werk in jullie bestaande project. Lever één link naar de README.md van jullie eigen team in. Leg in je mondeling jouw eigen werk uit.</p>
+<ol class="fases">
+<li>Kies en ontwerp</li>
+<li>Bouw en test</li>
+<li>Leg het werk vast</li>
+<li>Laat zien en lever in</li>
+</ol>
+<div class="table-wrap"><table><thead><tr><th scope="col">Wanneer</th><th scope="col">Wat laat je zien of lever je in?</th></tr></thead><tbody><tr><th scope="row">27 november</th><td>Ontwerp en twee situaties.</td></tr><tr><th scope="row">4 december</th><td>Werkende versie, twee eerste tests en één verbeterpunt.</td></tr><tr><th scope="row">8 december, 16.00 uur</th><td>Verbetering, twee hertests en één link naar de README.md van jullie eigen team via het Google Formulier op de SE 2-startpagina.</td></tr><tr><th scope="row">10 tot 17 december</th><td>Wijs in je mondeling één stuk eigen werk aan en leg uit wat je deed en hoe het werkt.</td></tr></tbody></table></div>
 <h2 id="beoordeling">Beoordeling</h2>
-<p>Groepswerk: 50 punten (Werking 15, Ontwerp 10, Opbouw 5, Testen en verbeteren 10, Klantwaarde 10). Mondeling: 50 punten (Eigen bijdrage 20, Technisch begrip 20, Reflectie en samenwerking 10). Lees de <a href="rubric.html">volledige rubric</a>.</p>
-<h2 id="ontwerp">1. Kies en ontwerp</h2>
-<p>Open jullie project op Github. Kies één taak voor een gebruiker. Vul één ontwerpschema in het Issue van die functie in, of in een gedeeld document: gebruiker en taak, gegevens en regel, keuze en waarom, gewone situatie en lastige situatie. Een bestaand Issue mag. Gebruikt jullie Backend een API? Schrijf dan de GET- of POST-aanvraag en het verwachte JSON-antwoord bij beide situaties.</p>
-<p><strong>Voorbeeld sportclub:</strong> Probleem: de vrijwilliger weet niet of er een voetbal over is. Taak: voorraad bekijken en één bal uitlenen. Issue: ‘Toon voorraad en leen een bal uit’. Ontwerp: Gebruiker en taak: vrijwilliger leent een bal. Gegevens en regel: code B01; bij 2 ballen, leen 1; bij 1, reserveer. Keuze: toon voorraad en melding. Gewoon: 2 → 1. Lastig: 1 → blijft 1.</p>
-<p><strong>Backendvoorbeeld met API:</strong> GET haalt de voorraad op. POST vraagt om één bal. Bij 2 ballen wordt het er 1; bij 1 blijft het 1 en komt een reserveringsmelding terug.</p>
-<pre><code>
-GET → {&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:2}
-
+<p><strong>Groepswerk: 50 punten</strong></p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Criterium</th><th scope="col">Maximaal</th></tr></thead><tbody><tr><th scope="row">Werking</th><td>15 punten</td></tr><tr><th scope="row">Ontwerp</th><td>10 punten</td></tr><tr><th scope="row">Opbouw</th><td>5 punten</td></tr><tr><th scope="row">Testen en verbeteren</th><td>10 punten</td></tr><tr><th scope="row">Klantwaarde</th><td>10 punten</td></tr></tbody></table></div>
+<p><strong>Mondeling: 50 punten</strong></p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Criterium</th><th scope="col">Maximaal</th></tr></thead><tbody><tr><th scope="row">Eigen bijdrage</th><td>20 punten</td></tr><tr><th scope="row">Technisch begrip</th><td>20 punten</td></tr><tr><th scope="row">Reflectie en samenwerking</th><td>10 punten</td></tr></tbody></table></div>
+<p>Lees de <a href="rubric.html">volledige rubric</a>.</p>
+<h2 id="wat-is-een-functie">Wat is een functie?</h2>
+<p>Een productfunctie helpt de gebruiker iets doen, zoals een bal uitlenen. Een programmeerfunctie voert een taak uit: ze kan gegevens ontvangen, daarmee iets doen en een uitkomst geven. Denk aan een machine: er gaat iets in en er komt iets uit.</p>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/FunctionMachine.svg" alt="Een machine laat zien hoe invoer wordt omgezet in uitvoer." loading="lazy">
+<p>Bron: <a href="https://commons.wikimedia.org/wiki/File:FunctionMachine.svg">Kismalac, Wikimedia Commons, CC0</a>.</p>
+<h2 id="1-kies-en-ontwerp">1. Kies en ontwerp</h2>
+<p>Open jullie project op Github. Kies één taak voor een gebruiker. Kopieer en vul dit schema in het Issue van die functie. Een bestaand Issue of gedeeld document mag ook. Gebruik één schema.</p>
+<button type="button" id="kopieer-schema">Kopieer schema</button>
+<pre id="ontwerpschema"><code>Gebruiker en taak:
+Gegevens en regel:
+Keuze en waarom:
+Gewone situatie → verwachte uitkomst:
+Lastige situatie → verwachte uitkomst:</code></pre>
+<p>Gebruikt jullie Backend een API? Zet bij beide situaties ook de GET- of POST-aanvraag en het verwachte JSON-antwoord.</p>
+<p><strong>Ingevuld voorbeeld sportclub</strong></p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Veld</th><th scope="col">Voorbeeld</th></tr></thead><tbody><tr><th scope="row">Gebruiker en taak</th><td>Vrijwilliger leent een voetbal.</td></tr><tr><th scope="row">Gegevens en regel</th><td>Code B01. Bij 2 ballen: leen 1. Bij 1: reserveer.</td></tr><tr><th scope="row">Keuze en waarom</th><td>Toon voorraad en melding, zodat de vrijwilliger weet wat kan.</td></tr><tr><th scope="row">Gewoon</th><td>Voorraad 2 → 1 bal uitgeleend.</td></tr><tr><th scope="row">Lastig</th><td>Voorraad 1 → blijft 1; toon reserveringsmelding.</td></tr></tbody></table></div>
+<p><strong>Backendvoorbeeld met API</strong></p>
+<img src="afbeeldingen/backend-api.svg" alt="Scherm, API en database: GET haalt de voorraad op; POST leent een bal uit volgens de voorraadregel." loading="lazy">
+<pre><code>GET → {&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:2}
 POST {&quot;code&quot;:&quot;B01&quot;} → {&quot;uitgeleend&quot;:true,&quot;voorraad&quot;:1}
-
 POST {&quot;code&quot;:&quot;B01&quot;} bij 1 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:1,&quot;melding&quot;:&quot;Laatste bal gereserveerd&quot;}
-
-POST {&quot;code&quot;:&quot;B01&quot;} bij 0 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:0,&quot;melding&quot;:&quot;Geen ballen beschikbaar&quot;}
-
-</code></pre>
-<h2 id="bouw-en-test">2. Bouw en test</h2>
+POST {&quot;code&quot;:&quot;B01&quot;} bij 0 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:0,&quot;melding&quot;:&quot;Geen ballen beschikbaar&quot;}</code></pre>
+<h2 id="bewijsroute">Bewijsroute</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Onderdeel</th><th scope="col">Waar staat het?</th></tr></thead><tbody><tr><th scope="row">Ontwerp</th><td>Issue van de gekozen functie.</td></tr><tr><th scope="row">Tests</th><td>Issue ‘Tests’, bestaand testissue of één gedeeld document.</td></tr><tr><th scope="row">Code</th><td>Commit met de geteste versie.</td></tr><tr><th scope="row">Bewijs en inlevering</th><td>Links in de README.md van jullie team.</td></tr></tbody></table></div>
+<p>Verwijs naar bestaand bewijs. Houd het op één plek; maak geen dubbele administratie.</p>
+<h2 id="2-bouw-en-test">2. Bouw en test</h2>
 <p>Product: laat de gebruiker de taak van begin tot eind doen. Backend: laat de vraag van het scherm zien, welke gegevens je leest of wijzigt, welke regel beslist en welk antwoord terugkomt. Gebruik een database; Google Sheets mag. Een aparte databaseserver hoeft niet. Maak één bewerking ook zonder het scherm testbaar.</p>
-<p>Zet je testbewijs in het Issue ‘Tests’, een bestaand testissue of één gedeeld document. Noteer voor de gewone en lastige situatie telkens de verwachting en eerste uitkomst. Verbeter één punt en test beide situaties opnieuw met dezelfde verzonnen gegevens. Noteer de verbetering en beide nieuwe uitkomsten.</p>
-<h2 id="vastleggen">3. Leg het werk vast</h2>
-<p>Zet in de README.md van jullie eigen team: het klantprobleem, wat de functie oplevert en wat nog ontbreekt; links naar het ontwerp, de tests, de code, gebruikt werk uit les 1–4 en de geteste commit of tag. Schrijf onder ‘Zo probeer je het’ hoe iemand de geteste versie binnen twee minuten opent en probeert. Verwijs naar het bestaande bewijs; kopieer het niet opnieuw.</p>
+<img src="afbeeldingen/testcyclus.svg" alt="Test de gewone en lastige situatie, verbeter één punt en test beide opnieuw met dezelfde verzonnen gegevens." loading="lazy">
+<p>Zet je testbewijs op de plek bij Tests in de bewijsroute. Noteer bij beide situaties de verwachting en eerste uitkomst, het verbeterpunt en beide nieuwe uitkomsten.</p>
+<h2 id="3-leg-het-werk-vast">3. Leg het werk vast</h2>
+<p>Zet in de README.md van jullie eigen team: het klantprobleem, wat de functie oplevert en wat nog ontbreekt; links naar het ontwerp, de tests, de code, gebruikt werk uit les 1 tot 4 en de geteste commit of tag. Schrijf onder ‘Zo probeer je het’ hoe iemand de geteste versie binnen twee minuten opent en probeert. Verwijs naar het bestaande bewijs; kopieer het niet opnieuw.</p>
 <p>Kies een mogelijke klant of doelgroep buiten jullie eigen kring en die van de docent. Leg uit wie waarvoor zou willen betalen en waarom. Klantcontact is vrijwillig. Wil je mailen, vraag dan eerst toestemming in jullie Issue. Een reactie of verkoop levert op zichzelf geen hoger niveau op.</p>
 <p>Controleer of de docent toegang heeft tot de repository en gelinkte documenten. Zet geen herkenbare persoonsgegevens in openbare bestanden, Issues of commitberichten.</p>
-<h2 id="inleveren">4. Laat zien en lever in</h2>
-<ul>
-<li><strong>27 november:</strong> ontwerp en twee situaties.</li>
-<li><strong>4 december:</strong> werkende versie, twee eerste tests en één verbeterpunt.</li>
-<li><strong>8 december, 16.00 uur:</strong> verbetering, twee hertests en één link naar de README.md van jullie eigen team via het Google Formulier op de SE 2-startpagina.</li>
-<li><strong>10–17 december:</strong> wijs in je mondeling één stuk eigen werk aan en leg uit wat je deed en hoe het werkt.</li>
-</ul>
-</main>
-</body>
-</html>
+<h2 id="4-laat-zien-en-lever-in">4. Laat zien en lever in</h2>
+<p>Volg de planning bovenaan. Lever de link naar de README van jullie team in.</p>
+</main><script>
+document.getElementById('kopieer-schema')?.addEventListener('click', async function () {
+  const text = document.querySelector('#ontwerpschema code').textContent;
+  try { await navigator.clipboard.writeText(text); this.textContent = 'Gekopieerd'; }
+  catch (error) {
+    const area = document.createElement('textarea'); area.value = text;
+    document.body.append(area); area.select();
+    const copied = document.execCommand('copy'); area.remove();
+    this.textContent = copied ? 'Gekopieerd' : 'Selecteer het schema en kopieer het';
+  }
+});
+</script></body></html>
