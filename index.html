@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SE 2</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #f5f7f8; color: #182735; font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    main { max-width: 820px; margin: 0 auto; padding: 32px 24px 72px; background: #fff; min-height: 100vh; }
+    h1, h2 { line-height: 1.25; letter-spacing: -.02em; }
+    h1 { font-size: clamp(1.8rem, 4vw, 2.35rem); margin: 0 0 10px; }
+    h2 { font-size: 1.42rem; margin: 2.3rem 0 .7rem; padding-top: 1rem; border-top: 1px solid #dde5ea; }
+    p { margin: .75rem 0; }
+    h1 + p { display: inline-block; margin: .15rem 0 1rem; padding: .35rem .75rem; border-radius: 7px; background: #e9f2f6; color: #16435b; font-weight: 600; }
+    a { color: #075c90; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+    a:hover, a:focus-visible { color: #084269; }
+    a:focus-visible { outline: 3px solid #edaa46; outline-offset: 3px; }
+    pre { overflow-x: auto; padding: 1rem; border-radius: 8px; background: #eff3f5; line-height: 1.6; font-size: .91rem; }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    ul { padding-left: 1.35rem; }
+    li { padding-left: .2rem; margin: .55rem 0; }
+    @media (max-width: 600px) {
+      main { padding: 24px 18px 56px; }
+      body { font-size: 16px; }
+      pre { font-size: .82rem; }
+    }
+    @media print {
+      body { background: white; }
+      main { padding: 0; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<main>
+<h1>SE 2</h1>
+<p><strong>4H, 4V en 5V (Backend) · 5H en 6V (Product)</strong></p>
+<p>Verbeter met je team één functie in jullie bestaande project. Daarmee voert een gebruiker één taak uit. Lever één link naar de README.md van jullie eigen team in. In je mondeling leg je jouw eigen werk uit.</p>
+<h2 id="beoordeling">Beoordeling</h2>
+<p>Groepswerk: 50 punten (Werking 15, Ontwerp 10, Opbouw 5, Testen en verbeteren 10, Klantwaarde 10). Mondeling: 50 punten (Eigen bijdrage 20, Technisch begrip 20, Reflectie en samenwerking 10). Lees de <a href="rubric.html">volledige rubric</a>.</p>
+<h2 id="ontwerp">1. Kies en ontwerp</h2>
+<p>Open jullie project op Github. Kies één taak voor een gebruiker. Vul één ontwerpschema in het Issue van die functie in, of in een gedeeld document: gebruiker en taak, gegevens en regel, keuze en waarom, gewone situatie en lastige situatie. Een bestaand Issue mag. Gebruikt jullie Backend een API? Schrijf dan de GET- of POST-aanvraag en het verwachte JSON-antwoord bij beide situaties.</p>
+<p><strong>Voorbeeld sportclub:</strong> Probleem: de vrijwilliger weet niet of er een voetbal over is. Taak: voorraad bekijken en één bal uitlenen. Issue: ‘Toon voorraad en leen een bal uit’. Ontwerp: Gebruiker en taak: vrijwilliger leent een bal. Gegevens en regel: code B01; bij 2 ballen, leen 1; bij 1, reserveer. Keuze: toon voorraad en melding. Gewoon: 2 → 1. Lastig: 1 → blijft 1.</p>
+<p><strong>Backendvoorbeeld met API:</strong> GET haalt de voorraad op. POST vraagt om één bal. Bij 2 ballen wordt het er 1; bij 1 blijft het 1 en komt een reserveringsmelding terug.</p>
+<pre><code>
+GET → {&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:2}
+
+POST {&quot;code&quot;:&quot;B01&quot;} → {&quot;uitgeleend&quot;:true,&quot;voorraad&quot;:1}
+
+POST {&quot;code&quot;:&quot;B01&quot;} bij 1 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:1,&quot;melding&quot;:&quot;Laatste bal gereserveerd&quot;}
+
+POST {&quot;code&quot;:&quot;B01&quot;} bij 0 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:0,&quot;melding&quot;:&quot;Geen ballen beschikbaar&quot;}
+
+</code></pre>
+<h2 id="bouw-en-test">2. Bouw en test</h2>
+<p>Product: laat de gebruiker de taak van begin tot eind doen. Backend: laat de vraag van het scherm zien, welke gegevens je leest of wijzigt, welke regel beslist en welk antwoord terugkomt. Gebruik een database; Google Sheets mag. Een aparte databaseserver hoeft niet. Maak één bewerking ook zonder het scherm testbaar.</p>
+<p>Zet je testbewijs in het Issue ‘Tests’, een bestaand testissue of één gedeeld document. Noteer voor de gewone en lastige situatie telkens de verwachting en eerste uitkomst. Verbeter één punt en test beide situaties opnieuw met dezelfde verzonnen gegevens. Noteer de verbetering en beide nieuwe uitkomsten.</p>
+<h2 id="vastleggen">3. Leg het werk vast</h2>
+<p>Zet in de README.md van jullie eigen team: het klantprobleem, wat de functie oplevert en wat nog ontbreekt; links naar het ontwerp, de tests, de code, gebruikt werk uit les 1–4 en de geteste commit of tag. Schrijf onder ‘Zo probeer je het’ hoe iemand de geteste versie binnen twee minuten opent en probeert. Verwijs naar het bestaande bewijs; kopieer het niet opnieuw.</p>
+<p>Kies een mogelijke klant of doelgroep buiten jullie eigen kring en die van de docent. Leg uit wie waarvoor zou willen betalen en waarom. Klantcontact is vrijwillig. Wil je mailen, vraag dan eerst toestemming in jullie Issue. Een reactie of verkoop levert op zichzelf geen hoger niveau op.</p>
+<p>Controleer of de docent toegang heeft tot de repository en gelinkte documenten. Zet geen herkenbare persoonsgegevens in openbare bestanden, Issues of commitberichten.</p>
+<h2 id="inleveren">4. Laat zien en lever in</h2>
+<ul>
+<li><strong>27 november:</strong> ontwerp en twee situaties.</li>
+<li><strong>4 december:</strong> werkende versie, twee eerste tests en één verbeterpunt.</li>
+<li><strong>8 december, 16.00 uur:</strong> verbetering, twee hertests en één link naar de README.md van jullie eigen team via het Google Formulier op de SE 2-startpagina.</li>
+<li><strong>10–17 december:</strong> wijs in je mondeling één stuk eigen werk aan en leg uit wat je deed en hoe het werkt.</li>
+</ul>
+</main>
+</body>
+</html>
