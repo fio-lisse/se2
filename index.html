@@ -54,10 +54,10 @@
 <p><strong>Hoe verbeter je met je team één functie, zodat een gebruiker één taak kan uitvoeren?</strong></p>
 <p>Werk in jullie bestaande project. Lever één link naar de README.md van jullie eigen team in. Leg in je mondeling jouw eigen werk uit.</p>
 <ol class="fases">
-<li>Kies en ontwerp</li>
-<li>Bouw en test</li>
-<li>Leg het werk vast</li>
-<li>Laat zien en lever in</li>
+<li><a href="#1-kies-je-klant-en-ontwerp">Kies en ontwerp</a></li>
+<li><a href="#2-bouw-en-test">Bouw en test</a></li>
+<li><a href="#3-leg-het-werk-vast">Leg het werk vast</a></li>
+<li><a href="#4-laat-zien-en-lever-in">Laat zien en lever in</a></li>
 </ol>
 <div class="table-wrap"><table><thead><tr><th scope="col">Wanneer</th><th scope="col">Wat laat je zien of lever je in?</th></tr></thead><tbody><tr><th scope="row">27 november</th><td>Ontwerp en twee situaties.</td></tr><tr><th scope="row">4 december</th><td>Werkende versie, twee eerste tests en één verbeterpunt.</td></tr><tr><th scope="row">8 december, 16.00 uur</th><td>Verbetering, twee hertests en één link naar de README.md van jullie eigen team via het Google Formulier op de SE 2-startpagina.</td></tr><tr><th scope="row">10 tot 17 december</th><td>Wijs in je mondeling één stuk eigen werk aan en leg uit wat je deed en hoe het werkt.</td></tr></tbody></table></div>
 <h2 id="beoordeling">Beoordeling</h2>
@@ -68,35 +68,37 @@
 <p>Lees de <a href="rubric.html">volledige rubric</a>.</p>
 <h2 id="wat-is-een-functie">Wat is een functie?</h2>
 <p>Een productfunctie helpt de gebruiker iets doen, zoals een bal uitlenen. Een programmeerfunctie voert een taak uit: ze kan gegevens ontvangen, daarmee iets doen en een uitkomst geven. Denk aan een machine: er gaat iets in en er komt iets uit.</p>
-<img src="afbeeldingen/functie.svg" alt="Input: vrijwilliger kiest voetbal B01. Verwerking: API controleert voorraad en past de regel toe. Output: voorraad en melding voor de vrijwilliger." loading="lazy">
-<p>Bron: inspiratie voor het schema: <a href="https://www.cofian.nl/management/procesmanagement/">Cofian, Procesmanagement</a>.</p>
-<h2 id="1-kies-en-ontwerp">1. Kies en ontwerp</h2>
-<p>Open jullie project op Github. Kies één taak voor een gebruiker. Kopieer en vul dit schema in het Issue van die functie. Een bestaand Issue of gedeeld document mag ook. Gebruik één schema.</p>
+<img src="afbeeldingen/functie.svg" alt="Leerling vraagt een balletje. De functie controleert de voorraad en geeft een uitkomst." loading="lazy">
+<p>Bron: <a href="https://www.cofian.nl/management/procesmanagement/">Cofian, Procesmanagement</a>.</p>
+<h2 id="1-kies-je-klant-en-ontwerp">1. Kies je klant en ontwerp</h2>
+<p>Open jullie project op Github. Kies een mogelijke klant of doelgroep buiten jullie eigen kring en die van de docent. Bedenk welk probleem die heeft en welke functie daarbij helpt.</p>
+<p><strong>Voorbeeld uitleenmateriaal:</strong> Klant: een school. Probleem: zoekwerk en weinig overzicht. Functie: één balletje uitlenen en terugbrengen. De school betaalt hiervoor om zoekwerk te verminderen en meer overzicht te krijgen.</p>
+<p>Kies daarna één taak voor die gebruiker. Kopieer en vul dit schema in het Issue van die functie. Een bestaand Issue of gedeeld document mag ook. Gebruik één schema.</p>
 <button type="button" id="kopieer-schema">Kopieer schema</button>
 <pre id="ontwerpschema"><code>Gebruiker en taak:
 Gegevens en regel:
 Keuze en waarom:
 Gewone situatie → verwachte uitkomst:
 Lastige situatie → verwachte uitkomst:</code></pre>
-<p>Gebruikt jullie Backend een API? Zet bij beide situaties ook de GET- of POST-aanvraag en het verwachte JSON-antwoord.</p>
-<p><strong>Ingevuld voorbeeld sportclub</strong></p>
-<div class="table-wrap"><table><thead><tr><th scope="col">Veld</th><th scope="col">Voorbeeld</th></tr></thead><tbody><tr><th scope="row">Gebruiker en taak</th><td>Vrijwilliger leent een voetbal.</td></tr><tr><th scope="row">Gegevens en regel</th><td>Code B01. Bij 2 ballen: leen 1. Bij 1: reserveer.</td></tr><tr><th scope="row">Keuze en waarom</th><td>Toon voorraad en melding, zodat de vrijwilliger weet wat kan.</td></tr><tr><th scope="row">Gewoon</th><td>Voorraad 2 → 1 bal uitgeleend.</td></tr><tr><th scope="row">Lastig</th><td>Voorraad 1 → blijft 1; toon reserveringsmelding.</td></tr></tbody></table></div>
+<p>Gebruikt jullie Backend een API? GET kijkt hoeveel balletjes er zijn. POST voert een actie uit, zoals uitlenen. Zet bij beide situaties de aanvraag en het verwachte JSON-antwoord.</p>
+<p><strong>Ingevuld voorbeeld uitleenballetje</strong></p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Veld</th><th scope="col">Voorbeeld</th></tr></thead><tbody><tr><th scope="row">Gebruiker en taak</th><td>Leerling leent één balletje.</td></tr><tr><th scope="row">Gegevens en regel</th><td>Voorraad is 1. Bij uitlenen wordt dit 0. Bij terugbrengen wordt dit 1.</td></tr><tr><th scope="row">Keuze en waarom</th><td>Toon de voorraad, zodat de school weet waar het balletje is.</td></tr><tr><th scope="row">Gewoon</th><td>Voorraad 1 → 0; uitlenen lukt.</td></tr><tr><th scope="row">Lastig</th><td>Voorraad 0 → uitlenen lukt niet.</td></tr></tbody></table></div>
 <p><strong>Backendvoorbeeld met API</strong></p>
-<img src="afbeeldingen/backend-api.svg" alt="Scherm, API en database: GET haalt de voorraad op; POST leent een bal uit volgens de voorraadregel." loading="lazy">
-<pre><code>GET → {&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:2}
-POST {&quot;code&quot;:&quot;B01&quot;} → {&quot;uitgeleend&quot;:true,&quot;voorraad&quot;:1}
-POST {&quot;code&quot;:&quot;B01&quot;} bij 1 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:1,&quot;melding&quot;:&quot;Laatste bal gereserveerd&quot;}
-POST {&quot;code&quot;:&quot;B01&quot;} bij 0 → {&quot;uitgeleend&quot;:false,&quot;voorraad&quot;:0,&quot;melding&quot;:&quot;Geen ballen beschikbaar&quot;}</code></pre>
+<img src="afbeeldingen/backend-api.svg" alt="Scherm, API en database: GET haalt de voorraad op; POST leent het balletje uit. Bij 0 lukt uitlenen niet; terugbrengen zet de voorraad op 1." loading="lazy">
+<pre><code>GET → {&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:1}
+POST {&quot;code&quot;:&quot;B01&quot;,&quot;actie&quot;:&quot;uitlenen&quot;} → {&quot;gelukt&quot;:true,&quot;voorraad&quot;:0}
+POST {&quot;code&quot;:&quot;B01&quot;,&quot;actie&quot;:&quot;uitlenen&quot;} bij 0 → {&quot;gelukt&quot;:false,&quot;voorraad&quot;:0,&quot;melding&quot;:&quot;Niet beschikbaar&quot;}
+POST {&quot;code&quot;:&quot;B01&quot;,&quot;actie&quot;:&quot;terugbrengen&quot;} → {&quot;gelukt&quot;:true,&quot;voorraad&quot;:1}</code></pre>
 <h2 id="bewijsroute">Bewijsroute</h2>
 <div class="table-wrap"><table><thead><tr><th scope="col">Onderdeel</th><th scope="col">Waar staat het?</th></tr></thead><tbody><tr><th scope="row">Ontwerp</th><td>Issue van de gekozen functie.</td></tr><tr><th scope="row">Tests</th><td>Issue ‘Tests’, bestaand testissue of één gedeeld document.</td></tr><tr><th scope="row">Code</th><td>Commit met de geteste versie.</td></tr><tr><th scope="row">Bewijs en inlevering</th><td>Links in de README.md van jullie team.</td></tr></tbody></table></div>
 <p>Verwijs naar bestaand bewijs. Houd het op één plek; maak geen dubbele administratie.</p>
 <h2 id="2-bouw-en-test">2. Bouw en test</h2>
-<p>Product: laat de gebruiker de taak van begin tot eind doen. Backend: laat de vraag van het scherm zien, welke gegevens je leest of wijzigt, welke regel beslist en welk antwoord terugkomt. Gebruik een database; Google Sheets mag. Een aparte databaseserver hoeft niet. Maak één bewerking ook zonder het scherm testbaar.</p>
+<p>Product: laat de gebruiker de taak van begin tot eind doen. Backend: laat de vraag van het scherm zien, welke gegevens je leest of wijzigt, welke regel beslist en welk antwoord terugkomt. Gebruik een database; Google Sheets mag. Een aparte databaseserver hoeft niet. Maak één bewerking ook zonder het scherm testbaar. Voorbeeld: roep de uitleenfunctie aan bij voorraad 0. Verwacht: uitlenen lukt niet en de voorraad blijft 0.</p>
 <img src="afbeeldingen/testcyclus.svg" alt="Test de gewone en lastige situatie, verbeter één punt en test beide opnieuw met dezelfde verzonnen gegevens." loading="lazy">
 <p>Zet je testbewijs op de plek bij Tests in de bewijsroute. Noteer bij beide situaties de verwachting en eerste uitkomst, het verbeterpunt en beide nieuwe uitkomsten.</p>
 <h2 id="3-leg-het-werk-vast">3. Leg het werk vast</h2>
-<p>Zet in de README.md van jullie eigen team: het klantprobleem, wat de functie oplevert en wat nog ontbreekt; links naar het ontwerp, de tests, de code, gebruikt werk uit les 1 tot 4 en de geteste commit of tag. Schrijf onder ‘Zo probeer je het’ hoe iemand de geteste versie binnen twee minuten opent en probeert. Verwijs naar het bestaande bewijs; kopieer het niet opnieuw.</p>
-<p>Kies een mogelijke klant of doelgroep buiten jullie eigen kring en die van de docent. Leg uit wie waarvoor zou willen betalen en waarom. Klantcontact is vrijwillig. Wil je mailen, vraag dan eerst toestemming in jullie Issue. Een reactie of verkoop levert op zichzelf geen hoger niveau op.</p>
+<p>Zet in de README.md van jullie eigen team: het klantprobleem, wat de functie oplevert en wat nog ontbreekt; wie waarvoor zou willen betalen en waarom; links naar het ontwerp, de tests, de code, gebruikt werk uit les 1 tot 4 en de geteste commit of tag. Schrijf onder ‘Zo probeer je het’ hoe iemand de geteste versie binnen twee minuten opent en probeert. Verwijs naar het bestaande bewijs; kopieer het niet opnieuw.</p>
+<p>Klantcontact is vrijwillig. Wil je mailen, vraag dan eerst toestemming in jullie Issue. Een reactie of verkoop levert op zichzelf geen hoger niveau op.</p>
 <p>Controleer of de docent toegang heeft tot de repository en gelinkte documenten. Zet geen herkenbare persoonsgegevens in openbare bestanden, Issues of commitberichten.</p>
 <h2 id="4-laat-zien-en-lever-in">4. Laat zien en lever in</h2>
 <p>Volg de planning bovenaan. Lever de link naar de README van jullie team in.</p>
