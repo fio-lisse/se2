@@ -39,15 +39,15 @@ Werk in jullie bestaande project. Lever één link naar de README.md van jullie 
 | Technisch begrip | 20 punten |
 | Reflectie en samenwerking | 10 punten |
 
-Lees de [volledige rubric](rubric.html).
+Lees de [volledige rubric](../docs/se2/rubric.md).
 
 ## Wat is een functie?
 
 Een productfunctie helpt de gebruiker iets doen, zoals een bal uitlenen. Een programmeerfunctie voert een taak uit: ze kan gegevens ontvangen, daarmee iets doen en een uitkomst geven. Denk aan een machine: er gaat iets in en er komt iets uit.
 
-![Een machine laat zien hoe invoer wordt omgezet in uitvoer.](https://commons.wikimedia.org/wiki/Special:FilePath/FunctionMachine.svg)
+![Input: vrijwilliger kiest voetbal B01. Verwerking: API controleert voorraad en past de regel toe. Output: voorraad en melding voor de vrijwilliger.](afbeeldingen/functie.svg)
 
-Bron: [Kismalac, Wikimedia Commons, CC0](https://commons.wikimedia.org/wiki/File:FunctionMachine.svg).
+Bron: inspiratie voor het schema: [Cofian, Procesmanagement](https://www.cofian.nl/management/procesmanagement/).
 
 ## 1. Kies en ontwerp
 Open jullie project op Github. Kies één taak voor een gebruiker. Kopieer en vul dit schema in het Issue van die functie. Een bestaand Issue of gedeeld document mag ook. Gebruik één schema.
