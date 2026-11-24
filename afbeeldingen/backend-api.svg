@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 270" role="img" aria-labelledby="titel beschrijving">
+<title id="titel">Sportclub: scherm, API en database</title><desc id="beschrijving">GET haalt voorraad op. POST vraagt een bal uit te lenen. Bij twee ballen wordt de voorraad één; bij één blijft die één.</desc>
+<rect width="840" height="270" fill="#f7f9fa"/>
+<g font-family="Arial, sans-serif" fill="#18344a">
+<g fill="#e7f1f6" stroke="#7295a9" stroke-width="2"><rect x="25" y="45" width="210" height="100" rx="8"/><rect x="315" y="45" width="210" height="100" rx="8"/><rect x="605" y="45" width="210" height="100" rx="8"/></g>
+<g font-size="22" font-weight="bold" text-anchor="middle"><text x="130" y="80">Scherm</text><text x="420" y="80">API</text><text x="710" y="80">Database</text></g>
+<g font-size="16" text-anchor="middle"><text x="130" y="110">Vraag van gebruiker</text><text x="420" y="110">Controleert de regel</text><text x="710" y="110">Bewaart voorraad B01</text></g>
+<g stroke="#486f83" stroke-width="3" fill="none"><path d="M240 96h65m-9-7 9 7-9 7"/><path d="M530 96h65m-9-7 9 7-9 7"/></g>
+<g font-size="18"><text x="30" y="184">GET: voorraad ophalen</text><text x="30" y="215">POST: één bal uitlenen</text><text x="365" y="184">2 ballen → 1 bal</text><text x="365" y="215">1 bal → 1 bal, reserveringsmelding</text><text x="365" y="245">0 ballen → 0 ballen, niet beschikbaar</text></g>
+</g></svg>
