@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="titel beschrijving">
+<title id="titel">Input, verwerking en output bij een voetbal uitlenen</title>
+<desc id="beschrijving">De vrijwilliger kiest bal B01. De API controleert de voorraad. De uitkomst toont de nieuwe voorraad en eventueel een reserveringsmelding.</desc>
+<rect width="900" height="300" fill="#fff"/>
+<g font-family="Arial,sans-serif" fill="#173b5a">
+<g fill="#e8f2fb" stroke="#3478a8" stroke-width="3"><rect x="25" y="35" width="230" height="105" rx="8"/><rect x="335" y="35" width="230" height="105" rx="8"/><rect x="645" y="35" width="230" height="105" rx="8"/></g>
+<g font-size="24" font-weight="bold" text-anchor="middle"><text x="140" y="80">Input</text><text x="450" y="80">Verwerking</text><text x="760" y="80">Output</text></g>
+<g stroke="#3478a8" stroke-width="4" fill="none"><path d="M260 88h65m-12-10 12 10-12 10"/><path d="M570 88h65m-12-10 12 10-12 10"/></g>
+<g font-size="18" text-anchor="middle"><text x="140" y="190">Vrijwilliger kiest bal B01</text><text x="450" y="180">API leest voorraad en</text><text x="450" y="207">past de uitleenregel toe</text><text x="760" y="180">Voorraad na uitleen</text><text x="760" y="207">of reserveringsmelding</text></g>
+<text x="450" y="270" text-anchor="middle" font-size="17">Voorbeeld: 2 ballen → 1 uitgeleend | 1 bal → blijft 1, reserveer</text>
+</g></svg>
