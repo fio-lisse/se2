@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 210" role="img" aria-labelledby="titel beschrijving">
+<title id="titel">Testen, verbeteren en opnieuw testen</title><desc id="beschrijving">Test de gewone en lastige situatie, verbeter één punt en test beide opnieuw met dezelfde verzonnen gegevens.</desc>
+<rect width="840" height="210" fill="#f7f9fa"/>
+<g font-family="Arial, sans-serif" fill="#18344a" text-anchor="middle">
+<g fill="#e7f1f6" stroke="#7295a9" stroke-width="2"><rect x="20" y="30" width="235" height="125" rx="8"/><rect x="302" y="30" width="235" height="125" rx="8"/><rect x="585" y="30" width="235" height="125" rx="8"/></g>
+<g font-size="21" font-weight="bold"><text x="137" y="65">1. Testen</text><text x="419" y="65">2. Verbeteren</text><text x="702" y="65">3. Opnieuw testen</text></g>
+<g font-size="16"><text x="137" y="98">Gewone en lastige situatie</text><text x="137" y="126">Verwachting en uitkomst</text><text x="419" y="98">Kies en verbeter één punt</text><text x="702" y="98">Beide situaties opnieuw</text><text x="702" y="126">Noteer beide uitkomsten</text></g>
+<g stroke="#486f83" stroke-width="3" fill="none"><path d="M260 92h32m-8-7 8 7-8 7"/><path d="M542 92h33m-8-7 8 7-8 7"/></g>
+<text x="420" y="190" font-size="16">Gebruik dezelfde verzonnen gegevens bij het opnieuw testen.</text>
+</g></svg>
