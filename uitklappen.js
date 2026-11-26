@@ -1,3 +1,43 @@
+// Dit gebeurt in de head, vóór de browser de gedeelde stylesheet toepast.
+(() => {
+  const key = 'se2-thema';
+  const root = document.documentElement;
+  const dark = matchMedia('(prefers-color-scheme: dark)');
+  let radios = [];
+
+  function updateRadios() {
+    const choice = radios.find(radio => radio.value === root.dataset.theme);
+    const fallback = radios.find(radio => radio.value === (dark.matches ? 'middernacht' : 'daglicht'));
+    if (choice || fallback) (choice || fallback).checked = true;
+  }
+
+  function restoreTheme() {
+    try {
+      const saved = localStorage.getItem(key);
+      if (saved) root.dataset.theme = saved;
+      else delete root.dataset.theme;
+    } catch { /* Bij geblokkeerde opslag geldt de systeemvoorkeur. */ }
+    updateRadios();
+  }
+
+  restoreTheme();
+  window.addEventListener('pageshow', restoreTheme);
+  window.addEventListener('storage', event => {
+    if (event.key === key || event.key === null) restoreTheme();
+  });
+  dark.addEventListener('change', updateRadios);
+  document.addEventListener('DOMContentLoaded', () => {
+    radios = [...document.querySelectorAll('.themes input[name="se2-theme"]')];
+    updateRadios();
+    for (const radio of radios) {
+      radio.addEventListener('change', () => {
+        root.dataset.theme = radio.value;
+        try { localStorage.setItem(key, radio.value); } catch { /* De keuze werkt op deze pagina. */ }
+      });
+    }
+  });
+})();
+
 function openAnchor(hash) {
   if (!hash) return;
   let id;
@@ -21,7 +61,7 @@ document.addEventListener('click', event => {
   const link = event.target.closest('a[href^="#"]');
   if (!event.defaultPrevented && link?.hash === location.hash) openAnchor(location.hash);
 });
-openAnchor(location.hash);
+document.addEventListener('DOMContentLoaded', () => openAnchor(location.hash));
 
 // Gedeelde kopieerknoppen voor tekst, code en afbeeldingen.
 (() => {
@@ -49,9 +89,11 @@ openAnchor(location.hash);
       face.append(text);
       button.append(face);
     }
-    const state = image && (!navigator.clipboard?.write || !window.ClipboardItem ||
-      ClipboardItem.supports?.('image/png') === false) ? 'download' : 'copy';
-    const control = {source, filename, image, labels, pending: false};
+    const mail = source instanceof HTMLIFrameElement;
+    const mime = image ? 'image/png' : mail ? 'text/html' : null;
+    const state = mime && (!navigator.clipboard?.write || !window.ClipboardItem ||
+      ClipboardItem.supports?.(mime) === false) ? 'download' : 'copy';
+    const control = {source, filename, image, mail, labels, pending: false};
     controls.set(button, control);
     show(button, control, state);
   }
@@ -67,6 +109,26 @@ openAnchor(location.hash);
   }
 
   function mount(main) {
+    for (const button of main.querySelectorAll('[data-copy-mail]')) {
+      const frame = document.getElementById(button.dataset.copyMail);
+      button.replaceChildren();
+      prepare(button, frame, 'Kopieer mail', 'voorbeeldbeoordeling.html');
+      function fit() {
+        const doc = frame.contentDocument;
+        const mail = doc.querySelector('.mail');
+        if (!mail) return;
+        const size = () => {
+          const margin = parseFloat(doc.defaultView.getComputedStyle(doc.body).marginBottom);
+          frame.height = Math.ceil(mail.getBoundingClientRect().bottom + margin);
+        };
+        new ResizeObserver(size).observe(mail);
+        size();
+        button.disabled = false;
+      }
+      button.disabled = true;
+      frame.addEventListener('load', fit);
+      fit();
+    }
     for (const button of main.querySelectorAll('.ticket-copy > [data-copy]')) {
       if (controls.has(button)) continue;
       const label = button.textContent;
@@ -124,6 +186,10 @@ openAnchor(location.hash);
   }
 
   async function download(control, value) {
+    if (control.mail) {
+      saveBlob(new Blob([mailContents(control.source).html], {type: 'text/html;charset=utf-8'}), control.filename);
+      return;
+    }
     if (!control.image) {
       saveBlob(new Blob([value], {type: 'text/plain;charset=utf-8'}), control.filename);
       return;
@@ -135,6 +201,28 @@ openAnchor(location.hash);
     } catch {
       save(url, filename);
     }
+  }
+
+  function mailContents(frame) {
+    const doc = frame.contentDocument;
+    const mail = doc.querySelector('.mail');
+    const wrap = doc.createElement('div');
+    const clone = mail.cloneNode(true);
+    wrap.append(clone);
+    // Rich-text editors may discard a stylesheet. Inline the existing desktop rules for copying.
+    const originals = [doc.body, mail, ...mail.querySelectorAll('*')];
+    const copies = [wrap, clone, ...clone.querySelectorAll('*')];
+    const rules = [...doc.styleSheets[0].cssRules].filter(rule => rule.type === CSSRule.STYLE_RULE);
+    for (const [i, original] of originals.entries()) {
+      for (const rule of rules) {
+        if (original.matches(rule.selectorText)) {
+          for (const property of rule.style) {
+            copies[i].style.setProperty(property, rule.style.getPropertyValue(property));
+          }
+        }
+      }
+    }
+    return {html: wrap.outerHTML, text: mail.innerText};
   }
 
   function legacyCopy(value, button) {
@@ -171,6 +259,12 @@ openAnchor(location.hash);
         // Some browsers refuse the write without consuming the promised blob.
         png.catch(() => {});
         await navigator.clipboard.write([new ClipboardItem({'image/png': png})]);
+      } else if (control.mail) {
+        const {html, text} = mailContents(control.source);
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html': new Blob([html], {type: 'text/html'}),
+          'text/plain': new Blob([text], {type: 'text/plain'})
+        })]);
       } else {
         try {
           await navigator.clipboard.writeText(value);
@@ -186,10 +280,13 @@ openAnchor(location.hash);
     }
   });
 
-  const main = document.querySelector('main');
-  mount(main);
-  const stage = main.querySelector('#stagebody');
-  if (stage) {
-    new MutationObserver(() => mount(stage)).observe(stage, {childList: true});
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.matches('.se2, .issues')) return;
+    const main = document.querySelector('main');
+    mount(main);
+    const stage = main.querySelector('#stagebody');
+    if (stage) {
+      new MutationObserver(() => mount(stage)).observe(stage, {childList: true});
+    }
+  });
 })();

@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Uitgewerkt voorbeeld · B01 · SE 2</title>
+<script src="uitklappen.js"></script>
 <link rel="stylesheet" href="styles.css">
-<script defer src="uitklappen.js"></script>
 <link rel="icon" type="image/svg+xml" href="iconen/favicon.svg"></head><body class="issues" data-b01><main>
-<nav class="documenten" aria-label="Documenten"><a href="index.html">Issues</a><a href="b01.html" aria-current="page">Uitgewerkt voorbeeld</a><a href="kennisbank.html">Kennisbank</a><a href="rubric.html">Rubric</a></nav>
+<nav class="documenten" aria-label="Documenten"><a href="index.html">Issues</a><a href="b01.html" aria-current="page">Uitgewerkt voorbeeld</a><a href="kennisbank.html">Kennisbank</a><a href="rubric.html">Rubric</a><a href="instellingen.html">Instellingen</a></nav>
 <h1 class="matrix-sr">Uitgewerkt voorbeeld · B01</h1>
 <section class="group" id="teammatrix" aria-labelledby="matrix-title">
 <h2 id="matrix-title" class="matrix-sr">Keuzematrix</h2>
@@ -168,7 +168,7 @@
 <template id="issue-A" data-title="Knelpunt" data-needs="" data-main="D" data-destination="D" data-handoff="team-README met vier issuelinks en vervolgafspraak"></template>
 <template id="issue-B" data-title="Functieontwerp" data-needs="D" data-main="D" data-destination="D" data-handoff="ontwerp in D"></template>
 <template id="issue-C" data-title="Testplan" data-needs="D B" data-main="D" data-destination="D" data-handoff="testplan in D"></template>
-<template id="issue-D" data-title="Klantvraag en ontwerp" data-needs="A" data-main="D" data-destination="D" data-handoff="klantvraag en ontwerpschema in D"></template>
+<template id="issue-D" data-title="Klantvraag en ontwerp" data-needs="" data-main="D" data-destination="D" data-handoff="klantvraag en ontwerpschema in D"></template>
 <template id="issue-E" data-title="Bouw en eerste tests" data-needs="B A" data-main="E" data-destination="E" data-handoff="aansluitafspraken in E"></template>
 <template id="issue-F" data-title="Eerste versie" data-needs="B E" data-main="E" data-destination="E" data-handoff="vaste eerste versie in E"></template>
 <template id="issue-G" data-title="Klantproef" data-needs="D F" data-main="E" data-destination="E" data-handoff="klantwaarneming in E"></template>
@@ -245,6 +245,7 @@ if (!example) {
 }
 const rowIcons = ['imagine', 'create', 'play', 'share', 'reflect'];
 let active = null;
+let celebration = null;
 
 function renderProgress() {
   if (example) return;
@@ -255,20 +256,52 @@ function renderProgress() {
     control.setAttribute('aria-pressed', String(done));
     control.setAttribute('aria-label', `${code} · ${tickets.get(code).item.dataset.title}: ${done ? 'afgerond' : 'nog niet afgerond'}`);
   }
+  for (const [code, {button, sources}] of tickets) {
+    const waits = sources.filter(source => !progress[source]);
+    const hint = $('route-' + code.toLowerCase());
+    button.dataset.route = waits.length ? 'waiting' : progress[code] ? 'done' : 'available';
+    hint.textContent = waits.length ? 'Wacht op ' + waits.join(', ') : '';
+    if (waits.length) button.setAttribute('aria-describedby', hint.id);
+    else button.removeAttribute('aria-describedby');
+  }
   for (const phase of ['D', 'E', 'I', 'M']) {
     const count = [...tickets].filter(([, ticket]) => ticket.phase === phase && progress[ticket.button.dataset.ticket]).length;
     const display = matrix.querySelector(`[data-phase-progress="${phase}"]`);
     if (display) display.textContent = `${count}/4 afgerond`;
   }
   matrix.dataset.completed = String(completed);
+  updateCelebration(completed === buttons.length);
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem(progressKey, JSON.stringify(progress));
+  } catch { /* De bediening blijft werken als de browser geen opslag toestaat. */ }
 }
 
 function setProgress(code, value) {
   progress[code] = value;
-  try {
-    localStorage.setItem(progressKey, JSON.stringify(progress));
-  } catch { /* De bediening blijft werken als de browser geen opslag toestaat. */ }
+  saveProgress();
   renderProgress();
+}
+
+function updateCelebration(allDone) {
+  if (!allDone) {
+    celebration = null;
+    delete matrix.dataset.celebrating;
+    return;
+  }
+  if (celebration) return;
+  const marker = {};
+  celebration = marker;
+  matrix.dataset.celebrating = '';
+  const animations = matrix.getAnimations({subtree: true}).filter(animation => animation.animationName === 'route-pulse');
+  Promise.allSettled(animations.map(animation => animation.finished)).then(() => {
+    if (celebration !== marker) return;
+    for (const code of Object.keys(progress)) progress[code] = false;
+    saveProgress();
+    renderProgress();
+  });
 }
 
 for (const role of matrix.querySelectorAll('[data-icon]')) role.innerHTML = svg(role.dataset.icon);
@@ -327,8 +360,8 @@ function openTicket(button) {
   $('ticket').className = 'issue-card ' + button.closest('td').className.split(' ').find(name => name.startsWith('accent-'));
   const main = item.dataset.main;
   const destination = item.dataset.destination;
-  $('code').textContent = (code === main ? 'Hoofdissue ' : 'Issue ') + code + ' · ' + row.cells[0].textContent.trim();
-  $('title').textContent = item.dataset.title;
+  $('code').textContent = (code === main ? 'Hoofdissue' : 'Issue') + ' (' + row.cells[0].textContent.trim() + ')';
+  $('title').textContent = code + ') ' + item.dataset.title;
   const phase = matrix.tHead.rows[0].cells[button.closest('td').cellIndex];
   $('deadline').replaceChildren(...phase.querySelector('.matrix-date').cloneNode(true).childNodes);
   $('deadline-label').textContent = code >= 'M' ? 'Mondeling' : 'Deadline';
@@ -422,4 +455,4 @@ function openLinkedTicket() {
 }
 document.addEventListener('DOMContentLoaded', openLinkedTicket);
 window.addEventListener('hashchange', () => queueMicrotask(openLinkedTicket));
-</script><footer class="broncommit" data-broncommit="70e59b43fc7cc4dec27d8a98f065e6e2fc6ebba8"><strong>v2 · voortgang, kopiëren en begrippenlinks</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/70e59b43fc7cc4dec27d8a98f065e6e2fc6ebba8"><code>70e59b4</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v2</strong> · 2026-11-26 · Persoonlijke voortgang. Teksten en afbeeldingen kopiëren. Begrippenlinks naar de Kennisbank. · <a href="https://github.com/fio-lisse/se2-start/commit/565d1fc5d53cdc031757d2cc9ed4a5a2501c28f9">commit</a></li><li><strong>v1</strong> · 2026-11-26 · Eerste openbare leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc">commit</a></li><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>
+</script><footer class="broncommit" data-broncommit="e27ed47d420df1de14387c9ca49f201a430ec624"><strong>v3 · thema’s, voortgang en rubric</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/e27ed47d420df1de14387c9ca49f201a430ec624"><code>e27ed47</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v3</strong> · 2026-11-26 · Vier persoonlijke thema’s. Dynamische voortgangsroute. Vernieuwde rubric en kopieerbare voorbeeldbeoordeling. Markdown in de Kennisbank. Rustigere vormgeving. · <a href="https://github.com/fio-lisse/se2-start/commit/93a97d2d65197e8bdb7f514163f6bf62e55faa3a">commit</a></li><li><strong>v2</strong> · 2026-11-26 · Persoonlijke voortgang. Teksten en afbeeldingen kopiëren. Begrippenlinks naar de Kennisbank. · <a href="https://github.com/fio-lisse/se2-start/commit/565d1fc5d53cdc031757d2cc9ed4a5a2501c28f9">commit</a></li><li><strong>v1</strong> · 2026-11-26 · Eerste openbare leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc">commit</a></li><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

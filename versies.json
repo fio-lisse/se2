@@ -1,5 +1,5 @@
 {
-  "current": "v2 · voortgang, kopiëren en begrippenlinks",
+  "current": "v3 · thema’s, voortgang en rubric",
   "firstStudentVersion": "v1",
   "history": [
     {
@@ -19,6 +19,12 @@
       "date": "2026-11-26",
       "commit": "565d1fc5d53cdc031757d2cc9ed4a5a2501c28f9",
       "change": "Persoonlijke voortgang. Teksten en afbeeldingen kopiëren. Begrippenlinks naar de Kennisbank."
+    },
+    {
+      "version": "v3",
+      "date": "2026-11-26",
+      "commit": "93a97d2d65197e8bdb7f514163f6bf62e55faa3a",
+      "change": "Vier persoonlijke thema’s. Dynamische voortgangsroute. Vernieuwde rubric en kopieerbare voorbeeldbeoordeling. Markdown in de Kennisbank. Rustigere vormgeving."
     }
   ]
 }
