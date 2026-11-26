@@ -1,18 +1,18 @@
 {
-  "current": "v1.0 · eerste openbare leerlingversie",
-  "firstStudentVersion": "v1.0",
+  "current": "v1 · eerste openbare leerlingversie",
+  "firstStudentVersion": "v1",
   "history": [
+    {
+      "version": "v1",
+      "date": "2026-11-26",
+      "commit": "95c3107f674c78463f960004ff15206b54093dfc",
+      "change": "Eerste openbare leerlingpublicatie."
+    },
     {
       "version": "v0",
       "date": "2026-11-25",
       "commit": "0968083c37e21056c897a8e170604ec8d2def406",
       "change": "Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie."
-    },
-    {
-      "version": "v1.0",
-      "date": "2026-11-26",
-      "commit": "95c3107f674c78463f960004ff15206b54093dfc",
-      "change": "Eerste openbare leerlingpublicatie."
     }
   ]
 }
