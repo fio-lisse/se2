@@ -1,7 +1,13 @@
 {
-  "current": "v1 · eerste openbare leerlingversie",
+  "current": "v2 · voortgang, kopiëren en begrippenlinks",
   "firstStudentVersion": "v1",
   "history": [
+    {
+      "version": "v0",
+      "date": "2026-11-25",
+      "commit": "0968083c37e21056c897a8e170604ec8d2def406",
+      "change": "Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie."
+    },
     {
       "version": "v1",
       "date": "2026-11-26",
@@ -9,10 +15,10 @@
       "change": "Eerste openbare leerlingpublicatie."
     },
     {
-      "version": "v0",
-      "date": "2026-11-25",
-      "commit": "0968083c37e21056c897a8e170604ec8d2def406",
-      "change": "Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie."
+      "version": "v2",
+      "date": "2026-11-26",
+      "commit": "565d1fc5d53cdc031757d2cc9ed4a5a2501c28f9",
+      "change": "Persoonlijke voortgang. Teksten en afbeeldingen kopiëren. Begrippenlinks naar de Kennisbank."
     }
   ]
 }
