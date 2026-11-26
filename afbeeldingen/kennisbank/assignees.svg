@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 224" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Wie pakt hoofdissue D op?</title>
+  <desc id="uitleg">Manager opent hoofdissue D en kiest bij Assignees de GitHub-gebruiker die de rol Marketing heeft. De inhoud volgt in een aparte reactie.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="224" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Wie pakt hoofdissue D op?</text>
+    <rect x="34" y="65" width="360" height="100" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="94" font-size="20" font-weight="700" fill="#183247" text-anchor="start">D) Klantvraag en ontwerp</text>
+    <text x="50" y="121" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Manager opent het issue.</text>
+    <text x="50" y="144" font-size="17" font-weight="400" fill="#183247" text-anchor="start">De bijdragen komen als reacties.</text>
+    <path d="M402 115 L491 115" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <rect x="500" y="65" width="366" height="100" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="516" y="94" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Assignees</text>
+    <text x="516" y="121" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Manager wijst de GitHub-gebruiker</text>
+    <text x="516" y="144" font-size="17" font-weight="400" fill="#183247" text-anchor="start">met de rol Marketing toe.</text>
+    <text x="450" y="204" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Toewijzen maakt de verantwoordelijke zichtbaar. De reactie bevat het werk.</text>
+  </g>
+</svg>

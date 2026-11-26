@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 252" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Het uitleenscherm vóór en na de actie</title>
+  <desc id="uitleg">Eerst toont het scherm voorraad 1. De gebruiker kiest Uitlenen. Na het antwoord toont het scherm voorraad 0 en Gelukt.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="252" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Het uitleenscherm vóór en na de actie</text>
+    <rect x="34" y="67" width="330" height="134" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="96" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Vóór uitlenen</text>
+    <text x="50" y="123" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Beschikbare voorraad: 1</text>
+    <rect x="51" y="147" width="116" height="34" rx="5" fill="#fff" stroke="#3478a8" stroke-width="2"/>
+    <text x="67" y="169" font-size="16" font-weight="700" fill="#183247" text-anchor="start">Uitlenen</text>
+    <path d="M377 134 L520 134" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <text x="449" y="117" font-size="16" font-weight="700" fill="#183247" text-anchor="middle">Klik</text>
+    <rect x="536" y="67" width="330" height="134" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="552" y="96" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Na uitlenen</text>
+    <text x="552" y="123" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Beschikbare voorraad: 0</text>
+    <rect x="553" y="147" width="127" height="34" rx="5" fill="#fff" stroke="#2c765f" stroke-width="2"/>
+    <text x="569" y="170" font-size="16" font-weight="700" fill="#183247" text-anchor="start">Gelukt</text>
+    <text x="450" y="229" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Dit ziet de gebruiker. De uitleenregel beslist op de achtergrond.</text>
+  </g>
+</svg>

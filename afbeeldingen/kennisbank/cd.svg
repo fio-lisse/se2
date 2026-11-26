@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 306" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">CD: van testuitslag naar versiepakket</title>
+  <desc id="uitleg">Bij falende tests komt er geen pakket. Na geslaagde tests staat het B01-pakket klaar om uit te brengen.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="306" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">CD: van testuitslag naar versiepakket</text>
+    <rect x="34" y="113" width="254" height="85" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="142" font-size="20" font-weight="700" fill="#183247" text-anchor="start">CI geeft een uitslag</text>
+    <text x="50" y="169" font-size="17" font-weight="400" fill="#183247" text-anchor="start">B01-proeven zijn gedraaid.</text>
+    <path d="M297 140 L414 102" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <path d="M297 169 L414 207" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <rect x="423" y="68" width="443" height="81" rx="9" fill="#f9ebe8" stroke="#9b4842" stroke-width="2"/>
+    <text x="439" y="97" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Tests falen</text>
+    <text x="439" y="124" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Geen B01-versiepakket.</text>
+    <rect x="423" y="171" width="443" height="81" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="439" y="200" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Tests slagen</text>
+    <text x="439" y="227" font-size="17" font-weight="400" fill="#183247" text-anchor="start">B01-versiepakket staat klaar om uit te brengen.</text>
+    <text x="450" y="284" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Dit is klaarzetten. Automatische uitrol zou de stap naar gebruikers ook uitvoeren.</text>
+  </g>
+</svg>

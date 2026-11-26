@@ -1,4 +1,5 @@
 // Dit gebeurt in de head, vóór de browser de gedeelde stylesheet toepast.
+document.documentElement.classList.add('js');
 (() => {
   const key = 'se2-thema';
   const root = document.documentElement;
@@ -54,10 +55,27 @@ function openAnchor(hash) {
     parent = parent.parentElement.closest('details');
   }
   target.scrollIntoView();
+  target.closest('.begrip-paneel')?.querySelector('summary').focus({preventScroll: true});
 }
+
+function cardForPanel(panel) {
+  return document.querySelector(`.begripkaart[aria-controls="${CSS.escape(panel.id)}"]`);
+}
+
+document.addEventListener('toggle', event => {
+  const panel = event.target;
+  if (panel.matches('.begrip-paneel')) cardForPanel(panel)?.setAttribute('aria-expanded', String(panel.open));
+}, true);
 
 window.addEventListener('hashchange', () => openAnchor(location.hash));
 document.addEventListener('click', event => {
+  const panel = event.target.closest('.begrip-paneel-knop')?.parentElement;
+  if (panel?.open) {
+    event.preventDefault();
+    panel.open = false;
+    cardForPanel(panel)?.focus();
+    return;
+  }
   const link = event.target.closest('a[href^="#"]');
   if (!event.defaultPrevented && link?.hash === location.hash) openAnchor(location.hash);
 });
@@ -136,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => openAnchor(location.hash));
       prepare(button, button.parentElement.querySelector('textarea'), label,
         button.dataset.copy === 'gemini' ? 'gemini-hulpvraag.txt' : button.dataset.copy + '.md');
     }
-    for (const source of main.querySelectorAll('pre, img.inhoudsbeeld, img.b01-balletje')) {
+    for (const source of main.querySelectorAll('pre, img.inhoudsbeeld:not(.begripkaart-beeld), img.b01-balletje')) {
       if (source.parentElement.classList.contains('copy-target')) continue;
       const image = source instanceof HTMLImageElement;
       const markdown = source.classList.contains('markdown');

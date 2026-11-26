@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 251" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Sponsoring bij de uitleenbalie</title>
+  <desc id="uitleg">In dit fictieve voorbeeld geeft een sponsor een balletje. Het project geeft in ruil een naamsvermelding.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="251" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Sponsoring bij de uitleenbalie</text>
+    <rect x="34" y="104" width="245" height="87" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="133" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Sponsor</text>
+    <text x="50" y="160" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Geeft een balletje.</text>
+    <rect x="621" y="104" width="245" height="87" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="637" y="133" font-size="20" font-weight="700" fill="#183247" text-anchor="start">B01-project</text>
+    <text x="637" y="160" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Gebruikt het balletje.</text>
+    <path d="M286 130 L611 130" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <path d="M613 168 L290 168" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <text x="450" y="115" font-size="17" font-weight="400" fill="#183247" text-anchor="middle">Balletje naar het project</text>
+    <text x="450" y="191" font-size="17" font-weight="400" fill="#183247" text-anchor="middle">Naamsvermelding naar de sponsor</text>
+    <text x="450" y="229" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Dit is een mogelijke afspraak. Sponsoring is geen verplicht onderdeel.</text>
+  </g>
+</svg>

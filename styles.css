@@ -257,7 +257,7 @@ th { background: var(--tile); }
   margin-inline-end: .3rem;
   filter: var(--icon-filter);
 }
-.inhoudsbeeld, figure svg[role=img] { display: block; width: 80%; height: auto; margin-inline: auto; }
+.inhoudsbeeld, figure svg[role=img] { display: block; width: 80%; height: auto; margin-inline: auto; object-fit: contain; }
 .b01-balletje { float: left; width: 120px; max-width: 100%; height: auto; margin: .25rem 1rem .6rem 0; }
 
 .leerling h2 { clear: both; border-top: 1px solid var(--line); padding-top: var(--space-2); margin-top: var(--space-3); }
@@ -421,7 +421,6 @@ th { background: var(--tile); }
   outline-offset: -3px;
 }
 .matrix-choice[data-route][aria-expanded=true]:focus-visible { outline-offset: 1px; }
-.matrix-route { display: block; min-block-size: .8rem; line-height: 1.15; color: var(--muted); font-size: .625rem; }
 @media (prefers-reduced-motion: no-preference) {
   #ticketmatrix[data-celebrating] .matrix-choice { animation: route-pulse 320ms ease-in-out 2; }
   @keyframes route-pulse {
@@ -443,51 +442,18 @@ th { background: var(--tile); }
 }
 #ticket > .row:first-child { grid-template-columns: 60px minmax(0, 1fr) auto; }
 #ticket .issue-title, #ticket .label { margin: 0; }
-.phase-handoff-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-3);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.phase-handoff-list li {
-  position: relative;
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--accent);
-  border-radius: var(--radius);
-  background: var(--tile);
-}
-.phase-handoff-list li:not(:last-child)::after {
-  content: "→" / "";
-  position: absolute;
-  top: 50%;
-  inset-inline-start: calc(100% + 2px);
-  transform: translateY(-50%);
-  color: var(--ink);
-}
-.phase-handoff-list span { display: block; font-size: .875rem; }
-.ticket-handoffs { margin: var(--space-1) 0 0; }
-.ticket-handoffs dd { margin-inline-start: 0; }
-.ticket-handoffs dt { font-weight: 700; }
-.ticket-handoff + .ticket-handoff { margin-top: var(--space-1); }
-.ticket-links { margin: 0; padding-inline-start: 1.25em; }
-
-@media (max-width: 640px) {
-  .phase-handoff-list { grid-template-columns: 1fr; }
-  .phase-handoff-list li:not(:last-child)::after {
-    content: "↓" / "";
-    top: 100%;
-    inset-inline-start: 50%;
-    transform: translateX(-50%);
-  }
-}
 .ticket-extra { margin-block: var(--space-2); }
 .ticket-extra { padding: var(--space-1) var(--space-2); border: 1px solid var(--line); border-radius: var(--radius); }
 .ticket-extra p:last-child { margin-bottom: 0; }
 .ticket-acties { display: flex; flex-direction: column; gap: var(--space-1); align-items: flex-start; }
-.b01-thread-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-1); margin-block: var(--space-2); }
+.b01-thread-heading > .b01-thread-controls {
+  grid-column: 2;
+  border: 0;
+  background: none;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 .b01-thread-controls h3 { margin: 0; }
 .b01-thread { overflow-wrap: anywhere; }
 .b01-bewijs { margin-block: 0; }
@@ -520,6 +486,7 @@ th { background: var(--tile); }
 }
 
 .matrix-phase { background: color-mix(in srgb, var(--accent) 8%, var(--bg)); }
+.ticketmatrix td { position: relative; }
 .ticketmatrix thead .matrix-phase { border-top: 3px solid var(--accent); }
 .matrix-role { color: var(--muted); }
 .matrix-crown { grid-area: 1 / 3; justify-self: center; display: inline-flex; color: var(--accent); }
@@ -621,8 +588,67 @@ th { background: var(--tile); }
   border-radius: var(--radius);
 }
 .reveal-content > :last-child { margin-bottom: 0; }
-.issue-tools { --reveal-wide: 2; margin-block: var(--space-3); }
 .github-example { border-inline-start: 3px solid var(--product); padding-inline-start: var(--space-2); }
+.begrippen-raster {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+.begripkaart {
+  display: grid;
+  grid-template-rows: 3rem 2.6em;
+  align-content: center;
+  justify-items: center;
+  min-block-size: 7.75rem;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--tile);
+  color: var(--fg);
+  text-decoration: none;
+}
+.begripkaart:hover, .begripkaart:focus-visible, .begripkaart[aria-expanded=true] {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+.begripkaart-icoon {
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  color: var(--ink);
+}
+.begripkaart-icoon:is(img) { filter: var(--icon-filter); }
+.begripkaart-titel {
+  display: grid;
+  place-items: center;
+  padding-inline: var(--space-1);
+  text-align: center;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+  line-height: 1.3;
+  align-self: center;
+}
+@media (max-width: 780px) { .begrippen-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 350px) { .begrippen-raster { grid-template-columns: 1fr; } }
+.begrip-paneel, .kennisbank-over { margin-block: var(--space-3); }
+.js .begrip-paneel:not([open]) { display: none; }
+.begrip-paneel-knop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--tile);
+  list-style: none;
+}
+.kennisbank-over summary { list-style: none; text-decoration: underline; }
+:is(.begrip-paneel-knop, .kennisbank-over summary)::-webkit-details-marker { display: none; }
+.leerling .begrip-paneel-knop h2 { margin: 0; padding: 0; border: 0; color: var(--fg); }
+.begrip-paneel-knop span { font-size: .875rem; text-decoration: underline; }
+.begrip-paneel:not([open]) .begrip-paneel-knop span { visibility: hidden; }
+.begrip-paneel-inhoud { min-width: 0; overflow-wrap: anywhere; }
 .begripbeeld {
   display: flex;
   flex-wrap: wrap;

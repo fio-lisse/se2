@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 345" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Van Markdown naar een leesbare GitHub-reactie</title>
+  <desc id="uitleg">Links staan de tekens voor een kop, vet, lijst, link en codeblok. Rechts zie je hoe GitHub deze vijf vormen opmaakt.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="345" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Van Markdown naar een leesbare GitHub-reactie</text>
+    <rect x="34" y="61" width="404" height="263" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <rect x="462" y="61" width="404" height="263" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="50" y="90" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Brontaal</text>
+    <text x="479" y="90" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Opgemaakt resultaat</text>
+    <path d="M49 108 L423 108" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M478 108 L849 108" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M49 143 L423 143" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M478 143 L849 143" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M49 178 L423 178" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M478 178 L849 178" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M49 213 L423 213" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M478 213 L849 213" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M49 248 L423 248" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <path d="M478 248 L849 248" fill="none" stroke="#9fb4c5" stroke-width="2"/>
+    <text x="50" y="132" font-size="17" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">### Hertest B01</text>
+    <text x="484" y="132" font-size="19" font-weight="700" fill="#183247" text-anchor="start">Hertest B01</text>
+    <text x="50" y="167" font-size="17" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">**Voorraad blijft 0**</text>
+    <text x="484" y="167" font-size="18" font-weight="700" fill="#183247" text-anchor="start">Voorraad blijft 0</text>
+    <text x="50" y="202" font-size="17" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">- Uitlenen geweigerd</text>
+    <text x="484" y="202" font-size="17" font-weight="400" fill="#183247" text-anchor="start">• Uitlenen geweigerd</text>
+    <text x="50" y="237" font-size="17" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">[API-proef](…)</text>
+    <text x="484" y="237" font-size="17" font-weight="400" fill="#183247" text-anchor="start">API-proef</text>
+    <path d="M484 241 L548 241" fill="none" stroke="#2c765f" stroke-width="2"/>
+    <text x="50" y="268" font-size="16" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">```http</text>
+    <text x="50" y="289" font-size="16" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">POST</text>
+    <text x="50" y="310" font-size="16" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">```</text>
+    <rect x="476" y="257" width="372" height="54" rx="3" fill="#fff" stroke="#688a7e" stroke-width="2"/>
+    <text x="484" y="288" font-size="17" font-weight="400" fill="#183247" text-anchor="start" font-family="monospace">POST</text>
+  </g>
+</svg>

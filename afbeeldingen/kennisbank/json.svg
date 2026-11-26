@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 269" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Veldnamen en waarden in JSON</title>
+  <desc id="uitleg">In het B01-antwoord is code een veldnaam met de tekst B01 als waarde. Voorraad is een veldnaam met het getal 1.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="269" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Veldnamen en waarden in JSON</text>
+    <rect x="34" y="67" width="832" height="55" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="55" y="102" font-size="23" font-weight="700" fill="#183247" text-anchor="start" font-family="monospace">{&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:1}</text>
+    <rect x="34" y="151" width="386" height="96" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="180" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Veldnaam</text>
+    <text x="50" y="207" font-size="17" font-weight="400" fill="#183247" text-anchor="start">&quot;code&quot; en &quot;voorraad&quot; benoemen</text>
+    <text x="50" y="230" font-size="17" font-weight="400" fill="#183247" text-anchor="start">welk gegeven dit is.</text>
+    <rect x="452" y="151" width="414" height="96" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="468" y="180" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Waarde</text>
+    <text x="468" y="207" font-size="17" font-weight="400" fill="#183247" text-anchor="start">&quot;B01&quot; staat tussen aanhalingstekens.</text>
+    <text x="468" y="230" font-size="17" font-weight="400" fill="#183247" text-anchor="start">1 is een getal en staat zonder quotes.</text>
+  </g>
+</svg>

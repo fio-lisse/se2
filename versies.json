@@ -1,5 +1,5 @@
 {
-  "current": "v3 · thema’s, voortgang en rubric",
+  "current": "v4 · visuele Kennisbank",
   "firstStudentVersion": "v1",
   "history": [
     {
@@ -25,6 +25,12 @@
       "date": "2026-11-26",
       "commit": "93a97d2d65197e8bdb7f514163f6bf62e55faa3a",
       "change": "Vier persoonlijke thema’s. Dynamische voortgangsroute. Vernieuwde rubric en kopieerbare voorbeeldbeoordeling. Markdown in de Kennisbank. Rustigere vormgeving."
+    },
+    {
+      "version": "v4",
+      "date": "2026-11-27",
+      "commit": "cfbd7b3873a0623823070518321c934176e96b17",
+      "change": "Vernieuwde visuele Kennisbank met herkenbare begrippeniconen, inhoudelijke schema’s bij alle begrippen en verbeterde Markdown-uitleg."
     }
   ]
 }

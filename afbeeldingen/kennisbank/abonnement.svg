@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 224" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Een abonnement voor de uitleenbalie</title>
+  <desc id="uitleg">De klant betaalt in opeenvolgende maanden. Tijdens het abonnement houdt de klant toegang tot de software.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="224" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Een abonnement voor de uitleenbalie</text>
+    <rect x="34" y="66" width="248" height="100" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="95" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Maand 1</text>
+    <text x="50" y="122" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Klant betaalt</text>
+    <text x="50" y="145" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Uitleensoftware beschikbaar</text>
+    <rect x="326" y="66" width="248" height="100" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="342" y="95" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Maand 2</text>
+    <text x="342" y="122" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Klant betaalt opnieuw</text>
+    <text x="342" y="145" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Toegang loopt door</text>
+    <rect x="618" y="66" width="248" height="100" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="634" y="95" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Maand 3</text>
+    <text x="634" y="122" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Klant betaalt opnieuw</text>
+    <text x="634" y="145" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Toegang loopt door</text>
+    <path d="M284 116 L319 116" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <path d="M576 116 L611 116" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <text x="450" y="204" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Voorbeeld van terugkerende betaling. Prijs en betalingsbereidheid zijn aannames.</text>
+  </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 235" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Wie gebruikt en wie beheert de uitleensoftware?</title>
+  <desc id="uitleg">Een verhuurbedrijf gebruikt de webapp in de browser. In een SaaS-model beheert de aanbieder de webapp en de updates.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="235" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Wie gebruikt en wie beheert de uitleensoftware?</text>
+    <rect x="34" y="67" width="340" height="112" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="96" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Verhuurbedrijf</text>
+    <text x="50" y="123" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Opent de B01-webapp.</text>
+    <text x="50" y="146" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Gebruikt de uitleenfunctie.</text>
+    <path d="M383 125 L511 125" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <text x="446" y="109" font-size="16" font-weight="400" fill="#183247" text-anchor="middle">Via internet</text>
+    <rect x="520" y="67" width="346" height="112" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="536" y="96" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Aanbieder</text>
+    <text x="536" y="123" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Beheert de webapp.</text>
+    <text x="536" y="146" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Regelt updates voor de dienst.</text>
+    <text x="450" y="213" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">De klant gebruikt de software zonder zelf een server voor die software te beheren.</text>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 236" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Wat merkt de klant aan actuele voorraad?</title>
+  <desc id="uitleg">Zonder zichtbare voorraad kan de balie hetzelfde balletje twee keer beloven. De medewerker kan bij een actuele stand eerst controleren of het beschikbaar is.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="236" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Wat merkt de klant aan actuele voorraad?</text>
+    <rect x="34" y="65" width="372" height="112" rx="9" fill="#fff3d6" stroke="#87651b" stroke-width="2"/>
+    <text x="50" y="94" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Zonder actuele stand</text>
+    <text x="50" y="121" font-size="17" font-weight="400" fill="#183247" text-anchor="start">De balie moet zoeken of bellen.</text>
+    <text x="50" y="144" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Eén bal kan dubbel worden beloofd.</text>
+    <path d="M414 120 L484 120" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <rect x="494" y="65" width="372" height="112" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="510" y="94" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Met actuele stand</text>
+    <text x="510" y="121" font-size="17" font-weight="400" fill="#183247" text-anchor="start">De medewerker controleert B01.</text>
+    <text x="510" y="144" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Bij 0 belooft die geen extra bal.</text>
+    <text x="450" y="214" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Minder zoekwerk en minder dubbele toezeggingen zijn de verwachte klantwaarde.</text>
+  </g>
+</svg>

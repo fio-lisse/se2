@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 252" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Eén gedeelde voorraad voor B01</title>
+  <desc id="uitleg">De backend leest of wijzigt de rij met code B01. Beide schermen zien de gewijzigde stand na opnieuw opvragen.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="252" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">Eén gedeelde voorraad voor B01</text>
+    <rect x="34" y="92" width="245" height="85" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="121" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Backend</text>
+    <text x="50" y="148" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Zoekt de rij met code B01.</text>
+    <path d="M286 135 L365 135" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <rect x="375" y="66" width="491" height="132" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="394" y="94" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Gedeelde gegevens in de Sheet</text>
+    <rect x="394" y="108" width="453" height="73" rx="3" fill="#fff" stroke="#688a7e" stroke-width="2"/>
+    <path d="M394 144 L847 144" fill="none" stroke="#688a7e" stroke-width="2"/>
+    <path d="M619 108 L619 181" fill="none" stroke="#688a7e" stroke-width="2"/>
+    <text x="413" y="133" font-size="17" font-weight="700" fill="#183247" text-anchor="start">code</text>
+    <text x="639" y="133" font-size="17" font-weight="700" fill="#183247" text-anchor="start">voorraad</text>
+    <text x="413" y="169" font-size="18" font-weight="400" fill="#183247" text-anchor="start">B01</text>
+    <text x="639" y="169" font-size="18" font-weight="400" fill="#183247" text-anchor="start">0</text>
+    <text x="450" y="229" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">Een tweede scherm ziet bij opnieuw opvragen dezelfde stand.</text>
+  </g>
+</svg>

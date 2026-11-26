@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 224" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">GET leest zonder te wijzigen</title>
+  <desc id="uitleg">Bij voorraad 1 vraagt GET de voorraad van B01 op. Het antwoord vermeldt 1 en ook na de aanvraag is de voorraad 1.</desc>
+  <defs>
+    <marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8z" fill="#315a79"/>
+    </marker>
+  </defs>
+  <rect width="900" height="224" rx="12" fill="#fff"/>
+  <g font-family="Arial, sans-serif">
+    <text x="34" y="38" font-size="25" font-weight="700" fill="#173b5a" text-anchor="start">GET leest zonder te wijzigen</text>
+    <rect x="34" y="66" width="248" height="100" rx="9" fill="#e8f2fb" stroke="#3478a8" stroke-width="2"/>
+    <text x="50" y="95" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Vóór de aanvraag</text>
+    <text x="50" y="122" font-size="17" font-weight="400" fill="#183247" text-anchor="start">B01 heeft voorraad 1.</text>
+    <rect x="326" y="66" width="248" height="100" rx="9" fill="#fff3d6" stroke="#87651b" stroke-width="2"/>
+    <text x="342" y="95" font-size="20" font-weight="700" fill="#183247" text-anchor="start">GET /exec?api=voorraad</text>
+    <text x="342" y="122" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Lees de stand van B01.</text>
+    <text x="342" y="145" font-size="17" font-weight="400" fill="#183247" text-anchor="start">Antwoord: voorraad 1.</text>
+    <rect x="618" y="66" width="248" height="100" rx="9" fill="#e7f3ee" stroke="#2c765f" stroke-width="2"/>
+    <text x="634" y="95" font-size="20" font-weight="700" fill="#183247" text-anchor="start">Na de aanvraag</text>
+    <text x="634" y="122" font-size="17" font-weight="400" fill="#183247" text-anchor="start">B01 heeft nog voorraad 1.</text>
+    <path d="M284 116 L319 116" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <path d="M576 116 L611 116" fill="none" stroke="#315a79" stroke-width="2.4" marker-end="url(#pijl)"/>
+    <text x="450" y="204" font-size="17" font-weight="400" fill="#3e586b" text-anchor="middle">GET vraagt informatie op. De gegevens blijven gelijk.</text>
+  </g>
+</svg>
