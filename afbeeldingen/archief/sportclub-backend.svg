@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 452" width="900" height="452" role="img" aria-labelledby="title desc">
+  <title id="title">B01: Twee aanvragen aan de uitleenbalie</title>
+  <desc id="desc">Beide aanvragen sturen POST met code B01. Bij voorraad 2 leent de regel één voetbal uit en is het antwoord voorraad 1 met Uitgeleend: Voetbal. Bij voorraad 1 houdt de regel de laatste bal vast en is het antwoord voorraad 1 met Laatste bal gereserveerd voor training.</desc>
+  <style>
+    text {font-family: Arial, sans-serif; fill: #182d25}
+    .card {fill: #fff; stroke: #a8b7af; stroke-width: 2}
+    .head {font-size: 26px; font-weight: 700}
+    .label {font-size: 23px; font-weight: 700; fill: #365a49}
+    .body {font-size: 23px}
+    .code {font-family: 'Liberation Mono', monospace; font-size: 23px}
+  </style>
+  <rect width="900" height="452" rx="18" fill="#eef3f0"/>
+  <rect x="16" y="16" width="426" height="420" rx="15" class="card"/>
+  <rect x="458" y="16" width="426" height="420" rx="15" class="card"/>
+
+  <text x="38" y="57" class="head">Situatie 1: voorraad 2</text>
+  <text x="38" y="103" class="label">Aanvraag</text>
+  <text x="38" y="136" class="code">POST {"code":"B01"}</text>
+  <path d="M49 154v21m-6-6 6 6 6-6" fill="none" stroke="#49735c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="38" y="210" class="label">Voorraadregel</text>
+  <text x="38" y="243" class="body">Voorraad is minstens 2.</text>
+  <text x="38" y="272" class="body">Leen 1 bal uit.</text>
+  <path d="M49 290v21m-6-6 6 6 6-6" fill="none" stroke="#49735c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="38" y="346" class="label">Antwoord: voorraad: 1</text>
+  <text x="38" y="380" class="body">Uitgeleend: Voetbal.</text>
+
+  <text x="480" y="57" class="head">Situatie 2: voorraad 1</text>
+  <text x="480" y="103" class="label">Aanvraag</text>
+  <text x="480" y="136" class="code">POST {"code":"B01"}</text>
+  <path d="M491 154v21m-6-6 6 6 6-6" fill="none" stroke="#49735c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="480" y="210" class="label">Voorraadregel</text>
+  <text x="480" y="243" class="body">Voorraad is 1.</text>
+  <text x="480" y="272" class="body">Houd de laatste bal achter.</text>
+  <path d="M491 290v21m-6-6 6 6 6-6" fill="none" stroke="#49735c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="480" y="346" class="label">Antwoord: voorraad blijft 1</text>
+  <text x="480" y="380" class="body">Laatste bal gereserveerd</text>
+  <text x="480" y="409" class="body">voor training.</text>
+</svg>

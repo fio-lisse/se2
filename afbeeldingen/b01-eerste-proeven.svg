@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Eerste proeven · fictieve v1</title>
+  <desc id="uitleg">Bij startvoorraad 1 kloppen melding en voorraad. Bij startvoorraad 0 volgt Gelukt en gaat de stand ten onrechte naar min 1.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #182d25 }
+    .kop { font-weight: 700; font-size: 30px }
+    .kopkolom { font-weight: 700; font-size: 21px; fill: #fff }
+    .basis { font-size: 21px }
+    .fout { fill: #873d1b; font-weight: 700 }
+  </style>
+  <rect width="920" height="300" rx="16" fill="#eef3f0"/>
+  <text x="24" y="47" class="kop">Eerste proeven · fictieve v1</text>
+  <rect x="24" y="79" width="872" height="158" rx="8" fill="#fff" stroke="#a8b7af"/>
+  <path d="M32 79H888Q896 79 896 87V120H24V87Q24 79 32 79Z" fill="#21533f"/>
+  <text x="37.0" y="107" class="kopkolom">Beginstand</text>
+  <text x="255.0" y="107" class="kopkolom">Verwacht</text>
+  <path d="M242.0 120V237" stroke="#cbd7ce"/>
+  <text x="473.0" y="107" class="kopkolom">Gezien in v1</text>
+  <path d="M460.0 120V237" stroke="#cbd7ce"/>
+  <text x="691.0" y="107" class="kopkolom">Oordeel</text>
+  <path d="M678.0 120V237" stroke="#cbd7ce"/>
+  <path d="M24 178H896" stroke="#cbd7ce"/>
+  <text x="37.0" y="155" class="basis">Voorraad 1</text>
+  <text x="255.0" y="155" class="basis">Gelukt, 0</text>
+  <text x="473.0" y="155" class="basis">Gelukt, 0</text>
+  <text x="691.0" y="155" class="basis">Goed</text>
+  <text x="37.0" y="210" class="basis">Voorraad 0</text>
+  <text x="255.0" y="210" class="basis">Niet beschikbaar, 0</text>
+  <text x="473.0" y="210" class="basis">Gelukt, −1</text>
+  <text x="691.0" y="210" class="basis fout">Fout</text>
+  <text x="24" y="276" class="basis">Verbeterpunt: laat de regel uitlenen bij 0 weigeren.</text>
+</svg>

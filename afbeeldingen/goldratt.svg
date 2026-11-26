@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 145" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Goldratts knelpunt aanpakken</title>
+  <desc id="uitleg">Vind het knelpunt. Benut wat beschikbaar is. Stem ander werk erop af. Vergroot zo nodig de capaciteit. Zoek opnieuw.</desc>
+  <defs><marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#315a79"/></marker></defs>
+  <rect width="960" height="145" rx="12" fill="#f4f8fb"/>
+  <g fill="#163850" font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="26" y="36" width="137" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="94.5" y="64" font-size="21" font-weight="bold">Vind</text>
+    <text x="94.5" y="89" font-size="17">Het knelpunt</text>
+    <path d="M168 73 L211 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="218" y="36" width="137" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="286.5" y="64" font-size="21" font-weight="bold">Benut</text>
+    <text x="286.5" y="89" font-size="17">Wat al kan</text>
+    <path d="M360 73 L403 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="410" y="36" width="137" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="478.5" y="64" font-size="21" font-weight="bold">Stem af</text>
+    <text x="478.5" y="89" font-size="17">Het andere werk</text>
+    <path d="M552 73 L595 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="602" y="36" width="137" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="670.5" y="64" font-size="21" font-weight="bold">Vergroot</text>
+    <text x="670.5" y="89" font-size="17">Als het nodig is</text>
+    <path d="M744 73 L787 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="794" y="36" width="137" height="74" rx="8" fill="#e6f4ed" stroke="#315a79" stroke-width="2"/>
+    <text x="862.5" y="64" font-size="21" font-weight="bold">Herhaal</text>
+    <text x="862.5" y="89" font-size="17">Zoek opnieuw</text>
+
+  </g>
+</svg>

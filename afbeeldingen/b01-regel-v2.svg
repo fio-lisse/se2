@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 253" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Uitleenregel vóór het wegschrijven</title>
+  <desc id="uitleg">Lees de voorraad. Bij voorraad nul stopt de regel met Niet beschikbaar zonder te schrijven. Bij voorraad één schrijft de regel nul en meldt Gelukt.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #182d25 }
+    .basis { font-size: 21px }
+  </style>
+  <rect width="900" height="253" rx="16" fill="#eef3f0"/>
+  <defs><marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#315a79"/></marker></defs>
+  <rect x="24" y="87" width="240" height="70" rx="8" fill="#fff" stroke="#315a79"/>
+  <text x="44" y="130" class="basis">Lees de voorraad</text>
+  <path d="M267 116L437 65M267 130L437 179" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+  <text x="326" y="81" class="basis">0</text>
+  <text x="326" y="183" class="basis">1</text>
+  <rect x="448" y="24" width="427" height="89" rx="8" fill="#fff" stroke="#315a79"/>
+  <text x="468" y="60" class="basis">Niet beschikbaar</text>
+  <text x="468" y="89" class="basis">Stop zonder wegschrijven</text>
+  <rect x="448" y="141" width="427" height="89" rx="8" fill="#e2f2e9" stroke="#315a79"/>
+  <text x="468" y="177" class="basis">Schrijf voorraad 0</text>
+  <text x="468" y="206" class="basis">Meld Gelukt</text>
+</svg>

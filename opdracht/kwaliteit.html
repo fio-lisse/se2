@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2 | Kwaliteit</title><link rel="stylesheet" href="../styles.css"></head><body class="se2 leerling"><main><nav class="documenten" aria-label="Documenten"><a href="../index.html">Issues</a><a href="../b01.html">Uitgewerkt voorbeeld</a><a href="../kennisbank.html">Kennisbank</a><a href="../rubric.html">Rubric</a></nav><span id="werkboek-kwaliteit-van-verwachting-naar-verbetering"></span><h1 id="werkboek-kwaliteit--van-verwachting-naar-verbetering">Werkboek Kwaliteit | van verwachting naar verbetering</h1>
+<p>Je werkt als <strong>Kwaliteit</strong> aan de ene functie van jullie bestaande project. De <a href="index.html">eindopdracht</a> en <a href="../b01.html">B01 als fictief leerlingteam</a> laten zien wat telt. Jullie bewaren ontwerp, tests en code elk <strong>één keer</strong>. De automatische B01-tests en Github Actions zijn <strong>oefenmateriaal</strong>. Ze zijn geen extra eis of inleverwerk.</p>
+<span id="1-bedenk-twee-situaties-27-november"></span><span id="1-bedenk-twee-situaties--30-november"></span><h2 id="1-bedenk-twee-situaties--27-november">1. Bedenk twee situaties | 30 november</h2>
+<figure>
+<img src="../afbeeldingen/functie.svg" alt="Bij B01 gaat een vraag via een controle naar een antwoord" class="inhoudsbeeld">
+<figcaption><em>Bij B01 gaat een vraag via een controle naar een antwoord</em></figcaption>
+</figure>
+
+<p class="card task"><img class="icon" src="../iconen/task.svg" alt="" aria-hidden="true"><strong>Opdracht:</strong> Lees de reacties onder D. Vul in schema C de beginstand, handeling en verwachte uitkomst in en plaats je eigen reactie onder D. B01 laat dit zien in <a href="../b01.html#hoofdissue-d">D</a> en in de <a href="../b01.html#b01-api-tabel">API-tabel</a>, met directe links naar <a href="../b01.html#api-get">GET</a> en <a href="../b01.html#api-post">POST</a>.</p>
+<p><strong>Klaar als:</strong> zijn de gewone én lastige situatie concreet? Kun je de uitkomst voorspellen voordat je op de knop drukt? Leg ook uit welke regel de uitkomst bepaalt?</p>
+<p><strong>Jullie project:</strong> kies twee situaties bij jullie eigen functie, gebruik de gegevens en regel uit het bestaande ontwerp. Kwaliteit kiest samen met Product een relevant lastig geval.</p>
+<span id="2-test-zelf-en-kies-een-verbeterpunt-4-december"></span><h2 id="2-test-zelf-en-kies-een-verbeterpunt--4-december">2. Test zelf en kies een verbeterpunt | 4 december</h2>
+<figure>
+<img src="../afbeeldingen/testcyclus.svg" alt="De testcyclus: verwacht, probeer, verbeter en hertest" class="inhoudsbeeld">
+<figcaption><em>De testcyclus: verwacht, probeer, verbeter en hertest</em></figcaption>
+</figure>
+
+<p class="card task"><img class="icon" src="../iconen/task.svg" alt="" aria-hidden="true"><strong>Opdracht:</strong> Voer beide situaties uit in de eerste werkende versie. Zet de afgesproken beginstand steeds opnieuw klaar. Vergelijk wat je ziet met de verwachting in D. Noteer de echte uitkomsten en één verbeterpunt in E. Bij B01 gaf de eerste versie bij voorraad 0 ten onrechte Gelukt en werd de voorraad −1. Backend test ook zonder scherm. Gebruik desgewenst de <a href="../b01.html#b01-api-tabel">B01 API-tabel</a>, <a href="../b01.html#api-get">GET</a> en <a href="../b01.html#api-post">POST</a>.</p>
+<p><strong>Klaar als:</strong> staat bij beide tests wat je werkelijk zag? Is het verbeterpunt precies genoeg om één fout te herstellen? Kan een teamgenoot uit de foutmelding begrijpen wat misging en welke voorraad overbleef?</p>
+<p><strong>Jullie project:</strong> noteer uiterlijk 4 december in E per situatie de echte uitkomst en het oordeel. Link naar D voor beginstand, actie en verwachting. Zet er één verbeterpunt bij en spreek af wie het uitvoert.</p>
+<span id="3-bekijk-automatische-tests-en-github-actions-oefenen"></span><h2 id="3-bekijk-automatische-tests-en-github-actions--oefenen">3. Bekijk automatische tests en Github Actions | oefenen</h2>
+<figure>
+<img src="../afbeeldingen/testen/rood.svg" alt="Rode Github Actions-run: een verkeerde verwachting maakt de test rood" class="inhoudsbeeld">
+<figcaption><em>Rode Github Actions-run: een verkeerde verwachting maakt de test rood</em></figcaption>
+</figure>
+
+<figure>
+<img src="../afbeeldingen/testen/groen.svg" alt="Groene Github Actions-run: de juiste verwachting laat de tests slagen" class="inhoudsbeeld">
+<figcaption><em>Groene Github Actions-run: de juiste verwachting laat de tests slagen</em></figcaption>
+</figure>
+
+<p class="card task"><img class="icon" src="../iconen/task.svg" alt="" aria-hidden="true"><strong>Opdracht:</strong> Open de <a href="../b01/tests/index.html">B01-testuitleg</a> en bekijk de <a href="../b01/resultaten.html">vastgelegde resultaten en workflow</a>. Vergelijk de rode en groene test en kijk wanneer een pakket wordt gemaakt. Een regel <strong>FOUT (bewust)</strong> in het groene lesvoorbeeld telt niet als mislukte workflow. De echte rode run had een verkeerde testverwachting. De oorspronkelijke Github-runs staan bij de resultaten als bron. Je hoeft geen run in de docent-repository te starten.</p>
+<p><strong>Klaar als:</strong> kun je aanwijzen welke run rood is, welke groen en waarom na een mislukte test geen versiepakket wordt gemaakt? Kun je uitleggen dat een automatische test de code controleert, maar niet vanzelf bewijst dat de hele webapp voor een gebruiker werkt?</p>
+<p><strong>Jullie project:</strong> bedenk welke van jullie twee bestaande tests je ooit zou kunnen automatiseren. Schrijf er alleen iets over als het jullie eigen werk helpt. Geen Github Actions-workflow verplicht.</p>
+<span id="4-hertest-en-wijs-het-bewijs-aan-8-december-en-mondeling"></span><h2 id="4-hertest-en-wijs-het-bewijs-aan--8-december-en-mondeling">4. Hertest en wijs het bewijs aan | 8 december en mondeling</h2>
+<figure>
+<img src="../afbeeldingen/testcyclus.svg" alt="Dezelfde twee situaties opnieuw na één verbetering" class="inhoudsbeeld">
+<figcaption><em>Dezelfde twee situaties opnieuw na één verbetering</em></figcaption>
+</figure>
+
+<p class="card task"><img class="icon" src="../iconen/task.svg" alt="" aria-hidden="true"><strong>Opdracht:</strong> Test na de wijziging in I <strong>beide</strong> situaties opnieuw, met dezelfde beginstanden. B01-voorbeeld: start 1 → ‘Gelukt’, 0, <strong>goed</strong>. Start 0 → ‘Niet beschikbaar’, 0, <strong>goed</strong>. Zet de hertests naast de eerste tests en het verbeterpunt, met links naar D en E. Link vanuit de team-README naar de hoofdissues en de geteste commit.</p>
+<p><strong>Klaar als:</strong> zijn de eerste twee tests, het verbeterpunt en beide hertests terug te vinden? Kan de docent vanuit de team-README de geteste versie openen?</p>
+<p><strong>Jullie project:</strong> zet uiterlijk 8 december om 16.00 uur in I de verbetering en beide hertests. Link vanuit de team-README naar D, E, I en M zonder het bewijs te herhalen. Manager levert één README-link in via het <a href="https://docs.google.com/forms/d/e/1FAIpQLSed-KMm5YDSjiJWeSc3e71JNCBLYuqv3zMjNY480sG4i90FWQ/viewform">eindformulier #3</a>. Bereid vóór die deadline in M je drie mondelingvragen voor. Wijs tijdens je mondeling één eigen test aan. Leg uit welke regel de uitkomst bepaalt en wat je teamgenoot inbracht en wat daarmee gebeurde. Dit werkboek vraagt geen tweede administratie.</p>
+</main><footer class="broncommit" data-broncommit="95c3107f674c78463f960004ff15206b54093dfc"><strong>v0 · besloten ontwikkelversie</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc"><code>95c3107</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

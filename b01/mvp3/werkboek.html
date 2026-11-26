@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2 | Werkboek</title><link rel="stylesheet" href="../../styles.css"></head><body class="se2 leerling"><main><nav class="documenten" aria-label="Documenten"><a href="../../index.html">Issues</a><a href="../../b01.html">Uitgewerkt voorbeeld</a><a href="../../kennisbank.html">Kennisbank</a><a href="../../rubric.html">Rubric</a></nav><span id="werkboek-b01-van-lokale-demo-naar-gedeelde-voorraad"></span><h1 id="werkboek-b01--van-lokale-demo-naar-gedeelde-voorraad">Werkboek B01 | van lokale demo naar gedeelde voorraad</h1>
+<p><strong>Doel:</strong> één team gebruikt één Google Sheet en één Apps Script-project. De Manager richt beide in met het schoolaccount. De rest opent later dezelfde webapp. Het balletje B01 heeft voorraad <strong>1</strong> als het beschikbaar is en <strong>0</strong> als het is uitgeleend.</p>
+<p>De beelden hieronder zijn <strong>schematische schermen</strong>. Knoppen kunnen op jouw Chromebook iets anders heten. De broncode staat in <a href="code.gs">Code.gs</a> en <a href="index.html">Index.html</a>. <strong>Er is nog geen Sheet of live webapp bij deze repository gemaakt.</strong></p>
+<span id="oefening-1-maak-de-gezamenlijke-voorraad"></span><h2 id="oefening-1--maak-de-gezamenlijke-voorraad">Oefening 1 | Maak de gezamenlijke voorraad</h2>
+<figure>
+<img src="afbeeldingen/01-sheet.svg" alt="Schematisch Google Sheet-scherm: tabblad Voorraad, kolommen code en voorraad, rij B01 met getal 1" class="inhoudsbeeld">
+<figcaption><em>Schematisch Google Sheet-scherm: tabblad Voorraad, kolommen code en voorraad, rij B01 met getal 1</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li>De Manager opent Google Drive en maakt <strong>één nieuwe Google Sheet</strong> voor het team.</li>
+<li>Noem het eerste tabblad precies <code>Voorraad</code>.</li>
+<li>Vul A1 <code>code</code>, B1 <code>voorraad</code>, A2 <code>B01</code> en B2 het <strong>getal</strong> <code>1</code> in.</li>
+<li>Kopieer uit het adres alleen de Sheet-ID: het stuk tussen <code>/d/</code> en <code>/edit</code>. Deel die ID niet in openbare Issues.</li>
+</ol>
+<p><strong>Controleren:</strong> zie je het tabblad <code>Voorraad</code> en staat B01 naast het getal 1? Er hoort precies één rij met B01 te zijn.</p>
+<span id="oefening-2-zet-de-code-in-apps-script"></span><h2 id="oefening-2--zet-de-code-in-apps-script">Oefening 2 | Zet de code in Apps Script</h2>
+<figure>
+<img src="afbeeldingen/02-script.svg" alt="Schematisch Apps Script-scherm met Code.gs, Index.html en de plek voor de Sheet-ID" class="inhoudsbeeld">
+<figcaption><em>Schematisch Apps Script-scherm met Code.gs, Index.html en de plek voor de Sheet-ID</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li>De Backend-leerling opent <a href="https://script.google.com/home">Apps Script</a> in de browser en kiest <strong>Nieuw project</strong>. Gebruik voor dit team maar één project.</li>
+<li>Open <a href="code.gs">Code.gs</a> op Github. Kopieer de hele inhoud naar het bestaande bestand <code>Code.gs</code> in Apps Script.</li>
+<li>Vervang in dat Apps Script-bestand alleen <code>VUL_HIER_DE_SPREADSHEET_ID_IN</code> door jouw Sheet-ID. Laat de aanhalingstekens staan. Zet de ID niet terug in Github.</li>
+<li>Klik in Apps Script op <strong>+</strong> bij Bestanden, kies <strong>HTML</strong> en noem het bestand <code>Index</code>. Kopieer daar de hele inhoud van <a href="index.html">Index.html</a> in. Sla op.</li>
+</ol>
+<p><strong>Controleren:</strong> staan er precies <code>Code.gs</code> en <code>Index.html</code> in het Apps Script-project? Staat de ID alleen in de Apps Script-kopie van <code>Code.gs</code>?</p>
+<span id="oefening-3-geef-het-team-toegang"></span><h2 id="oefening-3--geef-het-team-toegang">Oefening 3 | Geef het team toegang</h2>
+<figure>
+<img src="afbeeldingen/03-implementatie.svg" alt="Schematisch Apps Script-venster voor een Webapp met uitvoeren als ikzelf en beperkte toegang" class="inhoudsbeeld">
+<figcaption><em>Schematisch Apps Script-venster voor een Webapp met uitvoeren als ikzelf en beperkte toegang</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li>De Manager die de Sheet maakte kiest in Apps Script <strong>Implementeren → Nieuwe implementatie → Webapp</strong>.</li>
+<li>Kies <strong>Uitvoeren als: ikzelf</strong>. Geef toegang <strong>alleen aan de bedoelde gebruikers</strong>. Welke beperkte opties je ziet, hangt af van je schoolaccount. Vraag de docent als het team geen geschikte optie heeft. Kies geen openbare toegang voor deze oefening.</li>
+<li>Bevestig de toestemming van Google voor het lezen en wijzigen van je Sheet. Kopieer de webapp-URL met <code>/exec</code> en deel die met je team en docent via een plek waar zij toegang toe hebben.</li>
+</ol>
+<p><strong>Controleren:</strong> opent de <code>/exec</code>-URL de B01-pagina en staat daar <strong>Beschikbare voorraad: 1</strong>? Zie je een fout, controleer dan de Sheet-ID en de exacte namen uit oefening 1 en 2.</p>
+<span id="oefening-4-controleer-de-gedeelde-toestand"></span><h2 id="oefening-4--controleer-de-gedeelde-toestand">Oefening 4 | Controleer de gedeelde toestand</h2>
+<figure>
+<img src="afbeeldingen/04-controle.svg" alt="Twee schematische webappvensters met dezelfde voorraad 0 en de melding Niet beschikbaar bij nogmaals uitlenen" class="inhoudsbeeld">
+<figcaption><em>Twee schematische webappvensters met dezelfde voorraad 0 en de melding Niet beschikbaar bij nogmaals uitlenen</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li>Open dezelfde <code>/exec</code>-URL in twee vensters, bijvoorbeeld op twee Chromebooks van het team.</li>
+<li>Klik in venster 1 op <strong>Uitlenen</strong>. Vernieuw venster 2.</li>
+<li>Klik in venster 2 ook op <strong>Uitlenen</strong>. Klik daarna op <strong>Terugbrengen</strong> en vernieuw venster 1.</li>
+</ol>
+<p><strong>Controleren:</strong> na de eerste uitlening staat in beide vensters na vernieuwen <strong>0</strong>. De tweede uitlening geeft <strong>Niet beschikbaar</strong> en laat de voorraad op <strong>0</strong>. Na terugbrengen staat er <strong>1</strong>. Het JSON-vak op de pagina laat dezelfde voorraad zien. De server controleert aanvragen één voor één, zodat twee gelijktijdige verzoeken niet allebei B01 kunnen krijgen. Verander cel B2 tijdens het gebruik niet zelf.</p>
+<span id="oefening-4a-test-get-en-post-zonder-de-gewone-knoppen"></span><h2 id="oefening-4a--test-get-en-post-zonder-de-gewone-knoppen">Oefening 4a | Test GET en POST zonder de gewone knoppen</h2>
+<figure>
+<img src="afbeeldingen/04a-api-test.svg" alt="Twee API-tests in dezelfde webapp: GET leest voorraad 1 en POST uitlenen maakt er 0 van" class="inhoudsbeeld">
+<figcaption><em>Twee API-tests in dezelfde webapp: GET leest voorraad 1 en POST uitlenen maakt er 0 van</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li>Gebruik de <strong>bestaande</strong> webapp uit oefening 3. Log op je Chromebook in met je schoolaccount. De eigenaar zet de nieuwste versie van <code>Code.gs</code> en <code>Index.html</code> in hetzelfde Apps Script-project en implementeert een nieuwe versie. Er is geen tweede Sheet of installatie nodig.</li>
+<li>Open de beperkte <code>/exec</code>-URL. Klap <strong>Test GET en POST zonder de gewone knoppen</strong> open. Staat de voorraad op 0? Gebruik eerst <strong>Terugbrengen</strong> om op 1 te beginnen.</li>
+<li>Klik op <strong>GET: open het JSON-antwoord</strong>. In een nieuw tabblad staat bijvoorbeeld <code>{"code":"B01","voorraad":1}</code>. GET leest alleen.</li>
+<li>Kies <strong>uitlenen</strong> in het testformulier en klik op <strong>Verstuur POST</strong>. Het formulier stuurt echt een HTTP POST naar dezelfde <code>/exec</code>-URL. In een nieuw tabblad staat <code>{"gelukt":true,"voorraad":0}</code>.</li>
+<li>Verstuur <strong>uitlenen</strong> nog een keer. Nu staat er <code>{"gelukt":false,"voorraad":0,"melding":"Niet beschikbaar"}</code>. Ververs het GET-tabblad: de voorraad blijft 0. Kies ten slotte <strong>terugbrengen</strong> in het formulier om weer op 1 te eindigen.</li>
+</ol>
+<p><strong>Controleren:</strong> heb je GET en beide POST-antwoorden als JSON gezien? Stond de Sheet na de eerste POST op 0 en na terugbrengen weer op 1? De knop <strong>Verstuur POST</strong> hoort bij dit testformulier, niet bij de gewone uitleenknop van de app. Je gebruikt alleen de browser en jullie bestaande, beperkte webapp. Krijg je een aanmeldscherm, meld je aan met het schoolaccount dat toegang heeft; vraag de eigenaar of docent om toegang als dat niet lukt.</p>
+<span id="oefening-5-jullie-eigen-project"></span><h2 id="oefening-5--jullie-eigen-project">Oefening 5 | Jullie eigen project</h2>
+<figure>
+<img src="afbeeldingen/05-eigen-project.svg" alt="Drie pijlen van B01 naar het bestaande teamproject: gegevens, functie en beslisregel" class="inhoudsbeeld">
+<figcaption><em>Drie pijlen van B01 naar het bestaande teamproject: gegevens, functie en beslisregel</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li>Kijk naar B01: de <strong>gegevens</strong> zijn code B01 en voorraad 1 of 0, de <strong>functie</strong> is uitlenen, de <strong>beslisregel</strong> is ‘alleen bij voorraad 1’.</li>
+<li>Wijs in jullie <strong>bestaande project</strong> aan welke gegevens jullie nodig hebben, welke ene taak de gebruiker uitvoert en welke regel bepaalt of die taak lukt. Bij een game kan dat bijvoorbeeld ‘sleutels’, ‘deur openen’ en ‘alle sleutels verzameld’ zijn.</li>
+<li>Gebruik die drie antwoorden bij het ontwerpschema van jullie eigen eindopdracht. Backend kijkt welke gegevens moeten blijven kloppen, Product laat zien wat de gebruiker ziet en doet.</li>
+</ol>
+<p><strong>Controleren:</strong> kunnen jullie de gewone en lastige situatie van jullie <strong>eigen</strong> functie uitleggen? Bij welke handeling veranderen de gegevens, en wanneer juist niet?</p>
+<p>B01 is oefenmateriaal. Voor deze vertaalslag maak je <strong>geen tweede installatie</strong> en lever je <strong>niets extra</strong> in.</p>
+<span id="oefening-6-een-deur-met-drie-sleutels"></span><h2 id="oefening-6--een-deur-met-drie-sleutels">Oefening 6 | Een deur met drie sleutels</h2>
+<figure>
+<img src="afbeeldingen/06-sleutels.svg" alt="Vergelijk B01 uitlenen met een deur openen bij drie sleutels" class="inhoudsbeeld">
+<figcaption><em>Vergelijk B01 uitlenen met een deur openen bij drie sleutels</em></figcaption>
+</figure>
+
+<p><strong>Doen</strong></p>
+<ol type="1">
+<li><p>Stel dat jullie bestaande project een game is. Speler <code>P01</code> heeft <strong>3 sleutels</strong> en een <strong>gesloten deur</strong>. De taak is <strong>open de deur</strong>. Met 2 sleutels blijft de deur dicht. Sleutels worden hier niet verbruikt. Dit is een klein <strong>vergelijkingsvoorbeeld</strong> voor jullie eigen ontwerp, geen tweede verplichte installatie.</p></li>
+<li><p>Vergelijk de gegevens. B01 gebruikt tabblad <code>Voorraad</code> met <code>code | voorraad</code> en rij <code>B01 | 1</code>. De game zou in een eigen project tabblad <code>Speler</code> gebruiken:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr class="header">
+<th>speler</th>
+<th class="tekst-right">sleutels</th>
+<th>deurOpen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P01</td>
+<td class="tekst-right">3</td>
+<td>FALSE</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>FALSE</code> in C2 betekent dicht, <code>TRUE</code> betekent open. De Sheet-ID hoort alleen in de privé Apps Script-kopie van jullie <strong>eigen</strong> project. Gebruik voor de B01-oefening gewoon de bestaande Sheet.</p></li>
+<li><p>Vergelijk de regels in <code>Code.gs</code>. Bij B01 wordt <strong>B2</strong> na uitlenen <code>0</code> en bij voorraad <code>0</code> wordt de actie geweigerd. In een game zou de deurfunctie <strong>C2</strong> pas op <code>true</code> zetten als er minstens 3 sleutels zijn. Een mogelijke functie voor het eigen project is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">openDeur</span>() {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">metSlot_</span>(<span class="kw">function</span> () {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> sheet <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">openById</span>(SPREADSHEET_ID)<span class="op">.</span><span class="fu">getSheetByName</span>(<span class="st">&#39;Speler&#39;</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> sleutels <span class="op">=</span> sheet<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;B2&#39;</span>)<span class="op">.</span><span class="fu">getValue</span>()<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> deurOpen <span class="op">=</span> sheet<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;C2&#39;</span>)<span class="op">.</span><span class="fu">getValue</span>()<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="op">!</span><span class="bu">Number</span><span class="op">.</span><span class="fu">isInteger</span>(sleutels) <span class="op">||</span> sleutels <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">||</span> <span class="kw">typeof</span> deurOpen <span class="op">!==</span> <span class="st">&#39;boolean&#39;</span>) {</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&#39;Controleer B2 en C2 in tabblad Speler&#39;</span>)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (deurOpen) {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> { <span class="dt">gelukt</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> sleutels<span class="op">,</span> deurOpen<span class="op">,</span> <span class="dt">melding</span><span class="op">:</span> <span class="st">&#39;De deur is al open&#39;</span> }<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (sleutels <span class="op">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> { <span class="dt">gelukt</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> sleutels<span class="op">,</span> deurOpen<span class="op">,</span> <span class="dt">melding</span><span class="op">:</span> <span class="st">&#39;Nog niet genoeg sleutels&#39;</span> }<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    sheet<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;C2&#39;</span>)<span class="op">.</span><span class="fu">setValue</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    SpreadsheetApp<span class="op">.</span><span class="fu">flush</span>()<span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> { <span class="dt">gelukt</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> sleutels<span class="op">,</span> <span class="dt">deurOpen</span><span class="op">:</span> <span class="kw">true</span> }<span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><code>metSlot_</code> is dezelfde functie als in B01: zij voorkomt dat gelijktijdige aanvragen allebei met een oude toestand werken. Ook de rest van de backend moet bij de eigen gegevens passen. Deze functies vervangen de B01-varianten in jullie <strong>eigen</strong> backend. Het zijn voorbeeldfragmenten, geen tweede volledige app:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> TABBLAD <span class="op">=</span> <span class="st">&#39;Speler&#39;</span><span class="op">;</span> <span class="co">// in plaats van &#39;Voorraad&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">leesSpeler</span>() {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> sheet <span class="op">=</span> SpreadsheetApp<span class="op">.</span><span class="fu">openById</span>(SPREADSHEET_ID)<span class="op">.</span><span class="fu">getSheetByName</span>(TABBLAD)<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">speler</span><span class="op">:</span> <span class="st">&#39;P01&#39;</span><span class="op">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">sleutels</span><span class="op">:</span> sheet<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;B2&#39;</span>)<span class="op">.</span><span class="fu">getValue</span>()<span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">deurOpen</span><span class="op">:</span> sheet<span class="op">.</span><span class="fu">getRange</span>(<span class="st">&#39;C2&#39;</span>)<span class="op">.</span><span class="fu">getValue</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">doGet</span>(e) {</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (e<span class="op">.</span><span class="at">parameter</span><span class="op">.</span><span class="at">api</span> <span class="op">===</span> <span class="st">&#39;speler&#39;</span>) <span class="cf">return</span> <span class="fu">json_</span>(<span class="fu">leesSpeler</span>())<span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> HtmlService<span class="op">.</span><span class="fu">createHtmlOutputFromFile</span>(<span class="st">&#39;Index&#39;</span>)<span class="op">;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">doPost</span>(e) {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> verzoek <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(e<span class="op">.</span><span class="at">postData</span><span class="op">.</span><span class="at">contents</span>)<span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (verzoek<span class="op">.</span><span class="at">speler</span> <span class="op">!==</span> <span class="st">&#39;P01&#39;</span> <span class="op">||</span> verzoek<span class="op">.</span><span class="at">actie</span> <span class="op">!==</span> <span class="st">&#39;openen&#39;</span>) {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">json_</span>({ <span class="dt">gelukt</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span> <span class="dt">melding</span><span class="op">:</span> <span class="st">&#39;Onbekend verzoek&#39;</span> })<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">json_</span>(<span class="fu">openDeur</span>())<span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Vervang ook de controle op <code>A1=code, B1=voorraad, A2=B01</code> door <code>A1=speler, B1=sleutels, C1=deurOpen, A2=P01</code>. In <code>Index.html</code> horen dan een knop <strong>Open deur</strong> en een melding voor te weinig sleutels. Die knop kan <code>google.script.run.openDeur()</code> aanroepen. Kopieer deze gamefragmenten <strong>niet</strong> in jullie B01-installatie.</p></li>
+<li><p>Schrijf voor jullie ontwerp de verwachte antwoorden op. GET bij de beginstand: <code>{"speler":"P01","sleutels":3,"deurOpen":false}</code>. POST <code>openen</code> met 3 sleutels: <code>{"gelukt":true,"sleutels":3,"deurOpen":true}</code>. Lastig: begin opnieuw met 2 sleutels en <code>FALSE</code>. POST <code>openen</code> geeft <code>{"gelukt":false,"sleutels":2,"deurOpen":false,"melding":"Nog niet genoeg sleutels"}</code>. Schrijf bij je eigen project op welke gegevens, cel, beslisregel en JSON-velden daar in plaats van B01 nodig zijn.</p></li>
+</ol>
+<p><strong>Controleren:</strong> kun je aanwijzen dat B01 <strong>B2: 1 → 0</strong> verandert, maar de game <strong>C2: FALSE → TRUE</strong>? Bij twee sleutels blijft C2 <code>FALSE</code>. De drie sleutels blijven ook na openen in B2 staan. Bij jullie bestaande project kies je je <strong>eigen</strong> taak en regel; dit voorbeeld levert geen extra inleverwerk op.</p>
+<h2 id="wat-doen-get-post-en-json">Wat doen GET, POST en JSON?</h2>
+<p>Open <code>&lt;jouw /exec-URL&gt;?api=voorraad</code> in een browservenster. Dat is een <strong>GET</strong>: vraag de voorraad op. Je krijgt bijvoorbeeld <code>{"code":"B01","voorraad":1}</code>. Dat antwoord is <strong>JSON</strong>, tekst die een programma kan lezen.</p>
+<p><strong>POST</strong> is een verzoek om iets te wijzigen, zoals <code>{"code":"B01","actie":"uitlenen"}</code> of <code>{"code":"B01","actie":"terugbrengen"}</code>. De gewone knoppen op de pagina gebruiken <code>google.script.run</code> en sturen zelf geen HTTP POST. Het testformulier uit oefening 4a doet dat wel: het verstuurt de velden <code>code</code> en <code>actie</code> als formuliergegevens. <code>doPost</code> accepteert daarnaast een JSON-verzoek van een apart programma. In beide gevallen antwoordt de server met JSON. Je hoeft op je Chromebook geen extra tool te installeren.</p>
+<p><strong>Nog niet live vanuit deze repository:</strong> de code hier heeft geen echte Sheet-ID, Apps Script-project of webapp-URL. Zodra jullie zelf een werkende versie hebben ingericht, blijft de toegang beperkt tot de gebruikers die het team heeft gekozen. Na een latere codewijziging moet de eigenaar een nieuwe versie van de webapp implementeren. Gebruik geen echte persoonsgegevens in de Sheet.</p>
+</main><footer class="broncommit" data-broncommit="95c3107f674c78463f960004ff15206b54093dfc"><strong>v0 · besloten ontwikkelversie</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc"><code>95c3107</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

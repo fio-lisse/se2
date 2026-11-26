@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2 | B01-tests</title><link rel="stylesheet" href="../../styles.css"></head><body class="se2 leerling"><main><nav class="documenten" aria-label="Documenten"><a href="../../index.html">Issues</a><a href="../../b01.html">Uitgewerkt voorbeeld</a><a href="../../kennisbank.html">Kennisbank</a><a href="../../rubric.html">Rubric</a></nav><h1 id="automatische-tests-voor-b01">Automatische tests voor B01</h1>
+<p>Draai vanuit de hoofdmap van de repository:</p>
+<pre class="text"><code>node se2/b01/tests/voorraad.test.cjs</code></pre>
+<p>Dit script gebruikt de echte voorraadregels uit <a href="../mvp3/code.gs">MVP 3 Code.gs</a>. In plaats van een echte Google Sheet gebruikt het een kleine nepsheet. Zo heb je geen Google-account nodig. De bestaande MVP's blijven hetzelfde.</p>
+<p>Het programma controleert automatisch:</p>
+<ul>
+<li>Uitlenen bij voorraad 1: gelukt, voorraad wordt 0.</li>
+<li>Nogmaals uitlenen bij voorraad 0: niet gelukt, voorraad blijft 0.</li>
+<li>Terugbrengen bij voorraad 0: gelukt, voorraad wordt 1.</li>
+<li>Na een wijziging wordt de Sheet weggeschreven.</li>
+</ul>
+<p><strong>Bewust falende test:</strong> ‘Een tweede uitlening lukt toch bij voorraad 0.’ Dit is expres een verkeerde verwachting. De test toont <strong>FOUT (bewust)</strong> omdat de echte regel de tweede uitlening weigert. Dat laat zien dat een test een onjuiste verwachting kan ontdekken. De opdracht eindigt alleen met een foutcode als een <em>onverwachte</em> controle mislukt.</p>
+<p>Voorbeeld van de uitgevoerde test:</p>
+<pre class="text"><code>GOED: Van 1 naar 0: uitlenen lukt.
+GOED: Bij 0 blijft de voorraad 0: tweede uitlening mislukt.
+FOUT (bewust): Een tweede uitlening lukt toch bij 0 (opzettelijk verkeerde verwachting).
+  Zo zie je dat een test een verkeerde aanname ontdekt.
+GOED: Van 0 naar 1: terugbrengen lukt.
+GOED: Sheet wordt weggeschreven bij beide wijzigingen.
+4 controles goed, 1 bewust fout, 0 onverwachte fouten.</code></pre>
+<p>De test controleert de voorraadregels met een nepsheet, niet een live Google Sheet of een gepubliceerde webapp. <a href="../resultaten.html#workflow">Github Actions voert dezelfde controles uit</a>. Bekijk de <a href="../resultaten.html#run-45409183947">rode run met een verkeerde verwachting</a> en de <a href="../resultaten.html#run-45409258866">groene run na herstel</a>.</p>
+</main><footer class="broncommit" data-broncommit="95c3107f674c78463f960004ff15206b54093dfc"><strong>v0 · besloten ontwikkelversie</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc"><code>95c3107</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

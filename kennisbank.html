@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2 | Kennisbank</title><link rel="stylesheet" href="styles.css"></head><body class="se2 leerling"><main><nav class="documenten" aria-label="Documenten"><a href="index.html">Issues</a><a href="b01.html">Uitgewerkt voorbeeld</a><a href="kennisbank.html" aria-current="page">Kennisbank</a><a href="rubric.html">Rubric</a></nav><h1 class="matrix-sr" id="kennisbank-se-2">Kennisbank SE 2</h1><div class="reveal-grid"><details class="reveal accent-product"><summary class="reveal-button"><h2 id="abonnement"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Abonnement</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="Abonnement in stappen"><span>Maand 1: betaling</span><span aria-hidden="true">→</span><span>Maand 2: betaling</span><span aria-hidden="true">→</span><span>Toegang loopt door</span></figure>
+
+<p><strong>Wat is het?</strong> Bij een abonnement betaalt een klant regelmatig, bijvoorbeeld per maand of per jaar.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Het is een mogelijke manier voor een aanbieder om inkomsten te krijgen zolang klanten de dienst gebruiken.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Het verhuurbedrijf zou maandelijks kunnen betalen voor het gebruik van de uitleensoftware. De prijs en betalingsbereidheid zijn aannames.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://rentman.io/nl/prijzen">Prijzen van Rentman</a> en <a href="https://booqable.com/pricing/">prijzen van Booqable</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="api-get-post-en-json"><span id="api"></span><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">API</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> Een API is een afspraak over de aanvragen en antwoorden die onderdelen van software kunnen gebruiken.</p>
+<p><strong>Toepassing bij B01.</strong> Het uitleenscherm vraagt de stand op met <a href="#get">GET</a> en vraagt uitlenen aan met <a href="#post">POST</a>. De resultaten staan in <a href="#json">JSON</a>. Bekijk het <a href="b01.html#b01-api-tabel">overzicht van beide aanvragen</a>. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview">Bron over aanvragen en antwoorden: MDN</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="assignees"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Assignees</h2></summary><div class="reveal-content">
+<p><strong>Assignees</strong> laat zien wie het werk oppakt. Open in jullie repository <strong>Issues</strong>, kies bijvoorbeeld D en klik rechts op <strong>Assignees</strong>. Kies de GitHub-gebruikersnaam van degene die de afgesproken actie oppakt als je schrijfrechten hebt. Gebruik een afzonderlijke issue-reactie voor je inhoudelijke bijdrage. <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/assigning-issues-and-pull-requests-to-other-github-users">Bron: GitHub Docs over Assignees</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="backend"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Backend</h2></summary><div class="reveal-content">
+<p><strong>Wat beslist het programma?</strong> De backend ontvangt de vraag, leest de gegevens en voert de regel uit. In de huidige B01-casus geeft de regel bij voorraad 0 de melding Niet beschikbaar en verandert de voorraad niet. Volg die regel in <a href="b01/mvp3/code.gs">de Apps Script-code</a> of bekijk de <a href="b01.html#api-post">proef zonder scherm</a>.</p>
+<figure>
+<img src="afbeeldingen/archief/sportclub-backend.svg" alt="In de eerdere reservebalcasus loopt een POST-aanvraag via de voorraadregel naar een voorraad en melding." class="inhoudsbeeld">
+<figcaption>Voorbeeld uit de eerdere reservebalcasus, met de regel dat de laatste bal op voorraad blijft. <a href="https://github.com/fio-lisse/se2-start/blob/559574330c4e2c44a1131c257a35cceff36ccf96/docs/se2/beelden/sportclub-backend.svg">Bron: SE 2-beeldbank, 5595743</a>.</figcaption>
+</figure>
+
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="cd"><span id="cd--klaarzetten-en-uitrollen"></span><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">CD · Klaarzetten en uitrollen</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="CD in stappen"><span>Checks geslaagd</span><span aria-hidden="true">→</span><span>Versie klaarzetten</span><span aria-hidden="true">→</span><span>Uitbrengen</span></figure>
+
+<p><strong>Wat is het?</strong> Continuous Delivery betekent dat een gecontroleerde versie klaarstaat om uit te brengen. Bij Continuous Deployment gaat een versie na geslaagde controles automatisch naar gebruikers.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Gecontroleerd uitbrengen en de werking volgen kunnen de kans op problemen verminderen. Tests vinden niet alle fouten. De NOS-bron over de storing laat niet zien dat CD die had voorkomen.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Na geslaagde tests maakt de workflow een downloadbaar versiepakket. De <a href="b01/resultaten.html#run-45409702525">rode CD-run</a> faalde en maakte geen pakket. De <a href="b01/resultaten.html#run-45409798251">groene CD-run</a> slaagde en leverde het <a href="b01/resultaten.html#run-45409798251">B01-versiepakket</a>.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://www.linkedin.com/posts/nikkisiapno_concepts-every-developer-should-know-ci-activity-7413912743080296448-dP3b">Nikki Siapno over CI/CD</a> en <a href="https://corepunk.com/en-us/news/the-great-reset-corepunk-wipes-on-june-25-2026-2031">Corepunk: aankondiging van de reset</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="ci"><span id="ci--bouwen-en-testen"></span><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">CI · Bouwen en testen</h2></summary><div class="reveal-content">
+<figure>
+<img src="afbeeldingen/ci-cd.svg" alt="Na een wijziging bouwt en test CI. Na geslaagde tests zet CD de versie klaar of rolt die uit." class="inhoudsbeeld">
+<figcaption>Bouwen en testen in CI, gecontroleerd klaarzetten of uitrollen in CD. Bron voor het schema: <a href="https://docs.github.com/en/actions/get-started/understand-github-actions">GitHub Docs</a>.</figcaption>
+</figure>
+
+<p><strong>CI/CD</strong> combineert automatisch controleren met gecontroleerd klaarzetten of uitbrengen. Lees hieronder over CI en ga daarna naar <a href="#cd">CD</a>.</p>
+<p><strong>Wat is het?</strong> Continuous Integration (CI) betekent dat je wijzigingen regelmatig samenvoegt en automatisch controleert.</p>
+<p><strong>Waarom hebben we het nodig?</strong> <a href="#testen">Tests</a> kunnen snel melden dat een wijziging iets stukmaakt. Op 11 november 2026 waren meerdere overheidssites korte tijd onbereikbaar. Dat laat zien hoe belangrijk bereikbare software is. De bron laat niet zien dat CI deze storing had voorkomen.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Na een wijziging controleert CI of uitlenen bij voorraad 1 lukt en bij 0 wordt geweigerd. Bekijk de <a href="b01/resultaten.html#run-45409183947">rode run met een verkeerde verwachting</a> en de <a href="b01/resultaten.html#run-45409258866">groene run na herstel</a>.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> NOS, 11 november 2026, <a href="https://nos.nl/artikel/2638981">Meerdere websites van de overheid korte tijd onbereikbaar, oorzaak onbekend</a> en <a href="https://www.linkedin.com/posts/nikkisiapno_concepts-every-developer-should-know-ci-activity-7413912743080296448-dP3b">Nikki Siapno over CI/CD</a> (Engels).</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="database"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Database</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="Database in stappen"><span>Scherm vraagt de stand op</span><span aria-hidden="true">→</span><span>Database leest gedeelde voorraad</span><span aria-hidden="true">→</span><span>Scherm toont de stand</span></figure>
+
+<p><strong>Wat is het?</strong> Een database bewaart gegevens zodat je ze later kunt opvragen of wijzigen.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Het programma kan onthouden wat de huidige voorraad is.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> De database bewaart bijvoorbeeld de code B01 en de voorraad. Een Google Sheet kan hiervoor dienen.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="index.html#ticket-j">Marketing vult bij J de klantwaarde aan in D</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="frontend"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Frontend</h2></summary><div class="reveal-content">
+<p><strong>Wat ziet de gebruiker?</strong> De frontend is het scherm waarmee de gebruiker werkt. Bij B01 kiest die Uitlenen en ziet die de melding en de nieuwe voorraad. Volg de <a href="b01.html#2-bouw-en-test">Product-route in B01</a>.</p>
+<figure>
+<img src="afbeeldingen/archief/sportclub-product.svg" alt="Twee oude schermschetsen: uitlenen kan bij 2 ballen, bij 1 bal blijft de knop uit." class="inhoudsbeeld">
+<figcaption>Voorbeeld uit de eerdere reservebalcasus. Daar bleef één bal achter voor de training. <a href="https://github.com/fio-lisse/se2-start/blob/559574330c4e2c44a1131c257a35cceff36ccf96/docs/se2/beelden/sportclub-product.svg">Bron: SE 2-beeldbank, 5595743</a>.</figcaption>
+</figure>
+
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="functie"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Functie</h2></summary><div class="reveal-content">
+<figure>
+<img src="afbeeldingen/functie.svg" alt="Vraag, controle en antwoord bij B01" class="inhoudsbeeld">
+<figcaption><em>Vraag, controle en antwoord bij B01</em></figcaption>
+</figure>
+
+<p><strong>Wat is het?</strong> Een productfunctie helpt een gebruiker een taak uit te voeren. Een programmeerfunctie voert een taak uit met gegevens.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Een functie maakt duidelijk wat de gebruiker kan doen en hoe het programma daarop reageert.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Een leerling vraagt een bal. De functie controleert de voorraad en geeft antwoord.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://www.cofian.nl/management/procesmanagement/">Cofian, Procesmanagement</a> en <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Functions">MDN, Functions</a> (Engels).</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="get"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">GET</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> Met GET vraag je gegevens op. De aanvrager vraagt om informatie, zoals de actuele voorraad.</p>
+<p><strong>Toepassing bij B01.</strong> GET leest de stand zonder die te veranderen. <a href="b01.html#api-get">Bekijk de GET-aanvraag</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="github-actions"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">GitHub Actions</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="GitHub Actions in stappen"><span>Push</span><span aria-hidden="true">→</span><span>Workflow draait tests</span><span aria-hidden="true">→</span><span>Uitslag bij de commit</span></figure>
+
+<p><strong>Wat is het?</strong> GitHub Actions voert een afgesproken reeks stappen automatisch uit.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Het kan herhaald werk uitvoeren en de uitkomst tonen. Het is een hulpmiddel voor CI-controles en kan ook stappen bij CD uitvoeren.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> GitHub Actions voert de bestaande <a href="b01/tests/index.html">B01-tests</a> uit. De <a href="b01/resultaten.html#run-45409183947">rode workflow</a> toont een bewust verkeerde verwachting. Na herstel laat de <a href="b01/resultaten.html#run-45409258866">groene workflow</a> zien dat de tests slagen. Zo koppelt GitHub Actions een codewijziging aan de controles van CI.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://docs.github.com/en/actions/about-github-actions/understanding-github-actions">GitHub Docs: GitHub Actions begrijpen</a> (Engels).</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="github-en-samenwerken"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">GitHub en samenwerken</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="GitHub en samenwerken in stappen"><span>Issue: werk afspreken</span><span aria-hidden="true">→</span><span>Commit: wijziging vastleggen</span><span aria-hidden="true">→</span><span>Repository: geschiedenis bekijken</span></figure>
+
+<p><strong>Wat is het?</strong> In een repository staan projectbestanden en de geschiedenis van wijzigingen. Met een Issue bespreek je werk. Een commit bewaart een wijziging.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Teamleden werken samen in <a href="index.html#matrix-title">D, E, I en M</a>. Zet elke bijdrage in het hoofdissue van de fase. De team-README linkt naar de hoofdissues.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Het team plaatst ontwerp en testverwachtingen als reacties onder D, eerste uitkomsten onder E en wijziging en hertests onder I. De team-README linkt naar D, E, I en M.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/learning-about-issues/quickstart">GitHub Docs: werken met Issues</a> (Engels) en <a href="index.html#ticket-a">start bij A</a>.</p>
+<span id="praktijkvoorbeeld--dark-reader"></span><h3 id="praktijkvoorbeeld-dark-reader">Praktijkvoorbeeld · Dark Reader</h3>
+<p>Dark Reader is een open-source browseruitbreiding. Bekijk hoe een bestaand project zijn gebruikservaring, werkafspraken en versies uitlegt. Gebruik dit als voorbeeld van professioneel projectwerk, niet als extra eis voor SE 2.</p>
+<ul>
+<li><a href="https://darkreader.org/">Demo</a></li>
+<li><a href="https://github.com/darkreader/darkreader#readme">Project-README</a></li>
+<li><a href="https://github.com/darkreader/darkreader/issues">Issues</a></li>
+<li><a href="https://github.com/darkreader/darkreader/releases">Releases</a></li>
+<li><a href="https://github.com/darkreader/darkreader/actions">GitHub Actions</a></li>
+</ul>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="json"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">JSON</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> JSON is een vaste tekstvorm voor het uitwisselen van gegevens. Een object heeft veldnamen en waarden.</p>
+<p><strong>Toepassing bij B01.</strong> In <code>{"code":"B01","voorraad":1}</code> is <code>code</code> de veldnaam voor het balletje en staat bij <code>voorraad</code> het getal 1.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="klantwaarde"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Klantwaarde</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="Klantwaarde in stappen"><span>Onduidelijke voorraad</span><span aria-hidden="true">→</span><span>Actuele stand</span><span aria-hidden="true">→</span><span>Minder dubbele toezeggingen</span></figure>
+
+<p><strong>Wat is het?</strong> Klantwaarde is het nut van een oplossing voor een klant.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Een klant wil weten welk probleem kleiner wordt en wat de oplossing oplevert.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Een extern verhuurbedrijf kan sneller zien of een balletje beschikbaar is. Actuele gegevens kunnen zoekwerk en reserveringsfouten verminderen. Betrouwbare updates helpen de software bruikbaar te houden. Dat kan een reden zijn om ervoor te betalen. Meer over verdienmodel en <a href="#abonnement">abonnement</a>.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://booqable.com/nl/inventory-management/">Booqable: voorraadbeheer</a> en <a href="https://rentman.io/nl/industrieen/software-voor-materiaalverhuur">Rentman: materiaalverhuur</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="goldratt"><span id="knelpunt"></span><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Knelpunt</h2></summary><div class="reveal-content">
+<p><strong>Theorie van Goldratt.</strong> Een knelpunt is wat jullie team op dit moment het meest tegenhoudt. Pak dat eerst aan. Zo help je het werk dat daarop wacht verder.</p>
+<figure>
+<img src="afbeeldingen/goldratt.svg" alt="Vijf stappen: vind, benut, stem af, vergroot zo nodig en herhaal." class="inhoudsbeeld">
+<figcaption>De vijf stappen in vereenvoudigde leerlingtaal. Bron voor het schema: <a href="https://www.goldrattresearchlabs.com/introduction-to-toc/">Goldratt Research Labs</a>.</figcaption>
+</figure>
+
+<p><strong>Toepassing bij B01.</strong> Kwaliteit kan de proef bij voorraad 0 al voorbereiden. Om die af te maken, moet Product eerst zeggen welke melding en voorraad worden verwacht.</p>
+<figure>
+<img src="afbeeldingen/knelpunt-b01.svg" alt="De grensproef wacht op de verwachte melding en voorraad. Product zet de afspraak in D, waarna Kwaliteit de proef afmaakt." class="inhoudsbeeld">
+<figcaption>Bij B01 wacht het team op één afspraak. Bekijk de <a href="b01.html#b01-reactie-a">reactie van de Manager</a>.</figcaption>
+</figure>
+
+<ol type="1">
+<li><strong>Vind.</strong> De Manager ziet dat Kwaliteit de grensproef niet kan afmaken.</li>
+<li><strong>Benut.</strong> Product gebruikt het bestaande ontwerp en zet in D: ‘Niet beschikbaar, voorraad blijft 0.’</li>
+<li><strong>Stem af.</strong> Kwaliteit zet de proef alvast klaar. Het team maakt tijd voor Product om de afspraak af te ronden.</li>
+<li><strong>Vergroot zo nodig.</strong> Lukt het dan nog niet? De Manager regelt extra hulp om de regel duidelijk te krijgen.</li>
+<li><strong>Kijk opnieuw.</strong> Kan Kwaliteit de proef nu afmaken? Kijk daarna wat jullie het meest ophoudt.</li>
+</ol>
+<p><strong>Probeer het bij <a href="index.html#ticket-a">A</a>.</strong> Zet in je eigen reactie wat vastloopt, wie de volgende stap oppakt en wat die gaat doen.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="localstorage"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">localStorage</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="localStorage in stappen"><span>Voorraad wijzigen</span><span aria-hidden="true">→</span><span>Opslaan in deze browser</span><span aria-hidden="true">→</span><span>Zelfde stand na verversen</span></figure>
+
+<p><strong>Wat is het?</strong> localStorage bewaart gegevens in één browser.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Het is handig om een demo na verversen dezelfde stand te laten tonen.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> In <a href="b01/mvp2/index.html">MVP 2</a> blijft de voorraad in jouw browser staan. Dat is geen gedeelde voorraad: een andere browser of apparaat ziet die stand niet. Voor één gezamenlijke stand is een database nodig.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="b01/mvp2/index.html">Probeer MVP 2</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="post"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">POST</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> Met POST stuur je gegevens naar de server om te verwerken. De backend bepaalt welke handeling is toegestaan. Als de aanvraag JSON bevat, vermeldt de header <code>Content-Type: application/json</code> hoe de backend de inhoud moet lezen.</p>
+<p><strong>Toepassing bij B01.</strong> POST geeft uitlenen of terugbrengen door. Alleen bij een toegestane handeling verandert de voorraad. <a href="b01.html#api-post">Bekijk de POST-aanvraag</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="primm"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">PRIMM</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> Gebruik vijf leerstappen om bestaande code te leren begrijpen voordat je zelf iets maakt.</p>
+<figure>
+<img src="afbeeldingen/primm.svg" alt="Predict, Run, Investigate, Modify en Make." class="inhoudsbeeld">
+<figcaption>De vijf leerstappen. Bron voor het schema: <a href="https://suesentance.net/primm-project/">Sue Sentance</a>.</figcaption>
+</figure>
+
+<p><strong>Toepassing bij B01.</strong> Voorspel wat B01 doet bij voorraad 0. Voer de proef uit, zoek de regel, verander één ding en maak daarna een variant voor je eigen project.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="saas"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">SaaS</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="SaaS in stappen"><span>Klant opent de webapp</span><span aria-hidden="true">→</span><span>Gebruikt de uitleendienst</span><span aria-hidden="true">→</span><span>Aanbieder beheert de software</span></figure>
+
+<p><strong>Wat is het?</strong> SaaS betekent <em>Software as a Service</em>: software die je via internet als dienst gebruikt. De aanbieder beheert de dienst.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Een klant kan de dienst gebruiken zonder zelf een server voor de software te beheren.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Een verhuurbedrijf zou de uitleenfunctie online kunnen gebruiken, terwijl de aanbieder de software beheert.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://rentman.io/files/rentman-terms-and-conditions.pdf">Rentman beschrijft zijn dienst als SaaS</a> (Engels).</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="softwarearchitectuur"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Softwarearchitectuur</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> Softwarearchitectuur beschrijft uit welke onderdelen een systeem bestaat en hoe die samenwerken. In dit voorbeeld bedient de gebruiker de frontend. De API legt vast hoe de frontend en backend berichten uitwisselen. De backend past de regels toe en gebruikt de database voor gegevens.</p>
+<figure>
+<img src="afbeeldingen/softwarearchitectuur.svg" alt="Frontend, API, backend en database met pijlen tussen de onderdelen." class="inhoudsbeeld">
+<figcaption>Voorbeeld van de opbouw van een webapp. Bron voor het schema: <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Web_standards/The_web_standards_model">MDN</a>.</figcaption>
+</figure>
+
+<p><strong>Integratie</strong> betekent dat je losse onderdelen laat samenwerken. Spreek af wat het ene onderdeel stuurt, wat het andere teruggeeft en wie een fout afhandelt.</p>
+<p><strong>Aansluitafspraak bij B01.</strong> De knop Uitlenen stuurt de code B01 en de actie uitlenen. De regel controleert de voorraad in de Sheet en geeft de melding en nieuwe voorraad terug. Bij voorraad 0 geeft de regel ‘Niet beschikbaar’ terug en blijft de voorraad 0. Product verwerkt de weigering in de regel en zorgt dat het scherm de melding toont. Bekijk <a href="b01.html#ticket-e">de afspraak bij E</a> en <a href="b01.html#ticket-f">de eerste versie bij F</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="sponsoring"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Sponsoring</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="Sponsoring in stappen"><span>Sponsor geeft een balletje</span><span aria-hidden="true">→</span><span>Project gebruikt het</span><span aria-hidden="true">→</span><span>Sponsor krijgt naamsvermelding</span></figure>
+
+<p><strong>Wat is het?</strong> Bij sponsoring geeft een organisatie geld, spullen of diensten. Daar kan iets tegenover staan, zoals naamsbekendheid.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Sponsoring kan een project helpen betalen. Maak duidelijk wat de sponsor terugkrijgt.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Een mogelijke sponsor geeft bijvoorbeeld een balletje. In ruil krijgt de sponsor naamsvermelding. Dit is een voorbeeld, geen verplichting.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="index.html#ticket-d">Hoofdissue D</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="testen"><span id="testen-en-hertesten"></span><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Testen en hertesten</h2></summary><div class="reveal-content">
+<figure>
+<img src="afbeeldingen/testcyclus.svg" alt="Testen, verbeteren en opnieuw testen" class="inhoudsbeeld">
+<figcaption><em>Testen, verbeteren en opnieuw testen</em></figcaption>
+</figure>
+
+<p><strong>Wat is het?</strong> Bij testen vergelijk je wat je verwacht met wat er echt gebeurt.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Tests helpen fouten vinden en laten zien of een verbetering werkt.</p>
+<p><strong>Zo test je.</strong> Zet de beginstand klaar, doe de handeling en vergelijk wat je verwacht met wat je ziet. Zet voor elke hertest dezelfde beginstand terug.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Bij voorraad 1 lukt uitlenen. Voorraad 0 is het <strong>grensgeval</strong>: een extra uitlening moet worden geweigerd en de voorraad moet op 0 blijven. Noteer beide uitkomsten, verbeter één punt en test beide situaties opnieuw. Zie <a href="index.html#ticket-c">Testplan</a>, <a href="index.html#ticket-h">Eerste tests</a> en <a href="index.html#ticket-k">Hertests</a>.</p>
+<figure>
+<img src="afbeeldingen/b01-testnotitie.svg" alt="Bij startvoorraad 0 is v1 fout en blijft de voorraad na de verbetering op nul." class="inhoudsbeeld">
+<figcaption>Toepassing bij B01. Vergelijk in het fictieve voorbeeld de verwachting, eerste uitkomst en hertest per beginstand. <a href="https://github.com/fio-lisse/se2-start/blob/559574330c4e2c44a1131c257a35cceff36ccf96/docs/se2/beelden/sportclub-b01-test-hertest.svg">Bron: SE 2-beeldbank, aangepast voor de huidige B01-regel</a>.</figcaption>
+</figure>
+
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="b01/tests/index.html">B01-tests</a>, met een geslaagde controle en een bewust falende verwachting.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="v-model"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">V-model</h2></summary><div class="reveal-content">
+<p><strong>Theorie.</strong> Links werk je eisen en ontwerp uit. Onderin bouw je de oplossing. Rechts test je per niveau of de oplossing voldoet aan wat links is vastgelegd.</p>
+<figure>
+<img src="afbeeldingen/v-model.svg" alt="Een V verbindt eisen, architectuur en detailontwerp via implementatie met onderdeeltest, integratietest en acceptatietest." class="inhoudsbeeld">
+<figcaption>Elk stippelspoor koppelt een ontwerpbeslissing aan de bijpassende test. Bron voor het schema: <a href="https://www.sei.cmu.edu/blog/using-v-models-for-testing/">Carnegie Mellon SEI</a>.</figcaption>
+</figure>
+
+<p><strong>Toepassing bij B01.</strong> Leg vóór het bouwen vast dat bij 0 uitlenen niet lukt. Test na het bouwen de regel afzonderlijk en controleer daarna of de gebruiker de juiste melding ziet. Bekijk <a href="#testen">de testnotitie</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="veranderende-toestand"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Veranderende toestand</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="Veranderende toestand in stappen"><span>Voorraad 1</span><span aria-hidden="true">→</span><span>Uitlenen</span><span aria-hidden="true">→</span><span>Voorraad 0</span></figure>
+
+<p><strong>Wat is het?</strong> Een toestand beschrijft wat op dit moment waar is. Door een actie kan die veranderen.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Als gegevens veranderen, moet het programma de juiste nieuwe toestand onthouden. Anders kan het verkeerde antwoorden geven.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> De voorraad is 1 als het balletje beschikbaar is. Na uitlenen is de voorraad 0. Terugbrengen maakt de voorraad weer 1. De functie moet ook weten wat er gebeurt als iemand probeert te lenen bij voorraad 0.</p>
+<p>Ook in ARC Raiders veranderen gegevens als spelers spullen verplaatsen. De makers herstelden een fout waarbij spullen op een verkeerde plek terechtkwamen. Corepunk kondigde een reset van de spelwereld vooraf aan.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="https://arcraiders.com/news/store-update-1-47-0">ARC Raiders: update 1.47.0</a> en <a href="https://corepunk.com/en-us/news/the-great-reset-corepunk-wipes-on-june-25-2026-2031">Corepunk: aankondiging van de reset</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2 id="verdienmodel"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Verdienmodel</h2></summary><div class="reveal-content">
+<figure class="begripbeeld" aria-label="Verdienmodel in stappen"><span>Verhuurbedrijf</span><span aria-hidden="true">→</span><span>Betaalt voor uitleensoftware</span><span aria-hidden="true">→</span><span>Aanbieder ontvangt inkomsten</span></figure>
+
+<p><strong>Wat is het?</strong> Een verdienmodel legt uit hoe een organisatie inkomsten krijgt.</p>
+<p><strong>Waarom hebben we het nodig?</strong> Zo wordt duidelijk wie betaalt, waarvoor en waarom de opbrengst voor die klant de prijs waard kan zijn.</p>
+<p><strong>Hoe werkt het bij <a href="b01.html">B01</a>?</strong> Een verhuurbedrijf zou kunnen betalen voor software die de beschikbaarheid bijhoudt. Of het bedrijf daarvoor wil betalen, is een aanname.</p>
+<p class="card help"><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true"><strong>Bron of praktische hulp:</strong> <a href="index.html#ticket-j">Marketing vult bij J de klantwaarde aan in D</a>.</p>
+</div></details>
+<details class="reveal accent-product"><summary class="reveal-button"><h2><img class="icon" src="iconen/instruct.svg" alt="" aria-hidden="true">Over de kennisbank</h2></summary><div class="reveal-content">
+<img src="afbeeldingen/uitleenballetje.svg" alt="Blauw-geel uitleenballetje B01" class="b01-balletje">
+
+<p>Pas de begrippen uit het <a href="b01.html">uitgewerkte voorbeeld</a> toe op jullie project.</p>
+</div></details>
+</div></main><script defer src="uitklappen.js"></script><footer class="broncommit" data-broncommit="95c3107f674c78463f960004ff15206b54093dfc"><strong>v0 · besloten ontwikkelversie</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc"><code>95c3107</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

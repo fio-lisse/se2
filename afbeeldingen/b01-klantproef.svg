@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Schermschets voor de klantproef</title>
+  <desc id="uitleg">In de fictieve proef ziet de verhuurmedewerker voorraad nul en toch een actieve knop Uitlenen. De medewerker vraagt of opnieuw uitlenen kan.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #182d25 }
+    .kop { font-weight: 700; font-size: 30px }
+    .kopkolom { font-weight: 700; font-size: 21px; fill: #fff }
+    .basis { font-size: 21px }
+  </style>
+  <rect width="900" height="250" rx="16" fill="#eef3f0"/>
+  <rect x="20" y="20" width="414" height="210" rx="12" fill="#fff" stroke="#a8b7af"/>
+  <text x="42" y="68" class="kop">Scherm bij voorraad 0</text>
+  <text x="42" y="111" class="basis">B01 · Beschikbare voorraad: 0</text>
+  <rect x="42" y="143" width="144" height="48" rx="7" fill="#21533f"/>
+  <text x="63" y="174" class="kopkolom">Uitlenen</text>
+  <rect x="457" y="20" width="423" height="210" rx="12" fill="#fff" stroke="#a8b7af"/>
+  <text x="479" y="68" class="kop">Wat de gebruiker vraagt</text>
+  <text x="479" y="118" class="basis">“Kan ik dan toch nog uitlenen?”</text>
+  <text x="479" y="164" class="basis">Waarneming: de knop geeft</text>
+  <text x="479" y="194" class="basis">geen duidelijkheid bij voorraad 0.</text>
+</svg>

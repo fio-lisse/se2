@@ -1,116 +1,548 @@
 <!doctype html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2</title><style>
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: #f5f7f8; color: #182735; font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
-    main { max-width: 820px; margin: 0 auto; padding: 32px 24px 72px; background: #fff; min-height: 100vh; }
-    h1, h2 { line-height: 1.25; letter-spacing: -.02em; }
-    h1 { font-size: clamp(1.8rem, 4vw, 2.35rem); margin: 0 0 10px; }
-    h2 { font-size: 1.42rem; margin: 2.3rem 0 .7rem; padding-top: 1rem; border-top: 1px solid #dde5ea; }
-    p { margin: .75rem 0; }
-    h1 + p { display: inline-block; margin: .15rem 0 1rem; padding: .35rem .75rem; border-radius: 7px; background: #e9f2f6; color: #16435b; font-weight: 600; }
-    a { color: #075c90; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-    a:hover, a:focus-visible { color: #084269; }
-    a:focus-visible { outline: 3px solid #edaa46; outline-offset: 3px; }
-    pre { overflow-x: auto; padding: 1rem; border-radius: 8px; background: #eff3f5; line-height: 1.6; font-size: .91rem; }
-    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
-    ul { padding-left: 1.35rem; }
-    li { padding-left: .2rem; margin: .55rem 0; }
-    .klassen { display:flex; gap:.6rem; flex-wrap:wrap; margin:1rem 0; }
-    .klassen span { padding:.4rem .75rem; border-radius:6px; background:#e7f2fa; color:#12445e; }
-    .klassen span + span { background:#edf4e8; color:#294a29; }
-    .vraag { background:#f1f5f7; padding:1rem; border-left:4px solid #39799a; font-size:1.2rem; font-weight:700; }
-    .fases { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.6rem; padding:0; list-style:none; }
-    .fases li { background:#f1f5f7; border-radius:6px; padding:.65rem; margin:0; }
-    .fases strong { display:block; color:#075c90; }
-    .planning { overflow-x:auto; }
-    .planning table { border-collapse:collapse; width:100%; }
-    .planning th, .planning td { padding:.55rem; text-align:left; vertical-align:top; border-bottom:1px solid #d7e1e7; }
-    .planning th { background:#f1f5f7; }
-    @media (max-width: 600px) {
-      main { padding: 24px 18px 56px; }
-      body { font-size: 16px; }
-      pre { font-size: .82rem; }
-    }
-    @media print {
-      body { background: white; }
-      main { padding: 0; }
-      a { color: inherit; }
-    }
-  
-    .planning, .table-wrap { overflow-x:auto; margin:1rem 0; }
-    table { border-collapse:collapse; width:100%; }
-    th,td { padding:.55rem; text-align:left; vertical-align:top; border-bottom:1px solid #d7e1e7; }
-    th { background:#f1f5f7; }
-    caption { text-align:left; padding:.5rem 0; }
-    img { display:block; max-width:100%; height:auto; margin:1rem 0; }
-    button { font:inherit; padding:.4rem .8rem; border:1px solid #075c90; background:white; color:#075c90; border-radius:5px; cursor:pointer; }
-    button:focus-visible { outline:3px solid #edaa46; outline-offset:2px; }
-    @media(max-width:600px) { .table-wrap { max-width:100%; } th,td { padding:.45rem; } }
-</style></head><body><main>
-<h1 id="se-2">SE 2</h1>
-<p><strong>4H, 4V en 5V (Backend)</strong><br><strong>5H en 6V (Product)</strong></p>
-<p><strong>Hoe verbeter je met je team één functie, zodat een gebruiker één taak kan uitvoeren?</strong></p>
-<p>Werk in jullie bestaande project. Lever één link naar de README.md van jullie eigen team in. Leg in je mondeling jouw eigen werk uit.</p>
-<ol class="fases">
-<li><a href="#1-kies-je-klant-en-ontwerp">Kies en ontwerp</a></li>
-<li><a href="#2-bouw-en-test">Bouw en test</a></li>
-<li><a href="#3-leg-het-werk-vast">Leg het werk vast</a></li>
-<li><a href="#4-laat-zien-en-lever-in">Laat zien en lever in</a></li>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Issues · SE 2</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="uitklappen.js"></script>
+</head><body class="issues"><main>
+<nav class="documenten" aria-label="Documenten"><a href="index.html" aria-current="page">Issues</a><a href="b01.html">Uitgewerkt voorbeeld</a><a href="kennisbank.html">Kennisbank</a><a href="rubric.html">Rubric</a></nav>
+<h1 class="matrix-sr">Issues</h1>
+<section class="group" id="teammatrix" aria-labelledby="matrix-title">
+<h2 id="matrix-title" class="matrix-sr">Keuzematrix</h2>
+<noscript><p>Zet JavaScript aan om de issues te openen.</p></noscript>
+<p><a href="#ticket-a" data-open-ticket>Start bij A</a>. Manager maakt D, E, I en M aan. De kroon toont de faseleider. Plaats je bijdrage en latere aanvullingen als afzonderlijke GitHub-reactie.</p>
+<div class="table-wrap" role="region" aria-labelledby="matrix-title" tabindex="0">
+<table class="ticketmatrix" id="ticketmatrix">
+<thead><tr><th scope="col">Rol</th><th class="matrix-phase accent-marketing" scope="col">Kies en ontwerp<span class="matrix-date"><time datetime="2026-11-30">30 november</time></span></th><th class="matrix-phase accent-manager" scope="col">Bouw en test<span class="matrix-date"><time datetime="2026-12-04">4 december</time></span></th><th class="matrix-phase accent-product" scope="col">Leg het werk vast<span class="matrix-date"><time datetime="2026-12-08T16:00:00+01:00">8 december</time> om 16.00 uur</span></th><th class="matrix-phase accent-kwaliteit" scope="col">Mondeling<span class="matrix-date"><time datetime="2026-12-10">10</time>–<time datetime="2026-12-17">17 december</time></span></th></tr></thead>
+<tbody>
+<tr><th scope="row"><span class="matrix-role" data-icon="circle"></span>Manager</th>
+  <td class="matrix-phase accent-marketing"><button type="button" class="choice matrix-choice" id="ticket-a" data-ticket="A" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">A</span> <span class="matrix-issue-title">Knelpunt</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-manager"><button type="button" class="choice matrix-choice" id="ticket-e" data-ticket="E" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">E</span> <span class="matrix-issue-title">Integratie</span><span class="matrix-crown" data-crown aria-hidden="true" title="Manager leidt deze fase"></span><span class="matrix-sr">, faseverantwoordelijke</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-product"><button type="button" class="choice matrix-choice" id="ticket-l" data-ticket="L" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">L</span> <span class="matrix-issue-title">Eindcontrole</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-kwaliteit"><button type="button" class="choice matrix-choice" id="ticket-p" data-ticket="P" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">P</span> <span class="matrix-issue-title">Samenwerking</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+</tr>
+<tr><th scope="row"><span class="matrix-role" data-icon="triangle"></span>Product</th>
+  <td class="matrix-phase accent-marketing"><button type="button" class="choice matrix-choice" id="ticket-b" data-ticket="B" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">B</span> <span class="matrix-issue-title">Functieontwerp</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 3"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-manager"><button type="button" class="choice matrix-choice" id="ticket-f" data-ticket="F" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">F</span> <span class="matrix-issue-title">Eerste versie</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 5"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-product"><button type="button" class="choice matrix-choice" id="ticket-i" data-ticket="I" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">I</span> <span class="matrix-issue-title">Verbetering</span><span class="matrix-crown" data-crown aria-hidden="true" title="Product leidt deze fase"></span><span class="matrix-sr">, faseverantwoordelijke</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 5"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-kwaliteit"><button type="button" class="choice matrix-choice" id="ticket-n" data-ticket="N" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">N</span> <span class="matrix-issue-title">Regel uitleggen</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+</tr>
+<tr><th scope="row"><span class="matrix-role" data-icon="diamond"></span>Kwaliteit</th>
+  <td class="matrix-phase accent-marketing"><button type="button" class="choice matrix-choice" id="ticket-c" data-ticket="C" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">C</span> <span class="matrix-issue-title">Testplan</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-manager"><button type="button" class="choice matrix-choice" id="ticket-h" data-ticket="H" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">H</span> <span class="matrix-issue-title">Eerste tests</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 3"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-product"><button type="button" class="choice matrix-choice" id="ticket-k" data-ticket="K" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">K</span> <span class="matrix-issue-title">Hertests</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 3"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-kwaliteit"><button type="button" class="choice matrix-choice" id="ticket-m" data-ticket="M" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">M</span> <span class="matrix-issue-title">Test uitleggen</span><span class="matrix-crown" data-crown aria-hidden="true" title="Kwaliteit leidt deze fase"></span><span class="matrix-sr">, faseverantwoordelijke</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+</tr>
+<tr><th scope="row"><span class="matrix-role" data-icon="square"></span>Marketing</th>
+  <td class="matrix-phase accent-marketing"><button type="button" class="choice matrix-choice" id="ticket-d" data-ticket="D" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">D</span> <span class="matrix-issue-title">Klantwens</span><span class="matrix-crown" data-crown aria-hidden="true" title="Marketing leidt deze fase"></span><span class="matrix-sr">, faseverantwoordelijke</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-manager"><button type="button" class="choice matrix-choice" id="ticket-g" data-ticket="G" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">G</span> <span class="matrix-issue-title">Klantproef</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-product"><button type="button" class="choice matrix-choice" id="ticket-j" data-ticket="J" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">J</span> <span class="matrix-issue-title">Klantwaarde</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+  <td class="matrix-phase accent-kwaliteit"><button type="button" class="choice matrix-choice" id="ticket-o" data-ticket="O" aria-controls="ticketbox" aria-expanded="false"><span class="matrix-letter">O</span> <span class="matrix-issue-title">Klantkeuze</span><span class="matrix-status" aria-hidden="true"></span><span class="matrix-size" aria-label="Omvang 2"><span aria-hidden="true"></span><span aria-hidden="true"></span></span></button></td>
+</tr>
+</tbody></table></div></section>
+<section class="panel" id="ticketbox" aria-labelledby="title" hidden>
+<article class="issue-card" id="ticket">
+<div class="row"><div class="symbol" id="titleicon"></div>
+<div class="detail"><span class="issuecode" id="code"></span><h2 class="issue-title" id="title" tabindex="-1"></h2>
+</div>
+<div class="ticket-acties"><a id="ticket-tegenhanger" href="b01.html">Bekijk dit issue in B01</a></div></div>
+<div class="row"><div class="symbol" id="deadlineicon"></div><div class="detail"><span class="label" id="deadline-label">Deadline</span><span class="value" id="deadline"></span></div></div>
+<div class="row"><div class="symbol" id="bewijsicon"></div><div class="detail"><span class="label">Bewijsplek</span><span class="value" id="bewijsplek"></span></div></div>
+<div class="row" id="ticket-overdrachten"><div class="symbol" id="afhankelijkhedenicon"></div><div class="detail">
+<details class="ticket-handoff-details">
+<summary class="label">Overdrachten bij dit issue</summary>
+<dl class="ticket-handoffs">
+  <div class="ticket-handoff"><dt>Krijg je van</dt><dd><ul class="ticket-links" id="afhankelijkheden"></ul></dd></div>
+  <div class="ticket-handoff"><dt>Geef je door aan</dt><dd><ul class="ticket-links" id="vervolgtickets"></ul></dd></div>
+</dl></details>
+</div></div>
+<div class="stagebody" id="stagebody"></div>
+</article></section>
+
+<div class="reveal-grid issue-tools">
+<details class="reveal accent-product">
+<summary class="reveal-button"><h2 id="overdrachten-title"><img class="icon" src="iconen/proof.svg" alt="" aria-hidden="true">Overdrachten</h2></summary>
+<div class="reveal-content">
+<ol class="phase-handoff-list">
+  <li class="accent-marketing"><a href="#ticket-d" data-open-ticket>D Klantwens</a><span>Klantwens, ontwerp en testplan in D</span></li>
+  <li class="accent-manager"><a href="#ticket-e" data-open-ticket>E Integratie</a><span>Vaste eerste versie, eerste uitkomsten en verbeterpunt in E</span></li>
+  <li class="accent-product"><a href="#ticket-i" data-open-ticket>I Verbetering</a><span>Verbeterde versie en hertests in I</span></li>
+  <li class="accent-kwaliteit"><a href="#ticket-m" data-open-ticket>M Test uitleggen</a><span>Gezamenlijke oefenronde met bestaand bewijs</span></li>
 </ol>
-<div class="table-wrap"><table><thead><tr><th scope="col">Wanneer</th><th scope="col">Wat laat je zien of lever je in?</th></tr></thead><tbody><tr><th scope="row">27 november</th><td>Ontwerp en twee situaties.</td></tr><tr><th scope="row">4 december</th><td>Werkende versie, twee eerste tests en één verbeterpunt.</td></tr><tr><th scope="row">8 december, 16.00 uur</th><td>Verbetering, twee hertests en één link naar de README.md van jullie eigen team via het Google Formulier op de SE 2-startpagina.</td></tr><tr><th scope="row">10 tot 17 december</th><td>Wijs in je mondeling één stuk eigen werk aan en leg uit wat je deed en hoe het werkt.</td></tr></tbody></table></div>
-<h2 id="beoordeling">Beoordeling</h2>
-<p><strong>Groepswerk: 50 punten</strong></p>
-<div class="table-wrap"><table><thead><tr><th scope="col">Criterium</th><th scope="col">Maximaal</th></tr></thead><tbody><tr><th scope="row">Werking</th><td>15 punten</td></tr><tr><th scope="row">Ontwerp</th><td>10 punten</td></tr><tr><th scope="row">Opbouw</th><td>5 punten</td></tr><tr><th scope="row">Testen en verbeteren</th><td>10 punten</td></tr><tr><th scope="row">Klantwaarde</th><td>10 punten</td></tr></tbody></table></div>
-<p><strong>Mondeling: 50 punten</strong></p>
-<div class="table-wrap"><table><thead><tr><th scope="col">Criterium</th><th scope="col">Maximaal</th></tr></thead><tbody><tr><th scope="row">Eigen bijdrage</th><td>20 punten</td></tr><tr><th scope="row">Technisch begrip</th><td>20 punten</td></tr><tr><th scope="row">Reflectie en samenwerking</th><td>10 punten</td></tr></tbody></table></div>
-<p>Lees de <a href="rubric.html">volledige rubric</a>.</p>
-<h2 id="wat-is-een-functie">Wat is een functie?</h2>
-<p>Een productfunctie helpt de gebruiker iets doen, zoals een bal uitlenen. Een programmeerfunctie voert een taak uit: ze kan gegevens ontvangen, daarmee iets doen en een uitkomst geven. Denk aan een machine: er gaat iets in en er komt iets uit.</p>
-<img src="afbeeldingen/functie.svg" alt="Leerling vraagt een balletje. De functie controleert de voorraad en geeft een uitkomst." loading="lazy">
-<p>Bron: <a href="https://www.cofian.nl/management/procesmanagement/">Cofian, Procesmanagement</a>.</p>
-<h2 id="1-kies-je-klant-en-ontwerp">1. Kies je klant en ontwerp</h2>
-<p>Open jullie project op Github. Kies een mogelijke klant of doelgroep buiten jullie eigen kring en die van de docent. Bedenk welk probleem die heeft en welke functie daarbij helpt.</p>
-<p><strong>Voorbeeld uitleenmateriaal:</strong> Klant: een school. Probleem: zoekwerk en weinig overzicht. Functie: één balletje uitlenen en terugbrengen. De school betaalt hiervoor om zoekwerk te verminderen en meer overzicht te krijgen.</p>
-<p>Kies daarna één taak voor die gebruiker. Kopieer en vul dit schema in het Issue van die functie. Een bestaand Issue of gedeeld document mag ook. Gebruik één schema.</p>
-<button type="button" id="kopieer-schema">Kopieer schema</button>
-<pre id="ontwerpschema"><code>Gebruiker en taak:
-Gegevens en regel:
-Keuze en waarom:
-Gewone situatie → verwachte uitkomst:
-Lastige situatie → verwachte uitkomst:</code></pre>
-<p>Gebruikt jullie Backend een API? GET kijkt hoeveel balletjes er zijn. POST voert een actie uit, zoals uitlenen. Zet bij beide situaties de aanvraag en het verwachte JSON-antwoord.</p>
-<p><strong>Ingevuld voorbeeld uitleenballetje</strong></p>
-<div class="table-wrap"><table><thead><tr><th scope="col">Veld</th><th scope="col">Voorbeeld</th></tr></thead><tbody><tr><th scope="row">Gebruiker en taak</th><td>Leerling leent één balletje.</td></tr><tr><th scope="row">Gegevens en regel</th><td>Voorraad is 1. Bij uitlenen wordt dit 0. Bij terugbrengen wordt dit 1.</td></tr><tr><th scope="row">Keuze en waarom</th><td>Toon de voorraad, zodat de school weet waar het balletje is.</td></tr><tr><th scope="row">Gewoon</th><td>Voorraad 1 → 0; uitlenen lukt.</td></tr><tr><th scope="row">Lastig</th><td>Voorraad 0 → uitlenen lukt niet.</td></tr></tbody></table></div>
-<p><strong>Backendvoorbeeld met API</strong></p>
-<img src="afbeeldingen/backend-api.svg" alt="Scherm, API en database: GET haalt de voorraad op; POST leent het balletje uit. Bij 0 lukt uitlenen niet; terugbrengen zet de voorraad op 1." loading="lazy">
-<pre><code>GET → {&quot;code&quot;:&quot;B01&quot;,&quot;voorraad&quot;:1}
-POST {&quot;code&quot;:&quot;B01&quot;,&quot;actie&quot;:&quot;uitlenen&quot;} → {&quot;gelukt&quot;:true,&quot;voorraad&quot;:0}
-POST {&quot;code&quot;:&quot;B01&quot;,&quot;actie&quot;:&quot;uitlenen&quot;} bij 0 → {&quot;gelukt&quot;:false,&quot;voorraad&quot;:0,&quot;melding&quot;:&quot;Niet beschikbaar&quot;}
-POST {&quot;code&quot;:&quot;B01&quot;,&quot;actie&quot;:&quot;terugbrengen&quot;} → {&quot;gelukt&quot;:true,&quot;voorraad&quot;:1}</code></pre>
-<h2 id="bewijsroute">Bewijsroute</h2>
-<div class="table-wrap"><table><thead><tr><th scope="col">Onderdeel</th><th scope="col">Waar staat het?</th></tr></thead><tbody><tr><th scope="row">Ontwerp</th><td>Issue van de gekozen functie.</td></tr><tr><th scope="row">Tests</th><td>Issue ‘Tests’, bestaand testissue of één gedeeld document.</td></tr><tr><th scope="row">Code</th><td>Commit met de geteste versie.</td></tr><tr><th scope="row">Bewijs en inlevering</th><td>Links in de README.md van jullie team.</td></tr></tbody></table></div>
-<p>Verwijs naar bestaand bewijs. Houd het op één plek; maak geen dubbele administratie.</p>
-<h2 id="2-bouw-en-test">2. Bouw en test</h2>
-<p>Product: laat de gebruiker de taak van begin tot eind doen. Backend: laat de vraag van het scherm zien, welke gegevens je leest of wijzigt, welke regel beslist en welk antwoord terugkomt. Gebruik een database; Google Sheets mag. Een aparte databaseserver hoeft niet. Maak één bewerking ook zonder het scherm testbaar. Voorbeeld: roep de uitleenfunctie aan bij voorraad 0. Verwacht: uitlenen lukt niet en de voorraad blijft 0.</p>
-<img src="afbeeldingen/testcyclus.svg" alt="Test de gewone en lastige situatie, verbeter één punt en test beide opnieuw met dezelfde verzonnen gegevens." loading="lazy">
-<p>Zet je testbewijs op de plek bij Tests in de bewijsroute. Noteer bij beide situaties de verwachting en eerste uitkomst, het verbeterpunt en beide nieuwe uitkomsten.</p>
-<h2 id="3-leg-het-werk-vast">3. Leg het werk vast</h2>
-<p>Zet in de README.md van jullie eigen team: het klantprobleem, wat de functie oplevert en wat nog ontbreekt; wie waarvoor zou willen betalen en waarom; links naar het ontwerp, de tests, de code, gebruikt werk uit les 1 tot 4 en de geteste commit of tag. Schrijf onder ‘Zo probeer je het’ hoe iemand de geteste versie binnen twee minuten opent en probeert. Verwijs naar het bestaande bewijs; kopieer het niet opnieuw.</p>
-<p>Klantcontact is vrijwillig. Wil je mailen, vraag dan eerst toestemming in jullie Issue. Een reactie of verkoop levert op zichzelf geen hoger niveau op.</p>
-<p>Controleer of de docent toegang heeft tot de repository en gelinkte documenten. Zet geen herkenbare persoonsgegevens in openbare bestanden, Issues of commitberichten.</p>
-<h2 id="4-laat-zien-en-lever-in">4. Laat zien en lever in</h2>
-<p>Volg de planning bovenaan. Lever de link naar de README van jullie team in.</p>
-</main><script>
-document.getElementById('kopieer-schema')?.addEventListener('click', async function () {
-  const text = document.querySelector('#ontwerpschema code').textContent;
-  try { await navigator.clipboard.writeText(text); this.textContent = 'Gekopieerd'; }
-  catch (error) {
-    const area = document.createElement('textarea'); area.value = text;
-    document.body.append(area); area.select();
-    const copied = document.execCommand('copy'); area.remove();
-    this.textContent = copied ? 'Gekopieerd' : 'Selecteer het schema en kopieer het';
+<p>Begin alvast met wat je kunt voorbereiden.</p>
+</div></details>
+<details class="reveal accent-product">
+<summary class="reveal-button"><h2><img class="icon" src="iconen/help.svg" alt="" aria-hidden="true">Praktische hulp</h2></summary>
+<div class="reveal-content">
+<p><a href="opdracht/index.html">Eindopdracht en werkboeken</a> · <a href="b01.html#hoofdissue-d">Bekijk de B01-gesprekken</a></p>
+<p>Bij Backend: open de B01-uitleg voor <a href="b01.html#api-get">GET</a> en <a href="b01.html#api-post">POST</a>.</p>
+<details><summary>Traject Product of Backend</summary><dl>
+<dt>Product</dt><dd>Beschrijf hoe de gebruiker de taak van begin tot eind uitvoert. Noteer per situatie de actie en het zichtbare resultaat.</dd>
+<dt>Backend</dt><dd>Ontwerp de regel en de database. Bij een API noteer je per situatie GET of POST, route, aanvraag en verwacht JSON. Bereid één proef zonder scherm voor.</dd>
+</dl></details><details><summary>Privacycheck als openbare bezoeker</summary><p>Open de README, issues, demo en bewijslinks in een privévenster zonder in te loggen. Kijk wat een bezoeker kan lezen, downloaden of bewerken. Gebruik fictieve testdata. Haal namen, leerlingnummers, contactgegevens en toegangssleutels uit openbaar werk. Controleer afzonderlijk of de docent de afgeschermde bewijslinks kan openen.</p></details>
+
+</div></details></div>
+
+
+</main>
+<template id="issue-A" data-title="Knelpunt" data-needs="" data-main="D" data-destination="D" data-handoff="team-README met vier issuelinks en vervolgafspraak">
+  <section data-label="Imagine"><div class="value">Start hier samen. Richt als Manager de bestaande team-README in. Open daarna in het lesmateriaal achtereenvolgens D, E, I en M. Kopieer per hoofdissue de issuebeschrijving.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testen/manager-planning.svg" alt="Vier rolafspraken voor B01: bouwen, testen, klantwaarde en bewijslinks." loading="lazy"><figcaption>Voorbeeld van een taakafspraak: Product past de uitleenregel aan en Kwaliteit hertest bij 1 en 0. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/c27d971ae92c3ec37a58c0e22b57069ef5247c89/se2/werkboeken/afbeeldingen/manager-planning.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Maak als Manager met de gekopieerde beschrijvingen vier issues aan in jullie teamrepository op Github. Wijs via Assignees toe: D aan Marketing, E aan Manager, I aan Product en M aan Kwaliteit. Het kroontje toont wie de fase leidt. Zet alle vier de issuelinks in de README.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik regel de planning. Vraag eerst wat ons team tegenhoudt. Vraag één ding per keer. Geef feedback op mijn volgende stap. Ik kies zelf wie die oppakt en schrijf de afspraak.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Laat een teamgenoot alle vier de issuelinks vanuit de README openen. Controleer de docenttoegang.</div></section>
+  <section data-label="Share"><div class="value">Iedere rol plaatst één eigen reactie onder D. Zet als Manager in jouw reactie de README-link, het knelpunt, de vervolgstap en wie die oppakt. Controleer de vier reacties en docenttoegang. Verstuur formulier #1 eenmaal namens het team. Leerlingnummers horen uitsluitend in het formulier.</div><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdbyhyaLf-1EkTCKPHFSUKQRJ_USY2VPtNSfaOWbXfNYWoZbQ/viewform" class="button form">Open mijlpaalformulier #1</a></p><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue D in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Manager · A
+
+**Team-README met links naar D, E, I en M:**
+
+**Vier reacties en docenttoegang gecontroleerd:**
+
+**Mijlpaalformulier #1 eenmaal ingeleverd:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Controleer of het knelpunt weg is. Werk zo nodig je eigen Manager-reactie onder D bij.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Knelpunt eerst</summary><p>Los de blokkade op die het volgende stuk werk verhindert. Maak de eerstvolgende stap klein en geef die één eigenaar.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Zorg dat het ontwerp in D via de link in de team-README terug te vinden is. Voor Reflectie en samenwerking kun je later het effect van deze teamafspraak uitleggen.</p><ul><li><a href="rubric.html#ontwerp">Ontwerp</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+<template id="issue-B" data-title="Functieontwerp" data-needs="D" data-main="D" data-destination="D" data-handoff="ontwerp in D">
+  <section data-label="Imagine"><div class="value">Lees de klantwens in de Marketing-reactie onder D. Kies welke bestaande functie jullie verbeteren.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/functie.svg" alt="Invoer: leen B01 uit. Regel: controleer voorraad. Uitkomst: nieuwe voorraad en melding." loading="lazy"><figcaption>Volg de drie vakken. Bij 1 wordt de voorraad 0 en verschijnt Gelukt. Bij 0 blijft de voorraad 0 en verschijnt Niet beschikbaar. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/3c33f2e0d1fbc628041b563d7c3bbefe73c4abd3/se2/afbeeldingen/functie.svg">SE 2-beeldbank, bijgewerkt voor de huidige leerlingroute</a></span></figcaption></figure><div class="value">Volg invoer, regel en uitkomst. Vul beide situaties in. Leg uit waarom jullie ontwerp past bij de klantwens.</div><p><a href="b01.html#b01-reactie-b">Bekijk B01-reactie B</a> · <a href="rubric.html#ontwerp">Rubric: Ontwerp</a></p><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik ontwerp onze functie. Vraag eerst wat onze gebruiker wil doen. Vraag één ding per keer over invoer, regel en uitkomst in twee situaties. Geef feedback op mijn ontwerpkeuze. Ik vul het schema zelf in.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Loop beide situaties op papier door. Noteer wat verandert en wat gelijk blijft.</div></section>
+  <section data-label="Share"><div class="value">Plaats je ingevulde ontwerpschema als eigen reactie onder D. Wijs Kwaliteit op de verwachtingen.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue D in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Product · B
+
+**Gebruiker en taak:**
+
+**Invoer (vraag of actie):**
+
+**Gegevens en regel (verwerking):**
+
+**Uitkomst (melding en stand) in beide situaties:**
+
+**Keuze en waarom:**
+
+**Voor Ontwerp: Sterk (optioneel):**
+
+**Dezelfde klantwens:**
+
+**Keuze A en keuze B:**
+
+**Welke keuze voldoet beter en waarom:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Verwerk één verduidelijking. Vergelijk voor Sterk twee haalbare keuzes met dezelfde twee situaties en klanteis.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Ontwerpkeuzes</summary><p>Vergelijk oplossingen op hetzelfde klantdoel en dezelfde situaties. Licht toe waarom jullie keuze nu beter past.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Ontwerp sluiten de regel en beide verwachte uitkomsten aan op de klantwens. Leg je keuze uit. Vergelijk voor Sterk twee haalbare oplossingen.</p><ul><li><a href="rubric.html#ontwerp">Ontwerp</a></li><li><a href="rubric.html#werking">Werking</a></li><li><a href="rubric.html#professioneel">Professioneel werken</a></li></ul></details>
+</template>
+<template id="issue-C" data-title="Testplan" data-needs="D B" data-main="D" data-destination="D" data-handoff="testplan in D">
+  <section data-label="Imagine"><div class="value">Schets met de klantwens uit de Marketing-reactie onder D alvast een gewone proef en een grensgeval. Stem de verwachtingen af met Product.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/b01-testplan.svg" alt="Twee beginstanden, dezelfde handeling en de vooraf verwachte melding en voorraad." loading="lazy"><figcaption>Testplan vóór het bouwen. De werkelijke uitkomsten staan hier nog open. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/e0a289f7937afd0901d2500c9bc8ed4cfc78fcf0/se2/afbeeldingen/b01-testnotitie.svg">SE 2-beeldbank, aangepast voor deze fase</a></span></figcaption></figure><div class="value">Zet per proef de beginstand, handeling en verwachting in je reactie. Schrijf erbij hoe je de beginstand terugzet.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik maak een testplan. Vraag eerst wat onze functie doet. Vraag één ding per keer over de beginstand, actie, verwachting en het terugzetten van de beginstand. Geef feedback op wat ontbreekt. Ik schrijf beide proeven zelf.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Loop beide proeven na met een teamgenoot. Bedenk hoe je dezelfde beginstand herstelt.</div><p><a href="b01.html#b01-api-tabel">Bekijk de B01 API-tabel</a></p></section>
+  <section data-label="Share"><div class="value">Plaats je testplan met beide verwachtingen als eigen reactie onder D. Wijs H op de afgesproken beginstanden.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue D in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Kwaliteit · C
+
+**Gewone situatie → invoer → verwachte uitkomst:**
+
+**Lastige situatie → invoer → verwachte uitkomst:**
+
+**Beginstand, handeling en herstel per situatie:**
+
+**API (alleen als gebruikt, stem af met Product):**
+
+**Methode (GET of POST) + route:**
+
+**Aanvraag/parameters per situatie:**
+
+**Verwacht JSON-antwoord per situatie:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Scherp één teststap aan. Bereid voor Backend ook één proef zonder scherm voor.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Verwachting en uitkomst</summary><p>Noteer de verwachte uitkomst vóór het testen. Zo kun je een fout herkennen zonder je verwachting achteraf te veranderen.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Het plan maakt beide tests uitvoerbaar. Voor Testen en verbeteren telt straks ook wat je daadwerkelijk doet en noteert.</p><ul><li><a href="rubric.html#testen">Testen en verbeteren</a></li><li><a href="rubric.html#werking">Werking</a></li></ul></details>
+</template>
+<template id="issue-D" data-title="Klantvraag en ontwerp" data-needs="A" data-main="D" data-destination="D" data-handoff="klantvraag en ontwerpschema in D">
+  <section data-label="Imagine"><div class="value">Geef de fase richting met één mogelijke externe klant, één lastige taak en wat merkbaar beter moet gaan.</div><div class="ticket-copy"><button type="button" data-copy="opening">Kopieer issuebeschrijving</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer issuebeschrijving" readonly hidden>## D · Klantvraag en ontwerp
+
+**Deadline:** 30 november
+
+Leg de klantvraag, het ontwerp en de twee testverwachtingen vast. Iedere rol plaatst een eigen bijdrage als aparte reactie.</textarea></div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testen/marketing-klant.svg" alt="Een verhuurbedrijf wil dubbele toezeggingen voorkomen door de voorraad te controleren." loading="lazy"><figcaption>Voorbeeldreactie: de verhuurmedewerker ziet meteen of B01 beschikbaar is en belooft het balletje niet dubbel. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/c27d971ae92c3ec37a58c0e22b57069ef5247c89/se2/werkboeken/afbeeldingen/marketing-klant.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Open hoofdissue D via de team-README. Vul je eigen schema in met het doel, de klant, het probleem en het voordeel.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik beschrijf de klantwens. Vraag eerst wie onze klant is. Vraag één ding per keer over het probleem en het voordeel. Geef feedback op wat nog vaag is. Ik schrijf het doel en mijn reactie zelf.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Laat een teamgenoot voorspellen wat de klant bij de gewone en lastige situatie ziet.</div></section>
+  <section data-label="Share"><div class="value">Plaats je ingevulde schema als eigen reactie onder D. Deel de klantwens vroeg met B en C. Klantcontact is vrijwillig.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue D in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Marketing · D
+
+**Mogelijke externe klant:**
+
+**Klantwens:**
+
+**Merkbaar voordeel:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Lees elkaars reacties. De Manager controleert bij A de vier bijdragen en docenttoegang en verstuurt formulier #1 eenmaal.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Klantwaarde</summary><p>Een klantwens beschrijft het voordeel voor de gebruiker. De programmeerregel is een middel om dat voordeel te bereiken.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Klantwaarde telt een herkenbaar extern klantprobleem en wat de functie daar concreet aan doet.</p><ul><li><a href="rubric.html#klantwaarde">Klantwaarde</a></li><li><a href="rubric.html#ontwerp">Ontwerp</a></li></ul></details>
+</template>
+<template id="issue-E" data-title="Bouw en eerste tests" data-needs="B A" data-main="E" data-destination="E" data-handoff="aansluitafspraken in E">
+  <section data-label="Imagine"><div class="value">Bepaal met ontwerp B en afspraak A waar de onderdelen op elkaar aansluiten.</div><div class="ticket-copy"><button type="button" data-copy="opening">Kopieer issuebeschrijving</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer issuebeschrijving" readonly hidden>## E · Bouw en eerste tests
+
+**Deadline:** 4 december
+
+Laat de eerste werkende versie, beide eerste uitkomsten en het verbeterpunt zien. Iedere rol plaatst een eigen bijdrage als aparte reactie.</textarea></div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/backend-api.svg" alt="Uitleenscherm, API en gedeelde voorraad met een aanvraag en antwoord." loading="lazy"><figcaption>Voorbeeld van een aansluiting: het scherm stuurt B01 en de actie. De regel geeft melding en voorraad terug. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/3c33f2e0d1fbc628041b563d7c3bbefe73c4abd3/se2/afbeeldingen/backend-api.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Noteer per aansluiting wat binnenkomt, welk antwoord volgt en wie foutgedrag afhandelt. Koppel het open punt aan I.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik stem het werk af. Vraag eerst welke twee onderdelen moeten samenwerken. Vraag één ding per keer over wat binnenkomt, teruggaat en wie fouten oppakt. Geef feedback op de aansluiting. Ik schrijf zelf de afspraken.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Loop de aansluiting op papier na. Kan het volgende onderdeel met deze invoer en foutreactie werken?</div></section>
+  <section data-label="Share"><div class="value">Plaats de aansluitafspraken als eigen reactie onder E en deel ze vroeg met F. Laat G en H alvast hun proeven voorbereiden.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue E in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Manager · E
+
+**Aansluitingen: invoer, antwoord, foutgedrag en eigenaar:**
+
+**Open punt voor I:**
+
+**E bevat de twee eerste uitkomsten en één verbeterpunt, met links naar D:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Breng versie F en waarnemingen G en H samen in E. Geef het verbeterpunt door aan I.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Afspraken tussen onderdelen</summary><p>Leg vooraf vast welke namen, gegevens en foutreacties onderdelen van elkaar verwachten. Product kan die afspraak daarna in de werkende versie toetsen.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Werking telt de volledige taak, inclusief het resultaat. Bij Professioneel werken telt of de regel vindbaar blijft als de deelproducten samenwerken.</p><ul><li><a href="rubric.html#werking">Werking</a></li><li><a href="rubric.html#professioneel">Professioneel werken</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+<template id="issue-F" data-title="Eerste versie" data-needs="B E" data-main="E" data-destination="E" data-handoff="vaste eerste versie in E">
+  <section data-label="Imagine"><div class="value">Kies de kleinste werkende versie. Gebruik ontwerp B en de aansluitafspraken uit E.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="b01/mvp3/afbeeldingen/02-script.svg" alt="Voorbeeld van de bestandsindeling: Code.gs voor de regel en Index.html voor het scherm." loading="lazy"><figcaption>Houd het scherm en de regel vindbaar. Gebruik een fictief project en laat de echte Sheet-ID buiten je bewijs. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/26b72d085961adf695001146d55048faaa7b6d68/se2/b01/mvp3/afbeeldingen/02-script.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Voeg scherm, regel en gegevens samen. Zet de links naar de code of commit en de eerste te testen versie in je eigen reactie onder E.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik bouw de eerste versie. Vraag eerst wat onze functie doet. Vraag één ding per keer over scherm, regel en gegevens. Geef feedback op hun samenwerking en vindbaarheid. Ik kies zelf de links naar code en versie.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Probeer de samengevoegde versie van invoer tot zichtbaar resultaat. Backend controleert ook de regel en database.</div></section>
+  <section data-label="Share"><div class="value">Link de code of commit en de vaste versie. Wijs G en H erop.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue E in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Product · F
+
+**Link naar code of commit:**
+
+**Link naar vaste eerste versie of demo:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Open de commitweergave. Controleer dat voorbeelddata fictief zijn en dat er geen tokens, wachtwoorden of echte leerlinggegevens in staan.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Bestandsorganisatie</summary><p>Geef een bestand of functie een herkenbare taak. Splits pas als dat helpt om de regel, interface of test terug te vinden.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Werking laat je de taak met normale invoer zien. Bij Professioneel werken maak je zichtbaar waar iemand de regel of gegevens kan wijzigen.</p><ul><li><a href="rubric.html#werking">Werking</a></li><li><a href="rubric.html#professioneel">Professioneel werken</a></li></ul></details>
+</template>
+<template id="issue-G" data-title="Klantproef" data-needs="D F" data-main="E" data-destination="E" data-handoff="klantwaarneming in E">
+  <section data-label="Imagine"><div class="value">Bereid de klantproef alvast voor met de klantwens. Voer de proef uit met de samengevoegde versie van F.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/b01-klantproef.svg" alt="Een schets van het scherm bij voorraad 0 met een actieve uitleenknop en de vraag of opnieuw uitlenen kan." loading="lazy"><figcaption>Fictieve waarneming uit de klantproef bij voorraad 0. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/e0a289f7937afd0901d2500c9bc8ed4cfc78fcf0/se2/afbeeldingen/archief/sportclub-product.svg">SE 2-beeldbank, aangepast voor deze fase</a></span></figcaption></figure><div class="value">Laat een teamgenoot zonder hulp uitlenen. Noteer wat die ziet en zegt, zonder naam of opname.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik kijk mee bij een klantproef. Vraag eerst welke taak mijn teamgenoot zonder hulp probeerde. Vraag één ding per keer over wat die deed, zag of zei. Geef feedback op mijn aannames. Ik schrijf de samenvatting zelf.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Kijk wat de gebruiker bij een gewone en een lastige situatie merkt. Help pas na de proef.</div></section>
+  <section data-label="Share"><div class="value">Plaats je klantwaarneming als eigen reactie onder E.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue E in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Marketing · G
+
+**Klantproef en waarneming:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Vergelijk de waarneming met de klantwens. Houd onbevestigde aannames herkenbaar.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Een proef vanuit de gebruiker</summary><p>Observeer wat een gebruiker werkelijk ziet of doet. Een teamproef geeft informatie over werking en duidelijkheid, geen bewijs van betaalbereidheid.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Klantwaarde telt welk concreet probleem de functie helpt oplossen. Een verkoop of reactie levert op zichzelf geen hoger niveau op.</p><ul><li><a href="rubric.html#klantwaarde">Klantwaarde</a></li><li><a href="rubric.html#werking">Werking</a></li></ul></details>
+</template>
+<template id="issue-H" data-title="Eerste tests" data-needs="C F" data-main="E" data-destination="E" data-handoff="eerste uitkomsten en verbeterpunt in E">
+  <section data-label="Imagine"><div class="value">Bereid proeven C voor met de verwachtingen in D. Test met de vaste versie van F.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/b01-eerste-proeven.svg" alt="Vergelijking van de verwachtingen met beide fictieve v1-proeven. Bij start 0 verschijnt Gelukt en wordt de voorraad −1." loading="lazy"><figcaption>Eerste proeven in v1. De afwijking bij start 0 is het verbeterpunt. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/e0a289f7937afd0901d2500c9bc8ed4cfc78fcf0/se2/afbeeldingen/b01-testnotitie.svg">SE 2-beeldbank, aangepast voor deze fase</a></span></figcaption></figure><div class="value">Zet de beginstanden uit D terug. Voer beide proeven uit en noteer uitkomst, oordeel en één verbeterpunt.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik beoordeel onze eerste tests. Vraag eerst welke proef ik deed. Vraag één ding per keer over beginstand, verwachting en echte uitkomst. Geef feedback op mijn oordeel bij beide proeven. Ik kies en schrijf zelf één verbeterpunt.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Zet uitkomst en oordeel in je eigen reactie onder E. Link naar D. Test bij Backend ook één bewerking zonder scherm.</div><p><a href="b01.html#b01-api-tabel">Bekijk de B01 API-tabel</a></p></section>
+  <section data-label="Share"><div class="value">Deel beide uitkomsten en het verbeterpunt voor I.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue E in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Kwaliteit · H
+
+**Link naar de verwachtingen in D:**
+
+**Gewone situatie, eerste uitkomst en oordeel:**
+
+**Lastige situatie, eerste uitkomst en oordeel:**
+
+**Backend, proef zonder scherm (indien van toepassing):**
+
+**Gekozen verbeterpunt:**
+
+**Link naar Actions (indien gebruikt):**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Bespreek welk verschil Product eerst aanpakt. Bewaar ook de mislukte uitkomst.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Een eerlijke nulmeting</summary><p>Bewaar dezelfde invoer en beginstand. Noteer een foute uitkomst precies, zodat je later kunt aantonen wat veranderde.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Testen en verbeteren horen twee uitgevoerde tests en een verbeterpunt. In E staat de echte uitkomst met een link naar de verwachting in D. Backend test ook zonder scherm.</p><ul><li><a href="rubric.html#testen">Testen en verbeteren</a></li><li><a href="rubric.html#werking">Werking</a></li></ul></details>
+</template>
+<template id="issue-I" data-title="Verbetering en hertests" data-needs="F H" data-main="I" data-destination="I" data-handoff="vaste verbeterde versie in I">
+  <section data-label="Imagine"><div class="value">Geef de fase richting met één verbeterpunt uit H. Spreek af welk bestaand gedrag behouden blijft.</div><div class="ticket-copy"><button type="button" data-copy="opening">Kopieer issuebeschrijving</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer issuebeschrijving" readonly hidden>## I · Verbetering en hertests
+
+**Deadline:** 8 december om 16.00 uur
+
+Leg de wijziging, de geteste versie en beide hertests vast. Plaats je eigen bijdrage als aparte reactie. Marketing plaatst de klantwaarde onder D. Zet in I een link naar die reactie.</textarea></div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testcyclus.svg" alt="De testcyclus laat twee situaties, één verbeterpunt en de hertests zien." loading="lazy"><figcaption>Voorbeeld van een gerichte wijziging: weiger uitlenen bij 0. Laat het gedrag bij 1 hetzelfde. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/3c33f2e0d1fbc628041b563d7c3bbefe73c4abd3/se2/afbeeldingen/testcyclus.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Bekijk de fout uit E. Pas de regel aan die de fout veroorzaakt. Link de nieuwe versie en noteer wat hetzelfde blijft.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik verbeter onze code. Vraag eerst welke fout de eerste test liet zien. Vraag één ding per keer over mijn wijziging en wat gelijk moet blijven. Geef feedback op mijn plan. Ik pas de code zelf aan.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Controleer de gewone en lastige situatie. Geef Kwaliteit een vaste versie om te hertesten.</div></section>
+  <section data-label="Share"><div class="value">Plaats je wijziging en de link naar de verbeterde versie als eigen reactie onder I. Deel de versie met K en verwijs naar de klantwaarde onder D.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue I in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Product · I
+
+**Verbeterpunt uit E:**
+
+**Wijziging en behouden gedrag:**
+
+**Link naar verbeterde code en vaste versie:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Link in I naar klantwaarde D en hertests K voor de eindcontrole van L.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Gericht verbeteren</summary><p>Pas één oorzaak aan en test ook de situatie die al goed ging. Zo spoor je ongewenste neveneffecten op.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>De uitgevoerde verbetering telt mee bij Testen en verbeteren. Laat bij Werking ook zien wat er bij het grensgeval gebeurt.</p><ul><li><a href="rubric.html#professioneel">Professioneel werken</a></li><li><a href="rubric.html#werking">Werking</a></li><li><a href="rubric.html#testen">Testen en verbeteren</a></li></ul></details>
+</template>
+<template id="issue-J" data-title="Klantwaarde" data-needs="D G" data-main="I" data-destination="D" data-handoff="klantwaarde bij J in D, daarna link vanuit I">
+  <section data-label="Imagine"><div class="value">Lees D en de klantwaarneming uit G. Houd de vastgestelde klantwens gelijk.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testen/marketing-inkomsten.svg" alt="Het verhuurbedrijf heeft minder fouten; een prijs van 19 euro per maand is een idee." loading="lazy"><figcaption>Scheid wat de functie oplevert van wat een klant misschien zou betalen. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/c27d971ae92c3ec37a58c0e22b57069ef5247c89/se2/werkboeken/afbeeldingen/marketing-inkomsten.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Schrijf op welk probleem door jullie functie kleiner wordt. Markeer wie zou betalen en waarvoor als aanname.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik leg uit wat onze functie oplevert. Vraag eerst welk probleem die kleiner maakt. Vraag één ding per keer over het voordeel en wie waarvoor zou betalen. Geef feedback op mijn aannames. Ik schrijf mijn uitleg zelf.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Onderbouw het voordeel met de klantwens en waarneming. Verander geen testuitkomsten en doe geen onbewezen prijsclaim.</div></section>
+  <section data-label="Share"><div class="value">Plaats de klantwaarde als nieuwe reactie onder D. I verwijst daarnaar.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue D in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Marketing · J
+
+**Concrete klantwaarde:**
+
+**Wie zou waarvoor betalen en waarom, als aanname gemarkeerd:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Maak duidelijk wat nog een aanname is. Klantcontact of verkoop is niet verplicht.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Opbrengst en verdienidee</summary><p>Een voordeel voor de klant en bereidheid om te betalen zijn verschillende vragen. Onderbouw het eerste met de taak en houd het tweede herkenbaar als aanname.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Bij Klantwaarde telt de onderbouwing van wie waarvoor zou betalen en waarom. Mailen en verkopen zijn geen voorwaarde.</p><ul><li><a href="rubric.html#klantwaarde">Klantwaarde</a></li></ul></details>
+</template>
+<template id="issue-K" data-title="Hertests" data-needs="H I" data-main="I" data-destination="I" data-handoff="hertestuitkomsten in I">
+  <section data-label="Imagine"><div class="value">Open beide eerste tests en de vaste verbeterde versie.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/b01-hertests.svg" alt="Dezelfde beginstanden met de eerste uitkomst naast de hertest na de wijziging." loading="lazy"><figcaption>Hertests van v2. Bij start 1 blijft uitlenen werken en bij start 0 blijft de voorraad 0. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/e0a289f7937afd0901d2500c9bc8ed4cfc78fcf0/se2/afbeeldingen/b01-testnotitie.svg">SE 2-beeldbank, aangepast voor deze fase</a></span></figcaption></figure><div class="value">Herhaal beide proeven met dezelfde beginstanden. Zet per proef de nieuwe uitkomst en het oordeel in je reactie.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik doe twee hertests. Vraag eerst welke proef ik herhaalde. Vraag één ding per keer over de gelijke beginstand en de nieuwe uitkomst. Geef feedback op mijn vergelijking met de verwachting. Ik schrijf zelf mijn oordeel.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Vergelijk in I de hertestuitkomst met de eerste uitkomst uit E en de verwachting in D. Controleer ook de gegevens.</div></section>
+  <section data-label="Share"><div class="value">Plaats beide hertests als eigen reactie onder I en deel ze met L. Link naar de eerste uitkomsten onder E.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue I in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Kwaliteit · K
+
+**Gewone situatie, hertestuitkomst en oordeel:**
+
+**Lastige situatie, hertestuitkomst en oordeel:**
+
+**Link naar Actions (indien gebruikt):**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Leg uit of het verbeterpunt is opgelost. Laat een niet-opgeloste uitkomst zichtbaar.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Hertest en regressie</summary><p>Herhaal het foutgeval én de gewone situatie. Zo zie je of de fout weg is en of bestaand werk nog werkt.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Voor Sterk bij Testen en verbeteren voer je het verbeterpunt uit, herhaal je beide tests en noteer je beide nieuwe uitkomsten.</p><ul><li><a href="rubric.html#testen">Testen en verbeteren</a></li><li><a href="rubric.html#werking">Werking</a></li></ul></details>
+</template>
+<template id="issue-L" data-title="Eindcontrole" data-needs="E J K" data-main="I" data-destination="I" data-handoff="gecontroleerde team-README">
+  <section data-label="Imagine"><div class="value">Controleer links naar D, E, I en M en bekijk het bewijs van J en K.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testen/manager-readme.svg" alt="De team-README verwijst naar hoofdissue D, E, I, M en code." loading="lazy"><figcaption>Volg vanuit de README de route naar de testresultaten en dezelfde geteste versie. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/c27d971ae92c3ec37a58c0e22b57069ef5247c89/se2/werkboeken/afbeeldingen/manager-readme.svg">SE 2-beeldbank, bijgewerkt voor de huidige leerlingroute</a></span></figcaption></figure><div class="value">Open de links naar D, E, I, M en de geteste versie. Controleer welke stukken docent en bezoeker kunnen zien.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik controleer de team-README. Vraag eerst hoe ik de geteste versie terugvind. Vraag één ding per keer over de links en toegang voor docent en bezoeker. Geef feedback op mijn controle. Ik kies zelf wat ik herstel.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Open de bewijslinks als bezoeker in een privévenster. Check daarna de docenttoegang afzonderlijk. Verwijder zichtbare persoonsgegevens vóór je deelt.</div></section>
+  <section data-label="Share"><div class="value">Plaats je eindcontrole en de README-link als eigen reactie onder I. Lever op 8 december uiterlijk om 16.00 uur één team-README-link in via het <a href="https://docs.google.com/forms/d/e/1FAIpQLSed-KMm5YDSjiJWeSc3e71JNCBLYuqv3zMjNY480sG4i90FWQ/viewform">eindformulier #3</a>.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue I in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Manager · L
+
+**Team-README met links naar D, E, I en M:**
+
+**Docenttoegang en geteste versie gecontroleerd:**
+
+**Inlevering: één team-README-link uiterlijk 8 december om 16.00 uur.:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Repareer een verkeerde link op de oorspronkelijke plek. De README verwijst en herhaalt het bewijs niet.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Navolgbaar bewijs</summary><p>De README is de ingang. Eén kloppende link naar het oorspronkelijke bewijs maakt het werk beter terug te vinden dan een extra kopie.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>De docent moet de geteste versie en het bestaande bewijs kunnen volgen. De vindplaats is geen extra rubriccriterium.</p><ul><li><a href="rubric.html#werking">Werking</a></li><li><a href="rubric.html#testen">Testen en verbeteren</a></li><li><a href="rubric.html#klantwaarde">Klantwaarde</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+<template id="issue-M" data-title="Uitleg en samenwerking" data-needs="K" data-main="M" data-destination="M" data-handoff="oefenronde in M">
+  <section data-label="Imagine"><div class="value">Geef de oefenronde richting met de drie gedeelde vragen en kies eigen testbewijs uit E of I.</div><div class="ticket-copy"><button type="button" data-copy="opening">Kopieer issuebeschrijving</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer issuebeschrijving" readonly hidden>## M · Uitleg en samenwerking
+
+**Deadline:** vóór 8 december
+
+Bereid de drie mondelingvragen voor met bestaand bewijs. Iedere rol plaatst een eigen voorbereiding als aparte reactie.</textarea></div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/b01-testnotitie.svg" alt="Bij beginvoorraad 0 toont de vergelijking de fout in v1 en de weigering in v2." loading="lazy"><figcaption>Wijs de rij bij start 0 aan terwijl je uitlegt wat jij hebt getest en wat Product veranderde. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/559574330c4e2c44a1131c257a35cceff36ccf96/docs/se2/beelden/sportclub-b01-test-hertest.svg">SE 2-beeldbank, bewerking van de eerdere testtabel voor het huidige fictieve B01</a></span></figcaption></figure><div class="value">Wijs je eigen test aan. Leg uit welke regel de testuitkomst veroorzaakt en wat je teamgenoot aan de verbetering bijdroeg.</div><p><a href="#ticket-n" data-open-ticket>N Regel uitleggen</a> · <a href="#ticket-o" data-open-ticket>O Klantkeuze</a> · <a href="#ticket-p" data-open-ticket>P Samenwerking</a></p><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik oefen mijn uitleg over testen. Vraag eerst welke test ik zelf deed. Vraag één ding per keer over de regel achter de uitkomst en de bijdrage van mijn teamgenoot. Geef feedback. Ik oefen mijn eigen antwoord.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Houd samen één oefenronde. Beantwoord de drie vragen met je eigen bewijs.</div></section>
+  <section data-label="Share"><div class="value">Plaats vóór 8 december je voorbereiding als eigen reactie onder M. Wijs tijdens het mondeling bestaand werk aan.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue M in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Kwaliteit · M
+
+**Eigen testwerk en link:**
+
+**Technische uitleg:**
+
+**Bijdrage teamgenoot, effect en volgende stap:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Gebruik bij het mondeling van 10 tot 17 december dezelfde drie vragen voor alle rollen.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Grenzen van testbewijs</summary><p>Een test geeft bewijs voor de situatie die je probeerde. Leg uit wat je nog zou moeten testen bij een andere situatie.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Wijs eigen testwerk aan. Verklaar een uitkomst met de regel en vertel wat je erna zou doen.</p><ul><li><a href="rubric.html#bijdrage">Eigen bijdrage</a></li><li><a href="rubric.html#begrip">Technisch begrip</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+<template id="issue-N" data-title="Regel uitleggen" data-needs="I" data-main="M" data-destination="M" data-handoff="uitleg van de regel in M">
+  <section data-label="Imagine"><div class="value">Kies bestaand werk waaraan je zelf hebt bijgedragen.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/b01-regel-v2.svg" alt="De uitleenregel leest de voorraad. Bij 0 stopt die zonder schrijven. Bij 1 schrijft die stand 0 en meldt Gelukt." loading="lazy"><figcaption>Wijs bij het mondeling aan waar v2 stopt en waar de regel wel schrijft. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/e0a289f7937afd0901d2500c9bc8ed4cfc78fcf0/se2/afbeeldingen/functie.svg">SE 2-beeldbank, aangepast voor deze fase</a></span></figcaption></figure><div class="value">Link je eigen ontwerp of code. Leg uit hoe invoer via de regel tot de uitkomst leidt.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik leg mijn ontwerp of code uit. Vraag eerst welke regel ik zelf maakte. Vraag één ding per keer over invoer, regel en uitkomst. Geef feedback op mijn uitleg. Laat mij zelf voorspellen wat andere invoer doet.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Oefen je uitleg met een teamgenoot. Laat die een andere invoer bedenken.</div></section>
+  <section data-label="Share"><div class="value">Plaats je voorbereiding als eigen reactie onder M en link je eigen code of ontwerp.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue M in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Product · N
+
+**Eigen code of ontwerp en link:**
+
+**Technische uitleg:**
+
+**Bijdrage teamgenoot, effect en volgende stap:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Benoem één gerichte volgende stap voor je samenwerking.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Invoer, regel en uitkomst</summary><p>Leg oorzaak en gevolg uit. Wijs aan wat de regel leest, beslist en bewaart.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Wijs je eigen wijziging aan en verklaar wat de regel in een nieuwe situatie beslist en waarom.</p><ul><li><a href="rubric.html#bijdrage">Eigen bijdrage</a></li><li><a href="rubric.html#begrip">Technisch begrip</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+<template id="issue-O" data-title="Klantkeuze" data-needs="J" data-main="M" data-destination="M" data-handoff="klantkeuze in M">
+  <section data-label="Imagine"><div class="value">Kies bestaand werk waaraan je zelf hebt bijgedragen.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testen/marketing-mondeling.svg" alt="De klant ziet de voorraad en voorkomt zo dat B01 dubbel wordt beloofd." loading="lazy"><figcaption>Verbind je keuze aan wat de verhuurmedewerker merkt. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/c27d971ae92c3ec37a58c0e22b57069ef5247c89/se2/werkboeken/afbeeldingen/marketing-mondeling.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Link je klantkeuze. Leg uit welk merkbaar voordeel die keuze geeft en wanneer je een andere oplossing zou kiezen.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik oefen mijn uitleg over een klantkeuze. Vraag eerst welke keuze ik maakte. Vraag één ding per keer over het voordeel voor de klant en wanneer ik anders zou kiezen. Geef feedback. Ik geef zelf het antwoord.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Oefen je uitleg met een teamgenoot. Laat die een andere invoer bedenken.</div></section>
+  <section data-label="Share"><div class="value">Plaats je voorbereiding als eigen reactie onder M en link je eigen klantkeuze of klantproef.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue M in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Marketing · O
+
+**Eigen klantkeuze of klantproef en link:**
+
+**Technische uitleg:**
+
+**Bijdrage teamgenoot, effect en volgende stap:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Benoem één gerichte volgende stap voor je samenwerking.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Afweging uitleggen</summary><p>Noem de taak, het alternatief en het effect. Geef aan welke verandering bij de klant je keuze zou kunnen veranderen.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Onderbouw je eigen klantkeuze, leg het effect uit en vertel wat je nog wilt onderzoeken.</p><ul><li><a href="rubric.html#bijdrage">Eigen bijdrage</a></li><li><a href="rubric.html#begrip">Technisch begrip</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+<template id="issue-P" data-title="Samenwerking" data-needs="A E L" data-main="M" data-destination="M" data-handoff="samenwerkmoment in M">
+  <section data-label="Imagine"><div class="value">Kies bestaand werk waaraan je zelf hebt bijgedragen.</div></section>
+  <section data-label="Create"><figure class="stapbeeld"><img class="inhoudsbeeld" src="afbeeldingen/testen/manager-mondeling.svg" alt="Het team bespreekt het knelpunt, verbetert de regel en laat beide hertests opnieuw slagen." loading="lazy"><figcaption>Wijs aan welke afspraak jij maakte, wie de regel verbeterde en hoe jullie het resultaat controleerden. <span class="beeldbron">Bron: <a href="https://github.com/fio-lisse/se2-start/blob/c27d971ae92c3ec37a58c0e22b57069ef5247c89/se2/werkboeken/afbeeldingen/manager-mondeling.svg">SE 2-beeldbank</a></span></figcaption></figure><div class="value">Link een eigen afspraak. Benoem je actie, wat je teamgenoot deed en het resultaat.</div><div class="gemini-help"><div class="ticket-copy"><button type="button" data-copy="gemini">Vraag Gemini om hulp</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Vraag Gemini om hulp" readonly hidden>Ik oefen mijn uitleg over samenwerking. Vraag eerst welke afspraak ik zelf maakte. Vraag één ding per keer over mijn actie, de bijdrage van mijn teamgenoot en het resultaat. Geef feedback. Ik kies zelf mijn bewijs en vervolgstap.</textarea></div><p>Optioneel. Plak de hulpvraag zelf in Gemini en gebruik fictieve gegevens.</p></div></section>
+  <section data-label="Play"><div class="value">Oefen je uitleg met een teamgenoot. Laat die een andere invoer bedenken.</div></section>
+  <section data-label="Share"><div class="value">Plaats je voorbereiding als eigen reactie onder M en wijs de eigen afspraak of bewijslink aan.</div><p>Plaats je ingevulde rolbijdrage als reactie onder hoofdissue M in jullie repository.</p><div class="ticket-copy"><button type="button" data-copy="role">Kopieer mijn rolbijdrage</button><p class="ticket-copy-status" role="status"></p><textarea class="ticket-copy-text" aria-label="Kopieer mijn rolbijdrage" readonly hidden>## Manager · P
+
+**Eigen teamafspraak of bewijslink:**
+
+**Technische uitleg:**
+
+**Bijdrage teamgenoot, effect en volgende stap:**</textarea></div></section>
+  <section data-label="Reflect"><div class="value">Benoem één gerichte volgende stap voor je samenwerking.</div></section>
+  <details class="ticket-extra theory"><summary>Theorie · Een concreet samenwerkmoment</summary><p>Benoem de eigen handeling, de inbreng van de ander en het resultaat. Koppel de volgende stap aan wat daar gebeurde.</p></details>
+  <details class="ticket-extra rubric"><summary>Rubricdetails</summary><p>Noem jouw bijdrage en die van een teamgenoot. Leg uit wat daardoor veranderde en welke gerichte vervolgstap je kiest.</p><ul><li><a href="rubric.html#bijdrage">Eigen bijdrage</a></li><li><a href="rubric.html#begrip">Technisch begrip</a></li><li><a href="rubric.html#reflectie">Reflectie en samenwerking</a></li></ul></details>
+</template>
+
+<template id="mondelingvragen">
+  <ol class="mondelingvragen">
+    <li><strong>Eigen bijdrage:</strong> Wat heb jij gedaan, welke keuze maakte je en wat was het effect?</li>
+    <li><strong>Techniek:</strong> Hoe leiden invoer, gegevens en regel tot de uitkomst? Wat verwacht je bij andere invoer en waarom?</li>
+    <li><strong>Samenwerking:</strong> Wat bracht je teamgenoot in, wat veranderde daardoor en wat is jullie volgende stap?</li>
+  </ol>
+</template>
+<script>
+const icons={crown:'<path d="M5 13 13 34h22l8-21-12 10-7-15-7 15z"/><path d="M13 39h22"/>',triangle:'<path d="M24 5 43 41H5Z"/>',square:'<rect x="6" y="6" width="36" height="36" rx="2"/>',diamond:'<path d="M24 4 44 24 24 44 4 24Z"/>',circle:'<circle cx="24" cy="24" r="18"/>',flag:'<path d="M11 43V6m0 3h27l-7 9 7 9H11"/>',pencil:'<path d="m8 34 3-11L33 2l11 11-22 21-12 3z"/>',wrench:'<path d="M28 7a13 13 0 0 0-13 16L6 32a6 6 0 1 0 10 10l9-9A13 13 0 0 0 41 16l-8 8-9-9 8-8z"/>',speech:'<path d="M8 9h32v24H22L11 42v-9H8z"/>',person:'<circle cx="24" cy="14" r="8"/><path d="M9 42v-6a15 15 0 0 1 30 0v6"/>',title:'<path d="M9 6h24l8 9v27H9Z"/><path d="M33 6v9h8M16 24h17M16 31h13"/>',note:'<path d="M10 6h28v36H10zM17 16h14M17 23h14M17 30h10"/>',check:'<path d="M8 25 19 36 41 12"/>',hint:'<path d="M18 36h12M20 42h8M16 29a15 15 0 1 1 16 0l-3 4H19z"/>',mention:'<circle cx="22" cy="23" r="9"/><path d="M31 23v7a7 7 0 0 0 14 0v-6a22 22 0 1 0-8 18"/>',refresh:'<path d="M39 18A17 17 0 0 0 9 15L4 21m0-11v11h11M9 30a17 17 0 0 0 30 3l5-6m0 11V27H33"/>',target:'<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="8"/><circle cx="24" cy="24" r="2"/>',finish:'<path d="M10 6v36M10 9h29l-8 9 8 9H10"/>',imagine:'<path d="M16 36h16M19 42h10M17 30c-4-3-6-7-6-12a13 13 0 0 1 26 0c0 5-2 9-6 12l-2 3H19z"/>',create:'<path d="M9 34 32 11l6 6-23 23-9 2zM28 15l6 6M14 9h8M18 5v8"/>',play:'<path d="M16 9 39 24 16 39Z"/><path d="M8 8v32"/>',share:'<path d="M8 10h32v24H23l-11 8v-8H8z"/><path d="M16 20h16M16 27h10"/>',reflect:'<path d="M38 17a16 16 0 1 0 1 15"/><path d="M38 6v13H25"/><path d="M18 26l5 5 9-12"/>'};
+function svg(k){return `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">${icons[k]}</svg>`}
+const $ = id => document.getElementById(id);
+const matrix = $('ticketmatrix');
+const ticketbox = $('ticketbox');
+const example = document.body.hasAttribute('data-b01');
+const counterpart = $('ticket-tegenhanger');
+const counterpartPath = counterpart.getAttribute('href');
+const buttons = [...matrix.querySelectorAll('[data-ticket]')];
+const tickets = new Map(buttons.map(button => {
+  const code = button.dataset.ticket;
+  const item = $('issue-' + code);
+  return [code, {button, item, sources: item.dataset.needs.split(' ').filter(Boolean)}];
+}));
+const rowIcons = ['imagine', 'create', 'play', 'share', 'reflect'];
+let active = null;
+
+for (const role of matrix.querySelectorAll('[data-icon]')) role.innerHTML = svg(role.dataset.icon);
+for (const crown of matrix.querySelectorAll('[data-crown]')) crown.innerHTML = svg('crown');
+for (const [id, icon] of [['titleicon','title'], ['deadlineicon','flag'], ['bewijsicon','note'], ['afhankelijkhedenicon','target']]) {
+  $(id).innerHTML = svg(icon);
+}
+
+function showHandoffs(list, codes, proof) {
+  list.replaceChildren();
+  list.closest('.ticket-handoff').hidden = codes.length === 0;
+  for (const code of codes) {
+    const {button, item} = tickets.get(code);
+    const entry = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = '#' + button.id;
+    link.dataset.openTicket = '';
+    link.textContent = code + ' ' + item.dataset.title;
+    entry.append(link, ' · ' + proof(code));
+    list.append(entry);
+  }
+}
+
+function showConversation(code, destination, full = code === destination) {
+  const stage = $('stagebody');
+  const thread = $('b01-gesprek-' + destination.toLowerCase());
+  const comments = [...thread.content.children];
+  const controls = document.createElement('div');
+  controls.className = 'b01-thread-controls';
+  const title = document.createElement('h3');
+  title.textContent = 'Gesprek onder hoofdissue ' + destination;
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.textContent = full ? 'Toon alleen reacties bij ' + code : 'Toon alle reacties onder ' + destination;
+  toggle.addEventListener('click', () => showConversation(code, destination, !full));
+  controls.append(title, toggle);
+  const reactions = document.createElement('div');
+  reactions.className = 'b01-thread';
+  reactions.append(...comments.filter(comment => full || comment.dataset.issues.split(' ').includes(code))
+                              .map(comment => comment.cloneNode(true)));
+  for (const icon of reactions.querySelectorAll('[data-step-icon]')) icon.innerHTML = svg(icon.dataset.stepIcon);
+  const wasFocused = document.activeElement?.closest('.b01-thread-controls');
+  stage.replaceChildren(controls, reactions);
+  if (wasFocused) toggle.focus();
+}
+
+function openTicket(button) {
+  active?.setAttribute('aria-expanded', 'false');
+  active = button;
+  active.setAttribute('aria-expanded', 'true');
+  const code = button.dataset.ticket;
+  counterpart.href = counterpartPath + '#' + button.id;
+  const item = $('issue-' + code);
+  const row = button.closest('tr');
+  $('ticket').className = 'issue-card ' + button.closest('td').className.split(' ').find(name => name.startsWith('accent-'));
+  const main = item.dataset.main;
+  const destination = item.dataset.destination;
+  $('code').textContent = (code === main ? 'Hoofdissue ' : 'Issue ') + code + ' · ' + row.cells[0].textContent.trim();
+  $('title').textContent = item.dataset.title;
+  const phase = matrix.tHead.rows[0].cells[button.closest('td').cellIndex];
+  $('deadline').replaceChildren(...phase.querySelector('.matrix-date').cloneNode(true).childNodes);
+  $('deadline-label').textContent = code >= 'M' ? 'Mondeling' : 'Deadline';
+  const proof = document.createElement(code === destination ? 'span' : 'a');
+  proof.textContent = 'Hoofdissue ' + destination;
+  if (code !== destination) {
+    proof.href = '#' + tickets.get(destination).button.id;
+    proof.dataset.openTicket = '';
+  }
+  $('bewijsplek').replaceChildren(proof);
+
+  const {sources} = tickets.get(code);
+  const recipients = [...tickets].filter(([, ticket]) => ticket.sources.includes(code)).map(([letter]) => letter);
+  $('ticket-overdrachten').hidden = example || sources.length + recipients.length === 0;
+  $('ticket-overdrachten').querySelector('details').open = false;
+  showHandoffs($('afhankelijkheden'), sources, letter => tickets.get(letter).item.dataset.handoff);
+  showHandoffs($('vervolgtickets'), recipients, () => item.dataset.handoff);
+
+  if (example) {
+    showConversation(code, destination);
+    ticketbox.hidden = false;
+    $('title').focus();
+    return;
+  }
+
+  const template = item.content.cloneNode(true);
+  const rows = [...template.querySelectorAll('[data-label]')].map((step, index) => {
+    const row = document.createElement('div');
+    row.className = 'row step-row';
+    row.dataset.step = step.dataset.label;
+    row.innerHTML = `<div class="symbol">${svg(rowIcons[index])}</div><div class="detail"><h3 class="label"></h3></div>`;
+    row.querySelector('.label').textContent = step.dataset.label;
+    row.querySelector('.detail').append(...step.childNodes);
+    return row;
+  });
+  if (code >= 'M') {
+    const questions = $('mondelingvragen').content.cloneNode(true);
+    rows[1].querySelector('.detail').append(questions);
+  }
+  const reflection = rows[4].querySelector('.detail');
+  reflection.append(...[...template.children].filter(node => node.matches('details')));
+  $('stagebody').replaceChildren(...rows);
+  ticketbox.hidden = false;
+  $('title').focus();
+}
+
+matrix.addEventListener('click', event => {
+  const button = event.target.closest('[data-ticket]');
+  if (!button) return;
+  if (button === active) {
+    ticketbox.hidden = true;
+    active.setAttribute('aria-expanded', 'false');
+    active = null;
+  } else {
+    openTicket(button);
   }
 });
-</script></body></html>
+
+document.querySelector('main').addEventListener('click', event => {
+  const link = event.target.closest('a[data-open-ticket]');
+  if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  openTicket($(link.hash.slice(1)));
+});
+
+function openLinkedTicket() {
+  const aliases = {
+    '#1-kies-en-ontwerp': '#ticket-d', '#hoofdissue-d': '#ticket-d',
+    '#2-bouw-en-test': '#ticket-e', '#hoofdissue-e': '#ticket-e',
+    '#3-leg-het-werk-vast': '#ticket-i', '#4-laat-zien-en-lever-in': '#ticket-m'
+  };
+  const hash = example ? aliases[location.hash] ?? location.hash.replace(/^#b01-reactie-/, '#ticket-') : location.hash;
+  const button = buttons.find(ticket => '#' + ticket.id === hash);
+  if (button) openTicket(button);
+}
+document.addEventListener('DOMContentLoaded', openLinkedTicket);
+window.addEventListener('hashchange', () => queueMicrotask(openLinkedTicket));
+
+async function copyValue(field, status, confirmation) {
+  const selected = active;
+  try {
+    await navigator.clipboard.writeText(field.value);
+    if (active !== selected) return;
+    field.hidden = true;
+    status.textContent = confirmation;
+  } catch {
+    if (active !== selected) return;
+    field.hidden = false;
+    status.textContent = 'Tekst geselecteerd. Kopieer met Ctrl+C of ⌘C.';
+    field.focus();
+    field.select();
+  }
+}
+
+$('stagebody').addEventListener('click', event => {
+  const button = event.target.closest('[data-copy]');
+  if (!button) return;
+  const block = button.closest('.ticket-copy');
+  const confirmations = {
+    opening: 'Issuebeschrijving gekopieerd.',
+    role: 'Rolbijdrage gekopieerd.',
+    gemini: 'Gemini-hulpvraag gekopieerd.'
+  };
+  copyValue(block.querySelector('textarea'), block.querySelector('[role="status"]'), confirmations[button.dataset.copy]);
+});
+</script><footer class="broncommit" data-broncommit="95c3107f674c78463f960004ff15206b54093dfc"><strong>v0 · besloten ontwikkelversie</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc"><code>95c3107</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

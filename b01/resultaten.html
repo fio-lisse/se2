@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SE 2 | B01-resultaten</title><link rel="stylesheet" href="../styles.css"></head><body class="se2 leerling"><main><nav class="documenten" aria-label="Documenten"><a href="../index.html">Issues</a><a href="../b01.html">Uitgewerkt voorbeeld</a><a href="../kennisbank.html">Kennisbank</a><a href="../rubric.html">Rubric</a></nav><h1 id="b01-vastgelegde-testresultaten">B01: vastgelegde testresultaten</h1>
+<p>De gelinkte Github Actions-runs zijn echte, historische uitvoeringen van automatische tests met een nepsheet. De B01-situaties en invoer zijn fictieve testgegevens, geen leerlinginlevering, live Sheet, live webapp of klantresultaat. De oorspronkelijke bronnen staan onderaan in de private ontwikkelrepository.</p>
+<p><img src="../afbeeldingen/testen/rood.svg" alt="Rode test" class="inhoudsbeeld"> <img src="../afbeeldingen/testen/groen.svg" alt="Groene test" class="inhoudsbeeld"></p>
+<p><span id="run-45409183947"></span></p>
+<h2 id="rode-test">Rode test</h2>
+<p><strong>Fictieve testcasus, echte historische run.</strong> Een bewust verkeerde verwachting stelde dat een tweede uitlening bij voorraad 0 lukt. De automatische test faalde. De voorraadregel weigerde die uitlening.</p>
+<p><span id="run-45409258866"></span></p>
+<h2 id="groene-test">Groene test</h2>
+<p><strong>Fictieve testcasus, echte historische run.</strong> Na herstel van de testverwachting slaagden de controles. Bij voorraad 0 blijft de voorraad 0.</p>
+<p><span id="run-45409702525"></span></p>
+<h2 id="rode-pakket-run">Rode pakket-run</h2>
+<p>De tests faalden door een bewust verkeerde verwachting. De pakketstap werd overgeslagen. Er was geen artifact.</p>
+<p><span id="run-45409798251"></span></p>
+<h2 id="groene-pakket-run">Groene pakket-run</h2>
+<p>De tests slaagden. Daarna maakte de workflow één versiepakket. <a href="b01-versiepakket.zip">Download het vastgelegde B01-versiepakket</a>. Het oorspronkelijke artifact had een bewaartermijn van 14 dagen.</p>
+<h2 id="workflow">Workflow</h2>
+<p>De stap voorraad controleert de regels. De pakketstap wacht op een geslaagde voorraadcontrole.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">voorraad</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Controleer de voorraadregels</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">run</span><span class="kw">:</span><span class="at"> node se2/b01/tests/voorraad.test.cjs</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pakket</span><span class="kw">:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">needs</span><span class="kw">:</span><span class="at"> voorraad</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span></code></pre></div>
+<p><a href="tests/index.html">Bekijk de bestaande testuitleg</a> met de testuitvoer.</p>
+<h2 id="oorspronkelijke-bronnen">Oorspronkelijke bronnen</h2>
+<ul>
+<li><a href="https://github.com/fio-lisse/se2-start/actions/runs/45409183947">Rode test</a></li>
+<li><a href="https://github.com/fio-lisse/se2-start/actions/runs/45409258866">Groene test</a></li>
+<li><a href="https://github.com/fio-lisse/se2-start/actions/runs/45409702525">Rode pakket-run</a></li>
+<li><a href="https://github.com/fio-lisse/se2-start/actions/runs/45409798251">Groene pakket-run</a></li>
+<li><a href="https://github.com/fio-lisse/se2-start/actions/runs/45409798251/artifacts/14926379749">Oorspronkelijk artifact</a></li>
+<li><a href="https://github.com/fio-lisse/se2-start/blob/main/.github/workflows/b01-tests.yml">Volledige workflowbron</a></li>
+</ul>
+</main><footer class="broncommit" data-broncommit="95c3107f674c78463f960004ff15206b54093dfc"><strong>v0 · besloten ontwikkelversie</strong> · Broncommit <a href="https://github.com/fio-lisse/se2-start/commit/95c3107f674c78463f960004ff15206b54093dfc"><code>95c3107</code></a><details><summary>Versiegeschiedenis</summary><ul><li><strong>v0</strong> · 2026-11-25 · Besloten ontwikkelpreview; v1 blijft gereserveerd voor de eerste leerlingpublicatie. · <a href="https://github.com/fio-lisse/se2-start/commit/0968083c37e21056c897a8e170604ec8d2def406">commit</a></li></ul></details></footer></body></html>

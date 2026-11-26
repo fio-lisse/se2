@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 370" role="img" aria-labelledby="titel beschrijving">
+<title id="titel">Vertaal B01 naar je eigen project</title>
+<desc id="beschrijving">Drie pijlen verbinden de gegevens, functie en beslisregel van B01 met de overeenkomstige onderdelen van het bestaande teamproject. Er is geen tweede installatie nodig.</desc>
+<rect width="900" height="370" rx="18" fill="#f1f6fa"/>
+<g font-family="Arial,sans-serif" fill="#173b5a">
+<text x="42" y="48" font-size="25" font-weight="bold">B01: ons voorbeeld</text>
+<text x="500" y="48" font-size="25" font-weight="bold">Jullie bestaande project</text>
+<g stroke="#9bb6c8" stroke-width="2">
+<rect x="40" y="68" width="350" height="75" rx="10" fill="#fff"/>
+<rect x="500" y="68" width="360" height="75" rx="10" fill="#fff"/>
+<rect x="40" y="153" width="350" height="75" rx="10" fill="#fff"/>
+<rect x="500" y="153" width="360" height="75" rx="10" fill="#fff"/>
+<rect x="40" y="238" width="350" height="75" rx="10" fill="#fff"/>
+<rect x="500" y="238" width="360" height="75" rx="10" fill="#fff"/>
+</g>
+<g font-size="19">
+<text x="56" y="96" font-weight="bold">Gegevens</text><text x="56" y="123">B01, voorraad 1 of 0</text>
+<text x="516" y="96" font-weight="bold">Eigen gegevens</text><text x="516" y="123">Wat moet jouw project bewaren?</text>
+<text x="56" y="181" font-weight="bold">Functie</text><text x="56" y="208">Eén balletje uitlenen</text>
+<text x="516" y="181" font-weight="bold">Eigen functie</text><text x="516" y="208">Welke taak voert een gebruiker uit?</text>
+<text x="56" y="266" font-weight="bold">Beslisregel</text><text x="56" y="293">Alleen uitlenen bij voorraad 1</text>
+<text x="516" y="266" font-weight="bold">Eigen beslisregel</text><text x="516" y="293">Wanneer lukt de taak wel of niet?</text>
+</g>
+<g stroke="#176ba5" stroke-width="4" fill="none"><path d="M399 105h86m-12-10 12 10-12 10"/><path d="M399 190h86m-12-10 12 10-12 10"/><path d="M399 275h86m-12-10 12 10-12 10"/></g>
+<text x="450" y="349" text-anchor="middle" font-size="18">Oefenen met B01, toepassen in het eigen project</text>
+</g>
+</svg>

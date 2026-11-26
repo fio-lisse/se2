@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-labelledby="t d">
+<title id="t">GET leest, POST verandert de gedeelde voorraad</title>
+<desc id="d">Een beperkte B01-webapp met twee testmogelijkheden. GET toont JSON met voorraad 1. POST uitlenen verandert de Sheet naar voorraad 0 en toont JSON met gelukt waar.</desc>
+<rect width="900" height="360" rx="22" fill="#f3f8fc"/>
+<text x="36" y="52" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173b5a">Test in dezelfde B01-webapp</text>
+<rect x="35" y="82" width="390" height="226" rx="16" fill="#fff" stroke="#9dbbd0" stroke-width="2"/>
+<rect x="475" y="82" width="390" height="226" rx="16" fill="#fff" stroke="#9dbbd0" stroke-width="2"/>
+<rect x="57" y="105" width="85" height="40" rx="8" fill="#1b6da3"/>
+<text x="77" y="133" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">GET</text>
+<text x="155" y="132" font-family="Arial, sans-serif" font-size="18" fill="#173b5a">Voorraad opvragen</text>
+<text x="58" y="181" font-family="Arial, sans-serif" font-size="17" fill="#173b5a">Antwoord in nieuw tabblad:</text>
+<rect x="56" y="195" width="345" height="58" rx="8" fill="#102e48"/>
+<text x="69" y="230" font-family="monospace" font-size="16" fill="#fff">{"code":"B01","voorraad":1}</text>
+<text x="57" y="284" font-family="Arial, sans-serif" font-size="16" fill="#346888">De Sheet verandert niet</text>
+<rect x="497" y="105" width="95" height="40" rx="8" fill="#176a46"/>
+<text x="517" y="133" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">POST</text>
+<text x="604" y="132" font-family="Arial, sans-serif" font-size="18" fill="#173b5a">Uitlenen versturen</text>
+<text x="498" y="181" font-family="Arial, sans-serif" font-size="17" fill="#173b5a">Antwoord in nieuw tabblad:</text>
+<rect x="497" y="195" width="345" height="58" rx="8" fill="#102e48"/>
+<text x="510" y="230" font-family="monospace" font-size="16" fill="#fff">{"gelukt":true,"voorraad":0}</text>
+<text x="497" y="284" font-family="Arial, sans-serif" font-size="16" fill="#346888">Dezelfde Sheet bewaart nu 0</text>
+<text x="36" y="337" font-family="Arial, sans-serif" font-size="16" fill="#173b5a">Toegang: alleen het team en de docent via het schoolaccount</text>
+</svg>

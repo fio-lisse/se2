@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="300" viewBox="0 0 840 300" role="img" aria-labelledby="title desc">
+<title id="title">Rode Github Actions-run voor B01</title>
+<desc id="desc">Schematische weergave van de echte mislukte run met een verkeerde testverwachting. De link naar de echte run staat in het werkboek.</desc>
+<rect width="840" height="300" rx="20" fill="#f3f7fa"/>
+<rect x="28" y="26" width="784" height="250" rx="14" fill="#fff" stroke="#a8bccb" stroke-width="2"/>
+<text x="52" y="65" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#173b5a">B01 testen en pakket maken</text>
+<circle cx="72" cy="112" r="15" fill="#b42318"/>
+<text x="105" y="120" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#173b5a">Rood: test mislukt</text>
+<path d="M73 138 V167" stroke="#708799" stroke-width="3"/>
+<rect x="51" y="168" width="736" height="56" rx="8" fill="#edf4f8"/>
+<text x="69" y="202" font-family="Arial, sans-serif" font-size="19" fill="#173b5a">Controleer de voorraadregels: verkeerde verwachting bij voorraad 0</text>
+<text x="52" y="253" font-family="Arial, sans-serif" font-size="18" fill="#9e221b">De pakketstap start niet bij een mislukte test.</text>
+</svg>

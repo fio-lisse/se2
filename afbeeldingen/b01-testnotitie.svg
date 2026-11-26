@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 510" width="960" height="510" role="img" aria-labelledby="titel beschrijving">
+  <title id="titel">B01: Voorbeeld van een testnotitie</title>
+  <desc id="beschrijving">Fictieve voorbeeldnotitie. Bij beginvoorraad 1 verwacht en zie je in beide versies Gelukt en voorraad 0. Bij beginvoorraad 0 verwacht je Niet beschikbaar en voorraad 0. De eerste versie meldt Gelukt en komt op min 1. Na verbetering volgt Niet beschikbaar en blijft de voorraad 0.</desc>
+  <style>
+    text { font-family: Arial, "Liberation Sans", sans-serif; fill: #182d25 }
+    .title { font-size: 33px; font-weight: 700 }
+    .intro { font-size: 22px }
+    .head { font-size: 22px; font-weight: 700; fill: #fff }
+    .value { font-size: 23px; font-weight: 700 }
+    .body { font-size: 20px }
+    .green { fill: #21533f }
+    .orange { fill: #793d15 }
+    .footer { font-size: 22px }
+  </style>
+
+  <rect width="960" height="510" rx="18" fill="#eef3f0"/>
+  <text x="26" y="52" class="title">B01: Fictieve testnotitie</text>
+  <text x="26" y="84" class="intro">Kies B01 en klik op Uitlenen.</text>
+
+  <rect x="24" y="106" width="912" height="303" rx="12" fill="#fff" stroke="#a8b7af" stroke-width="2"/>
+  <path d="M36 106H924Q936 106 936 118V156H24V118Q24 106 36 106Z" fill="#21533f"/>
+  <rect x="478" y="263" width="225" height="145" fill="#fff0e3"/>
+  <path d="M703 263H935V396Q935 408 923 408H703Z" fill="#e2f2e9"/>
+  <path d="M253 156V408 M478 156V408 M703 156V408 M25 263H935" stroke="#cbd7ce" stroke-width="2"/>
+
+  <text x="41" y="139" class="head">Invoer</text>
+  <text x="269" y="139" class="head">Verwacht</text>
+  <text x="494" y="139" class="head">Gezien in v1</text>
+  <text x="720" y="139" class="head">Hertest v2</text>
+
+  <text x="41" y="198" class="value">Startvoorraad 1</text>
+  <text x="41" y="230" class="body">Gewoon geval</text>
+  <text x="269" y="198" class="value">Voorraad wordt 0</text>
+  <text x="269" y="230" class="body">Gelukt</text>
+  <text x="494" y="198" class="value">Voorraad wordt 0</text>
+  <text x="494" y="230" class="body">Gelukt</text>
+  <text x="720" y="198" class="value">Voorraad wordt 0</text>
+  <text x="720" y="230" class="body">Gelukt</text>
+  <text x="41" y="305" class="value">Startvoorraad 0</text>
+  <text x="41" y="337" class="body">Grensgeval</text>
+  <text x="269" y="305" class="value">Voorraad blijft 0</text>
+  <text x="269" y="337" class="body">Niet beschikbaar</text>
+  <text x="494" y="305" class="value orange">Voorraad wordt −1</text>
+  <text x="494" y="337" class="body">Gelukt (fout)</text>
+  <text x="720" y="305" class="value green">Voorraad blijft 0</text>
+  <text x="720" y="337" class="body">Niet beschikbaar</text>
+
+  <text x="26" y="449" class="footer"><tspan font-weight="700">Verbetering</tspan><tspan dx="11">Weiger uitlenen bij voorraad 0.</tspan></text>
+  <text x="26" y="480" class="footer"><tspan font-weight="700">Hertest</tspan><tspan dx="11">Zet bij elke hertest dezelfde beginvoorraad terug.</tspan></text>
+</svg>

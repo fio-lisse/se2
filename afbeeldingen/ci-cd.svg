@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 145" role="img" aria-labelledby="titel uitleg">
+  <title id="titel">Een CI/CD-route</title>
+  <desc id="uitleg">Een wijziging wordt gebouwd en getest in CI. Als die controles slagen kan CD de versie klaarzetten of uitrollen.</desc>
+  <defs><marker id="pijl" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#315a79"/></marker></defs>
+  <rect width="960" height="145" rx="12" fill="#f4f8fb"/>
+  <g fill="#163850" font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="26" y="36" width="185" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="118.5" y="64" font-size="21" font-weight="bold">Wijziging</text>
+    <text x="118.5" y="89" font-size="17">Push of merge</text>
+    <path d="M216 73 L259 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="266" y="36" width="185" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="358.5" y="64" font-size="21" font-weight="bold">CI</text>
+    <text x="358.5" y="89" font-size="17">Bouw en test</text>
+    <path d="M456 73 L499 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="506" y="36" width="185" height="74" rx="8" fill="#e4f1ff" stroke="#315a79" stroke-width="2"/>
+    <text x="598.5" y="64" font-size="21" font-weight="bold">Goed bevonden</text>
+    <text x="598.5" y="89" font-size="17">Checks slagen</text>
+    <path d="M696 73 L739 73" fill="none" stroke="#315a79" stroke-width="2" marker-end="url(#pijl)"/>
+    <rect x="746" y="36" width="185" height="74" rx="8" fill="#e6f4ed" stroke="#315a79" stroke-width="2"/>
+    <text x="838.5" y="64" font-size="21" font-weight="bold">CD</text>
+    <text x="838.5" y="89" font-size="17">Zet klaar of rol uit</text>
+
+  </g>
+</svg>

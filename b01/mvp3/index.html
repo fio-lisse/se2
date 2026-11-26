@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <base target="_top">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B01 | MVP 3</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #173b5a; background: #f2f7fb; }
+    body { margin: 0; padding: 24px; }
+    main { max-width: 520px; margin: 30px auto; padding: 28px; background: white; border-radius: 18px; box-shadow: 0 8px 28px #173b5a18; }
+    h1 { margin-top: 0; }
+    svg { display: block; width: 120px; height: 120px; margin: 0 auto 12px; }
+    .voorraad { font-size: 1.35rem; font-weight: 700; text-align: center; }
+    .knoppen { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0; }
+    button { flex: 1; min-width: 145px; font: inherit; font-weight: 700; color: white; background: #176ba5; border: 0; border-radius: 10px; padding: 14px; cursor: pointer; }
+    button:disabled { opacity: .55; cursor: wait; }
+    button:focus-visible { outline: 3px solid #f6b900; outline-offset: 3px; }
+    #melding { min-height: 1.5em; padding: 12px; border-radius: 8px; background: #e8f2fb; }
+    details { margin-top: 22px; padding: 14px; border: 1px solid #b8d3e5; border-radius: 10px; }
+    summary { cursor: pointer; font-weight: 700; }
+    .api-test form { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .api-test select { font: inherit; padding: 10px; }
+    .api-test button { flex: 0 1 auto; }
+    pre { overflow-x: auto; padding: 16px; border-radius: 8px; background: #102e48; color: white; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>B01 uitlenen: MVP 3</h1>
+    <svg role="img" aria-label="Blauw-geel uitleenballetje B01" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="57" fill="#173b5a"/>
+      <circle cx="60" cy="60" r="52" fill="#ffd447"/>
+      <path d="M9 29 Q37 6 63 26 T111 30 V58 Q83 73 55 52 T9 61Z M9 82 Q37 59 63 78 T111 82 V102 Q76 125 44 99 T9 111Z" fill="#2585c2"/>
+    </svg>
+    <p class="voorraad">Beschikbare voorraad: <output id="voorraad">...</output></p>
+    <div class="knoppen">
+      <button id="uitlenen" type="button" disabled>Uitlenen</button>
+      <button id="terugbrengen" type="button" disabled>Terugbrengen</button>
+    </div>
+    <p id="melding" role="status" aria-live="polite">Voorraad ophalen...</p>
+    <h2>Huidige toestand als JSON</h2>
+    <pre id="json" aria-label="Huidige toestand als JSON">...</pre>
+    <details class="api-test">
+      <summary>Test GET en POST zonder de gewone knoppen</summary>
+      <p><a href="<?= webAppUrl ?>?api=voorraad" target="_blank" rel="noopener">GET: open het JSON-antwoord</a>. Deze aanvraag verandert niets.</p>
+      <form method="post" action="<?= webAppUrl ?>" target="_blank" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="code" value="B01">
+        <label for="testactie">POST-actie:</label>
+        <select id="testactie" name="actie">
+          <option value="uitlenen">uitlenen</option>
+          <option value="terugbrengen">terugbrengen</option>
+        </select>
+        <button type="submit">Verstuur POST</button>
+      </form>
+      <p>Het JSON-antwoord opent in een nieuw tabblad. De POST verandert de gedeelde voorraad echt. Vernieuw daarna deze pagina.</p>
+    </details>
+    <p>Deze voorraad staat in één gedeelde Google Sheet. Vernieuw de pagina om de laatste stand te zien.</p>
+  </main>
+  <script>
+    "use strict";
+    const knoppen = [document.getElementById("uitlenen"), document.getElementById("terugbrengen")];
+    const aantal = document.getElementById("voorraad");
+    const melding = document.getElementById("melding");
+    const json = document.getElementById("json");
+
+    function bezig(waarde) {
+      knoppen.forEach(knop => { knop.disabled = waarde; });
+    }
+    function toon(toestand, bericht) {
+      if (toestand && (toestand.voorraad === 0 || toestand.voorraad === 1)) {
+        aantal.textContent = String(toestand.voorraad);
+        json.textContent = JSON.stringify({ code: "B01", voorraad: toestand.voorraad }, null, 2);
+      }
+      melding.textContent = bericht;
+      bezig(false);
+    }
+    function fout(error) {
+      melding.textContent = "Geen verbinding met de voorraad. Probeer de pagina opnieuw te laden. " + error.message;
+      bezig(false);
+    }
+    function actie(naam) {
+      bezig(true);
+      melding.textContent = "Even wachten...";
+      google.script.run
+        .withSuccessHandler(resultaat => {
+          toon(resultaat, resultaat.gelukt
+            ? (naam === "uitlenen" ? "Uitlenen gelukt." : "Terugbrengen gelukt.")
+            : (resultaat.melding || "Actie niet gelukt."));
+        })
+        .withFailureHandler(fout)
+        .wijzig(naam);
+    }
+
+    knoppen[0].addEventListener("click", () => actie("uitlenen"));
+    knoppen[1].addEventListener("click", () => actie("terugbrengen"));
+    google.script.run
+      .withSuccessHandler(toestand => toon(toestand, toestand.voorraad === 1
+        ? "B01 is beschikbaar." : "B01 is uitgeleend."))
+      .withFailureHandler(fout)
+      .voorraad();
+  </script>
+</body>
+</html>
