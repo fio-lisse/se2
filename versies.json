@@ -1,5 +1,5 @@
 {
-  "current": "v4 · visuele Kennisbank",
+  "current": "v5 | Leerlingstart en Kennisbank",
   "firstStudentVersion": "v1",
   "history": [
     {
@@ -31,6 +31,12 @@
       "date": "2026-11-27",
       "commit": "cfbd7b3873a0623823070518321c934176e96b17",
       "change": "Vernieuwde visuele Kennisbank met herkenbare begrippeniconen, inhoudelijke schema’s bij alle begrippen en verbeterde Markdown-uitleg."
+    },
+    {
+      "version": "v5",
+      "date": "2026-11-27",
+      "commit": "dec3f24c0463b884d2f1a11ecd144ce6856517c6",
+      "change": "Centrale uitlegvensters in de Kennisbank, GitHub in de navigatie en een kopieerbaar README-sjabloon bij de leerlingstart."
     }
   ]
 }

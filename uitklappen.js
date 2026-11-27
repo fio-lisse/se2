@@ -39,47 +39,102 @@ document.documentElement.classList.add('js');
   });
 })();
 
-function openAnchor(hash) {
-  if (!hash) return;
-  let id;
+function anchorTarget(hash) {
+  if (!hash) return null;
   try {
-    id = decodeURIComponent(hash.slice(1));
+    return document.getElementById(decodeURIComponent(hash.slice(1)));
   } catch {
-    return;
+    return null;
   }
-  const target = document.getElementById(id);
+}
+
+function openAnchor(hash) {
+  const target = anchorTarget(hash);
   if (!target) return;
-  let parent = target.closest('details');
-  while (parent) {
+  for (let parent = target.closest('details'); parent; parent = parent.parentElement.closest('details')) {
     parent.open = true;
-    parent = parent.parentElement.closest('details');
   }
   target.scrollIntoView();
-  target.closest('.begrip-paneel')?.querySelector('summary').focus({preventScroll: true});
 }
 
-function cardForPanel(panel) {
-  return document.querySelector(`.begripkaart[aria-controls="${CSS.escape(panel.id)}"]`);
-}
+const glossary = (() => {
+  let active = null;
+  const cardFor = panel => document.querySelector(`.begripkaart[aria-controls="${CSS.escape(panel.id)}"]`);
+  const panelFor = target => target?.closest('dialog.begrip-paneel');
+  const issue = new URLSearchParams(location.search).get('issue');
 
-document.addEventListener('toggle', event => {
-  const panel = event.target;
-  if (panel.matches('.begrip-paneel')) cardForPanel(panel)?.setAttribute('aria-expanded', String(panel.open));
-}, true);
-
-window.addEventListener('hashchange', () => openAnchor(location.hash));
-document.addEventListener('click', event => {
-  const panel = event.target.closest('.begrip-paneel-knop')?.parentElement;
-  if (panel?.open) {
-    event.preventDefault();
-    panel.open = false;
-    cardForPanel(panel)?.focus();
-    return;
+  function hide() {
+    if (!active) return;
+    const card = cardFor(active);
+    active.close();
+    active = null;
+    card?.setAttribute('aria-expanded', 'false');
+    card?.focus({preventScroll: true});
   }
-  const link = event.target.closest('a[href^="#"]');
-  if (!event.defaultPrevented && link?.hash === location.hash) openAnchor(location.hash);
+
+  function sync() {
+    const target = anchorTarget(location.hash);
+    const panel = panelFor(target);
+    if (panel !== active) {
+      hide();
+      if (panel) {
+        active = panel;
+        const back = panel.querySelector('[data-back-to-issues]');
+        if (/^[A-P]$/.test(issue ?? '')) back.hash = 'ticket-' + issue.toLowerCase();
+        panel.showModal();
+        cardFor(panel)?.setAttribute('aria-expanded', 'true');
+      }
+    }
+    if (!panel) return false;
+    const content = panel.querySelector('.begrip-paneel-inhoud');
+    content.scrollTop = content.contains(target)
+      ? content.scrollTop + target.getBoundingClientRect().top - content.getBoundingClientRect().top
+      : 0;
+    return true;
+  }
+
+  function close() {
+    if (history.state?.se2Glossary) {
+      history.back();
+    } else {
+      history.replaceState(history.state, '', location.pathname + location.search);
+      hide();
+    }
+  }
+
+  document.addEventListener('cancel', event => {
+    if (event.target !== active) return;
+    event.preventDefault();
+    close();
+  }, true);
+  document.addEventListener('click', event => {
+    if (event.target.closest('[data-close-glossary]')) {
+      close();
+      return;
+    }
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const target = anchorTarget(link.hash);
+    if (!panelFor(target)) {
+      if (link.hash === location.hash) openAnchor(location.hash);
+      return;
+    }
+    event.preventDefault();
+    if (!active) history.pushState({se2Glossary: true}, '', link.hash);
+    else history.replaceState(history.state, '', link.hash);
+    sync();
+  });
+
+  return {sync};
+})();
+
+window.addEventListener('popstate', glossary.sync);
+window.addEventListener('hashchange', () => {
+  if (!glossary.sync()) openAnchor(location.hash);
 });
-document.addEventListener('DOMContentLoaded', () => openAnchor(location.hash));
+document.addEventListener('DOMContentLoaded', () => {
+  if (!glossary.sync()) openAnchor(location.hash);
+});
 
 // Gedeelde kopieerknoppen voor tekst, code en afbeeldingen.
 (() => {
@@ -248,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => openAnchor(location.hash));
     field.className = 'copy-buffer';
     field.value = value;
     field.readOnly = true;
-    document.body.append(field);
+    (button.closest('dialog') ?? document.body).append(field);
     field.select();
     try {
       return document.execCommand('copy');

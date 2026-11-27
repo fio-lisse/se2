@@ -151,6 +151,15 @@ footer.broncommit summary { cursor: pointer; }
   border-bottom: 1px solid var(--line);
 }
 .documenten a { padding: var(--space-1) var(--space-2); border-radius: var(--radius); }
+.documenten .werkplek {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-inline-start: auto;
+  background: var(--tile);
+  border: 1px solid var(--line);
+}
+.documenten .werkplek svg { inline-size: 1.15em; block-size: 1.15em; }
 .documenten [aria-current=page] { background: var(--highlight); font-weight: 700; }
 
 .themes { border: 0; min-inline-size: 0; padding: 0; margin: 0; }
@@ -630,25 +639,43 @@ th { background: var(--tile); }
 }
 @media (max-width: 780px) { .begrippen-raster { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 350px) { .begrippen-raster { grid-template-columns: 1fr; } }
-.begrip-paneel, .kennisbank-over { margin-block: var(--space-3); }
-.js .begrip-paneel:not([open]) { display: none; }
-.begrip-paneel-knop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-2);
+.kennisbank-over { margin-block: var(--space-3); }
+.kennisbank-over summary { list-style: none; text-decoration: underline; }
+.kennisbank-over summary::-webkit-details-marker { display: none; }
+html:has(.begrippen) { scrollbar-gutter: stable; }
+html:has(.begrip-paneel[open]) { overflow: hidden; }
+.begrip-paneel {
+  box-sizing: border-box;
+  inline-size: min(62rem, calc(100% - 2rem));
+  max-block-size: min(83dvh, 48rem);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+  color: var(--fg);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: var(--tile);
-  list-style: none;
 }
-.kennisbank-over summary { list-style: none; text-decoration: underline; }
-:is(.begrip-paneel-knop, .kennisbank-over summary)::-webkit-details-marker { display: none; }
-.leerling .begrip-paneel-knop h2 { margin: 0; padding: 0; border: 0; color: var(--fg); }
-.begrip-paneel-knop span { font-size: .875rem; text-decoration: underline; }
-.begrip-paneel:not([open]) .begrip-paneel-knop span { visibility: hidden; }
-.begrip-paneel-inhoud { min-width: 0; overflow-wrap: anywhere; }
+.begrip-paneel[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.begrip-paneel::backdrop { background: rgb(0 0 0 / 55%); }
+.begrip-paneel-kop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--tile);
+  border-bottom: 1px solid var(--line);
+}
+.leerling .begrip-paneel-kop h2 { flex: 1; margin: 0; padding: 0; border: 0; color: var(--fg); }
+.begrip-paneel-kop button { font-size: 1.4rem; line-height: 1; }
+.begrip-paneel-inhoud {
+  overflow: auto;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+}
 .begripbeeld {
   display: flex;
   flex-wrap: wrap;
